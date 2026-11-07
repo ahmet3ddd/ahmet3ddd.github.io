@@ -45,8 +45,14 @@ body{padding-top:calc(56px + env(safe-area-inset-top,0px))}
 .hero .desc{margin:8px 0 0;color:var(--soft);font-size:18px}
 .hero.small .desc{margin:0 0 6px;font-size:15px}
 .hero .intro{margin:16px 0 0;color:var(--soft)}
-.cats{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
-.chip{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:999px;background:var(--surface);color:var(--ink);text-decoration:none;font-size:14px}
+.cats{position:sticky;top:calc(56px + env(safe-area-inset-top,0px));z-index:8;margin:20px calc(-1 * max(20px,env(safe-area-inset-left,0px))) 0;padding:10px max(20px,env(safe-area-inset-left,0px));background:var(--bg);transition:box-shadow .2s}
+.cats.stuck{background:color-mix(in srgb,var(--bg) 88%,transparent);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--line)}
+.cats-in{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.cats-in::-webkit-scrollbar{display:none}
+.chip.on{background:var(--ink);color:var(--bg)}
+.chip.on small{color:inherit;opacity:.7}
+.yblock[hidden],.card[hidden]{display:none!important}
+.chip{flex:none;white-space:nowrap;display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:999px;background:var(--surface);color:var(--ink);text-decoration:none;font-size:14px}
 .chip small{color:var(--soft)}
 .chip:hover{background:var(--accent-soft);color:var(--accent)}
 .yr{font-size:15px;color:var(--soft);font-weight:600;margin:40px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--line)}
@@ -136,7 +142,7 @@ body{padding-top:calc(56px + env(safe-area-inset-top,0px))}
 <nav><a class="home" href="/" aria-label="ahmetoff.com ana sayfa"><img src="/favicon.svg" width="22" height="22" alt=""></a></nav>
 </div></header>
 <main class="wrap">
-<section class="hero small"><p class="desc">Kategori</p><h1>3D printer</h1><p class="intro">2 yazı · <a href="../../">Tüm yazılar</a></p></section><h2 class="yr">2020</h2><div class="cards"><a class="card" href="../../2020/03/03/3d-print_mini-cicek-askisi/"><img src="../../m/2020/03/skulent-_holder_0.jpg" alt="" loading="lazy"><span class="ct"><span class="meta"><time>3 Mart 2020</time> · 3D printer, 3D projeler</span><b>3D print_mini çiçek askısı</b><span class="ex">Elimdeki 3D Printer ile PLA malzemeden basabileceğim basit bir tasarımla mevcut lambaderin metal ayağına klipsli geçme bir taşıyıcı yapmaya karar verdik. Saksıların ve metal ayağın çaplarını ölçtükten sonra çizimi…</span></span></a></div><h2 class="yr">2018</h2><div class="cards"><a class="card" href="../../2018/04/02/3d-printer-maceralarim/"><img src="../../media/2018/04/printer.jpg" alt="" loading="lazy"><span class="ct"><span class="meta"><time>2 Nisan 2018</time> · 3D printer</span><b>3D printer maceralarım</b><span class="ex">Merhaba, meraklı dostlar. Bu yazımızda Çin menşei bir printerdan bahsetmek istiyorum. Ürünü AliExpress alışveriş sitesinden sipariş verdim ve inanılmaz bir hızla (6 gün) kapıma kadar geldi 🙂 172$ ürün + 27.37$…</span></span></a></div>
+<section class="hero small"><p class="desc">Kategori</p><h1>3D printer</h1><p class="intro">2 yazı · <a href="../../">Tüm yazılar</a></p></section><section class="yblock"><h2 class="yr">2020</h2><div class="cards"><a class="card" data-cats="3d-printer 3d-projeler" href="../../2020/03/03/3d-print_mini-cicek-askisi/"><img src="../../m/2020/03/skulent-_holder_0.jpg" alt="" loading="lazy"><span class="ct"><span class="meta"><time>3 Mart 2020</time> · 3D printer, 3D projeler</span><b>3D print_mini çiçek askısı</b><span class="ex">Elimdeki 3D Printer ile PLA malzemeden basabileceğim basit bir tasarımla mevcut lambaderin metal ayağına klipsli geçme bir taşıyıcı yapmaya karar verdik. Saksıların ve metal ayağın çaplarını ölçtükten sonra çizimi…</span></span></a></div></section><section class="yblock"><h2 class="yr">2018</h2><div class="cards"><a class="card" data-cats="3d-printer" href="../../2018/04/02/3d-printer-maceralarim/"><img src="../../media/2018/04/printer.jpg" alt="" loading="lazy"><span class="ct"><span class="meta"><time>2 Nisan 2018</time> · 3D printer</span><b>3D printer maceralarım</b><span class="ex">Merhaba, meraklı dostlar. Bu yazımızda Çin menşei bir printerdan bahsetmek istiyorum. Ürünü AliExpress alışveriş sitesinden sipariş verdim ve inanılmaz bir hızla (6 gün) kapıma kadar geldi 🙂 172$ ürün + 27.37$…</span></span></a></div></section>
 </main>
 <footer class="foot"><div class="wrap"><span>© Ahmet Çandöken</span><span>Bu yazılar 2017–2026 arasında <a href="https://pointpointblog.wordpress.com/">pointpointblog.wordpress.com</a> adresinde yayımlandı.</span></div></footer>
 <script>
