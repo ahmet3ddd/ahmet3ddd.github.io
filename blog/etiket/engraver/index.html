@@ -26,15 +26,19 @@ body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.65 var(--ui);-we
 a{color:var(--accent);text-underline-offset:3px}
 img{max-width:100%;height:auto}
 .wrap{max-width:1080px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
-/* üst çubuk */
-.bar{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 85%,transparent);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
-.bar-in{max-width:1080px;margin:0 auto;display:flex;align-items:center;gap:16px;padding:10px max(20px,env(safe-area-inset-right,0px)) 10px max(20px,env(safe-area-inset-left,0px))}
-.home{display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--ink);font-weight:600;font-size:15px}
-.blogname{color:var(--soft);text-decoration:none;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
-.blogname:hover{color:var(--accent)}
-.bar nav{margin-left:auto;display:flex;gap:14px;font-size:15px}
+/* üst çubuk: sabit */
+body{padding-top:calc(56px + env(safe-area-inset-top,0px))}
+.bar{position:fixed;top:0;left:0;right:0;z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);-webkit-backdrop-filter:saturate(1.6) blur(14px);backdrop-filter:saturate(1.6) blur(14px);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px)}
+@supports not (background:color-mix(in srgb,red 50%,blue)){.bar{background:var(--bg)}}
+.bar-in{max-width:1080px;height:56px;margin:0 auto;display:flex;align-items:center;gap:14px;padding:0 max(20px,env(safe-area-inset-right,0px)) 0 max(20px,env(safe-area-inset-left,0px))}
+.back{display:inline-flex;align-items:center;gap:4px;padding:7px 14px 7px 9px;border-radius:999px;background:var(--surface);color:var(--ink);text-decoration:none;font-size:15px;font-weight:500;white-space:nowrap}
+.back:hover{background:var(--accent-soft);color:var(--accent)}
+.bt{flex:1;min-width:0;text-align:center;font-weight:600;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:opacity .12s}
+.bt.swap{opacity:0}
+.bar nav{display:flex;align-items:center;gap:14px;font-size:15px}
 .bar nav a{color:var(--ink);text-decoration:none}
 .bar nav a:hover{color:var(--accent)}
+.home{display:flex;align-items:center}
 /* ana liste */
 .hero{padding:56px 0 20px;max-width:760px}
 .hero h1{font-size:clamp(38px,6vw,64px);line-height:1.02;letter-spacing:-.03em;margin:0;font-weight:700;text-wrap:balance}
@@ -116,7 +120,6 @@ img{max-width:100%;height:auto}
 @media (max-width:640px){
   body{font-size:16px}
   .entry{font-size:17.5px}
-  .blogname{display:none}
   .pn{grid-template-columns:1fr}
   .pn .next{text-align:left}
   .entry .tiled-gallery__row,.entry .tiled-gallery .gallery-row{flex-direction:column}
@@ -128,13 +131,21 @@ img{max-width:100%;height:auto}
 </head>
 <body>
 <header class="bar"><div class="bar-in">
-<a class="home" href="/" aria-label="ahmetoff.com ana sayfa"><img src="/favicon.svg" width="22" height="22" alt=""><span>ahmetoff</span></a>
-<a class="blogname" href="../../">everything is in one place</a>
-<nav><a href="../../kim/">Kim</a><a href="../../iletisim/">İletişim</a></nav>
+<a class="back" id="back" href="../../"><svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M12.5 4.5 7 10l5.5 5.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Tüm yazılar</a>
+<span class="bt" id="bt" data-alt="">everything is in one place</span>
+<nav><a href="../../kim/">Kim</a><a class="home" href="/" aria-label="ahmetoff.com ana sayfa"><img src="/favicon.svg" width="22" height="22" alt=""></a></nav>
 </div></header>
 <main class="wrap">
 <section class="hero small"><p class="desc">Etiket</p><h1>engraver</h1><p class="intro">1 yazı · <a href="../../">Tüm yazılar</a></p></section><h2 class="yr">2020</h2><div class="cards"><a class="card" href="../../2020/11/18/dvd-suruculerden-mini-lazer-kesici-cizici/"><img src="../../m/2020/10/mini_laser.jpg" alt="" loading="lazy"><span class="ct"><span class="meta"><time>18 Kasım 2020</time> · Genel</span><b>Dvd Sürücülerden Mini Lazer kesici &amp; çizici</b><span class="ex">Proje sonucunda çıkan ürüne mini demek az gelir. Bence minyatür hatta neredeyse işleyen maket bile diyebilirim 🙂</span></span></a></div>
 </main>
 <footer class="foot"><div class="wrap"><span>© Ahmet Çandöken</span><span>Bu yazılar 2017–2026 arasında <a href="https://pointpointblog.wordpress.com/">pointpointblog.wordpress.com</a> adresinde yayımlandı.</span></div></footer>
+<script>
+(function(){
+  var b=document.getElementById("back");
+  try{ if(document.referrer && new URL(document.referrer).origin===location.origin && history.length>1){ b.addEventListener("click",function(e){e.preventDefault();history.back();}); } }catch(e){}
+  var bt=document.getElementById("bt"), alt=bt.getAttribute("data-alt"), h=document.querySelector(".ph h1"), base=bt.textContent;
+  if(alt&&h){ var on=false; addEventListener("scroll",function(){ var past=h.getBoundingClientRect().bottom<56; if(past!==on){on=past;bt.classList.add("swap");setTimeout(function(){bt.textContent=on?alt:base;bt.classList.remove("swap");},120);} },{passive:true}); }
+})();
+</script>
 </body>
 </html>
