@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lamba3D yazılım · everything is in one place</title>
+<meta name="description" content="Ana kumandanın yapıldığı kartımız Arduino Pro Mini için yazılım Arduino yazılımı. Şu anki aşamaya gelene kadar birçok deneme yanılma ve öğrenmeden sonra program">
+<meta name="author" content="Ahmet Çandöken">
+<link rel="canonical" href="https://ahmetoff.com/blog/2017/07/07/lamba3d-yazilim/">
+<meta property="og:title" content="Lamba3D yazılım · everything is in one place">
+<meta property="og:description" content="Ana kumandanın yapıldığı kartımız Arduino Pro Mini için yazılım Arduino yazılımı. Şu anki aşamaya gelene kadar birçok deneme yanılma ve öğrenmeden sonra program">
+<meta property="og:type" content="article">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="everything is in one place" href="/blog/feed.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&display=swap">
+<style>/* Blog: ahmetoff.com ile aynı renk ailesi; okuma için serif gövde, arayüz için Onest */
+:root{--bg:#fff;--surface:#f2f5f6;--ink:#1a1d21;--soft:#5c6670;--line:#dde3e6;--accent:#0b8a8a;--accent-soft:#e2f3f2;
+ --ui:"Onest",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;--read:"Literata",Georgia,"Times New Roman",serif;color-scheme:light}
+@media (prefers-color-scheme:dark){:root{--bg:#0f1316;--surface:#171d21;--ink:#eef2f4;--soft:#9aa6ae;--line:#28323a;--accent:#3cc4bf;--accent-soft:#13302f;color-scheme:dark}}
+*{box-sizing:border-box}
+html{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.65 var(--ui);-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-underline-offset:3px}
+img{max-width:100%;height:auto}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+/* üst çubuk */
+.bar{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 85%,transparent);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.bar-in{max-width:1080px;margin:0 auto;display:flex;align-items:center;gap:16px;padding:10px max(20px,env(safe-area-inset-right,0px)) 10px max(20px,env(safe-area-inset-left,0px))}
+.home{display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--ink);font-weight:600;font-size:15px}
+.blogname{color:var(--soft);text-decoration:none;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.blogname:hover{color:var(--accent)}
+.bar nav{margin-left:auto;display:flex;gap:14px;font-size:15px}
+.bar nav a{color:var(--ink);text-decoration:none}
+.bar nav a:hover{color:var(--accent)}
+/* ana liste */
+.hero{padding:56px 0 20px;max-width:760px}
+.hero h1{font-size:clamp(38px,6vw,64px);line-height:1.02;letter-spacing:-.03em;margin:0;font-weight:700;text-wrap:balance}
+.hero .desc{margin:8px 0 0;color:var(--soft);font-size:18px}
+.hero.small .desc{margin:0 0 6px;font-size:15px}
+.hero .intro{margin:16px 0 0;color:var(--soft)}
+.cats{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:999px;background:var(--surface);color:var(--ink);text-decoration:none;font-size:14px}
+.chip small{color:var(--soft)}
+.chip:hover{background:var(--accent-soft);color:var(--accent)}
+.yr{font-size:15px;color:var(--soft);font-weight:600;margin:40px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.card{display:flex;flex-direction:column;border-radius:16px;background:var(--surface);overflow:hidden;text-decoration:none;color:var(--ink);min-width:0}
+.card img,.card .noimg{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;background:var(--line)}
+.card .ct{display:flex;flex-direction:column;gap:6px;padding:14px 16px 18px}
+.card .meta{font-size:13px;color:var(--soft)}
+.card b{font-size:19px;line-height:1.3;letter-spacing:-.01em}
+.card .ex{font-size:15px;color:var(--soft);line-height:1.5}
+.card:hover b{color:var(--accent)}
+/* yazı */
+.post{max-width:740px;margin:0 auto;padding:40px 0 8px}
+.ph .meta{display:flex;flex-wrap:wrap;align-items:center;gap:8px;color:var(--soft);font-size:15px}
+.ph h1{font-size:clamp(32px,5vw,48px);line-height:1.1;letter-spacing:-.025em;margin:12px 0 28px;text-wrap:balance}
+.entry{font-family:var(--read);font-size:19px;line-height:1.75;overflow-wrap:break-word}
+.entry p{margin:0 0 1.1em}
+.entry h1,.entry h2,.entry h3,.entry h4,.entry h5,.entry h6{font-family:var(--ui);line-height:1.25;margin:1.8em 0 .6em;letter-spacing:-.01em}
+.entry h5{font-size:18px}.entry h6{font-size:16px}
+.entry ul,.entry ol{padding-left:1.3em;margin:0 0 1.1em}
+.entry figure{margin:1.6em 0}
+.entry img{border-radius:6px}
+.entry .wp-caption{max-width:100%!important;width:auto!important;margin:1.6em 0}
+.entry .wp-caption-text,.entry figcaption{font-family:var(--ui);font-size:14px;color:var(--soft);margin-top:6px;text-align:center}
+.entry .aligncenter{display:block;margin-left:auto;margin-right:auto}
+.entry .alignleft{float:left;margin:0 1.2em 1em 0;max-width:50%}
+.entry .alignright{float:right;margin:0 0 1em 1.2em;max-width:50%}
+.entry .has-text-align-center{text-align:center}
+.entry hr{border:0;border-top:1px solid var(--line);margin:2em 0}
+.entry iframe{max-width:100%;border:0;border-radius:8px}
+.entry::after{content:"";display:block;clear:both}
+/* galeriler (WordPress/Jetpack) */
+.entry .wp-block-gallery,.entry .blocks-gallery-grid{display:flex;flex-wrap:wrap;gap:8px;padding:0;list-style:none;margin:1.6em 0}
+.entry .wp-block-gallery>figure,.entry .blocks-gallery-item{flex:1 1 calc(33.33% - 8px);margin:0;position:relative}
+.entry .wp-block-gallery.columns-2>figure,.entry .columns-2 .blocks-gallery-item{flex-basis:calc(50% - 8px)}
+.entry .wp-block-gallery img,.entry .blocks-gallery-item img{width:100%;height:100%;object-fit:cover;display:block}
+.entry .tiled-gallery__gallery{margin:1.6em 0}
+.entry .tiled-gallery__row{display:flex;gap:6px;margin-bottom:6px}
+.entry .tiled-gallery__col{display:flex;flex-direction:column;gap:6px}
+.entry .tiled-gallery__item{margin:0}
+.entry .tiled-gallery__item img{display:block;width:100%;height:auto;border-radius:4px}
+.entry .tiled-gallery{margin:1.6em 0}
+.entry .tiled-gallery .gallery-row{display:flex;gap:6px;width:100%!important;height:auto!important;margin-bottom:6px}
+.entry .tiled-gallery .gallery-group{display:flex;flex-direction:column;gap:6px;flex:1;width:auto!important;height:auto!important}
+.entry .tiled-gallery .tiled-gallery-item{margin:0;width:auto!important;height:auto!important}
+.entry .tiled-gallery .tiled-gallery-item img{display:block;width:100%!important;height:auto!important;border-radius:4px}
+.entry .tiled-gallery-caption{font-family:var(--ui);font-size:13px;color:var(--soft);padding:4px 2px}
+.entry meta{display:none}
+.tags{font-size:14px;color:var(--soft);margin:28px 0 0}
+.tags span{font-weight:600}
+.orig{font-size:13.5px;color:var(--soft);margin:18px 0 0;overflow-wrap:anywhere}
+/* yorumlar */
+.comments{max-width:740px;margin:44px auto 0;padding-top:24px;border-top:1px solid var(--line)}
+.comments h2{font-size:22px;margin:0 0 4px}
+.comments .note{color:var(--soft);font-size:14px;margin:0 0 18px}
+.comments ol{list-style:none;padding:0;margin:0;display:grid;gap:12px}
+.comments ol ol{margin:12px 0 0 20px}
+.cmt{background:var(--surface);border-radius:14px;padding:14px 16px}
+.cmt-h{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;font-size:15px}
+.cmt-h time{color:var(--soft);font-size:13px}
+.cmt-b{font-size:16px}
+.cmt-b p{margin:.4em 0}
+/* önceki / sonraki */
+.pn{max-width:740px;margin:44px auto 0;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.pn a{display:flex;flex-direction:column;gap:4px;padding:14px 16px;border-radius:14px;background:var(--surface);text-decoration:none;color:var(--ink);font-weight:600;line-height:1.3}
+.pn a span{font-weight:400;font-size:13px;color:var(--soft)}
+.pn .next{text-align:right}
+.pn a:hover{background:var(--accent-soft)}
+.foot{margin-top:64px;border-top:1px solid var(--line);padding:18px 0 28px;font-size:13.5px;color:var(--soft)}
+.foot .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+@media (max-width:640px){
+  body{font-size:16px}
+  .entry{font-size:17.5px}
+  .blogname{display:none}
+  .pn{grid-template-columns:1fr}
+  .pn .next{text-align:left}
+  .entry .tiled-gallery__row,.entry .tiled-gallery .gallery-row{flex-direction:column}
+  .entry .tiled-gallery__col{flex-basis:auto!important}
+  .entry .alignleft,.entry .alignright{float:none;max-width:100%;margin:1em 0}
+}
+</style>
+
+</head>
+<body>
+<header class="bar"><div class="bar-in">
+<a class="home" href="/" aria-label="ahmetoff.com ana sayfa"><img src="/favicon.svg" width="22" height="22" alt=""><span>ahmetoff</span></a>
+<a class="blogname" href="../../../../">everything is in one place</a>
+<nav><a href="../../../../kim/">Kim</a><a href="../../../../iletisim/">İletişim</a></nav>
+</div></header>
+<main class="wrap">
+<article class="post">
+<header class="ph"><div class="meta"><time datetime="2017-07-07">7 Temmuz 2017</time><a class="chip" href="../../../../kategori/yazilim/">Yazılım</a></div>
+<h1>Lamba3D yazılım</h1></header>
+<div class="entry"><p>Merhaba Meraklı dostlar&#8230;</p>
+<h3>Giriş</h3>
+<p>Burada Lamba3D projemin yazılım işlerinden bahsetmek istiyorum. Projenin bu bölümü mekanik ve elektronik bölümü gibi sürekli değişim halinde ancak bunları da en başından anlatmak istiyorum.</p>
+<p>Projede yazılımla temelde iki şeyi kontrol etmem gerekiyordu,</p>
+<ul>
+<li><strong>Arduino elektronik kart</strong> için, <a href="https://www.arduino.cc/en/main/software" target="_blank" rel="noopener">Arduino IDE</a></li>
+<li><strong> Telefon bluetooth haberleşmesi</strong> için, <a href="http://appinventor.mit.edu/explore/#" target="_blank" rel="noopener">MIT App Invertor</a></li>
+</ul>
+<p>Ana şema olarak şöyle bir şeye ihtiyacım vardı.</p>
+<p><div data-shortcode="caption" id="attachment_868" style="width: 1510px" class="wp-caption alignnone"><img aria-describedby="caption-attachment-868" loading="lazy" data-attachment-id="868" data-permalink="../../../../2017/07/07/lamba3d-yazilim/diagram/" data-orig-file="../../../../media/2017/07/diagram2.jpg" data-orig-size="1500,833" data-comments-opened="1" data-image-meta="{&quot;orientation&quot;:&quot;1&quot;}" data-image-title="Diagram" data-image-description="" data-image-caption="" data-large-file="../../../../media/2017/07/diagram2.jpg" class="alignnone size-full wp-image-868" src="../../../../media/2017/07/diagram2.jpg" alt="Diagram" width="1500" height="833" /><p id="caption-attachment-868" class="wp-caption-text">Lamba3D projemizin genel işleyiş şeması</p></div></p>
+<h5>1.Bölüm</h5>
+<p>Bu bölümde Arduino ile nasıl ve neler yapılır değil, <a href="../../../../2017/06/17/lamba3d/" target="_blank" rel="noopener">Lamba3D</a> projem için Arduino ile nasıl ve ne yaptım onu anlatmak istiyorum&#8230;</p>
+<p><a href="https://www.arduino.cc/en/main/software" target="_blank" rel="noopener">Arduino IDE</a>  Arduino elektronik kartların programlanması ve PC ile olan haberleşmenin sağlanması için basit bir program. <a href="https://gelecegiyazanlar.turkcell.com.tr/konu/arduino" target="_blank" rel="noopener">Bu link</a>te programcılık hakkında çok güzel bilgiler var bir göz atın derim&#8230;</p>
+<p>Arduino dünyası, yapmak istediğimiz projelerin büyük bir kısmının bizler gibi meraklı arkadaşlar tarafından denenmekte olduğu çok aktif bir dünya. Yapmaya çalıştığımız bir projeyi mutlaka birileri de ya yapıyor, ya yapmak üzere yada yapmış&#8230;Programımızda hangi aşamada olursak olalım, küçük bir araştırmayla bulacağımız çalışmaları incelersek, belki de hiç yazmamıza bile gerek kalmadan bulduğumuz örnekleri olduğu gibi projemizde kullanabiliriz. Belki de küçük revizyonlarla işimize yarar hale getirebiliriz. Hiç biri olmazsa tecrübelerden faydalanmış oluruz 🙂</p>
+<p>Bu paylaşmanın gücünü gösteren çok güzel bir uygulama. <strong>Biz de elbette yaptıklarımızı diğer meraklı arkadaşların kullanımına sunmakla bu zincirde bir halka olabiliriz&#8230;</strong></p>
+<p>Ana kumandanın yapıldığı kartımız <a href="../../../../media/2017/06/arduinopromini3.jpg" target="_blank" rel="noopener">Arduino Pro Mini</a> için yazılım <a href="https://www.arduino.cc/" target="_blank" rel="noopener">Arduino</a> yazılımı. Şu anki aşamaya gelene kadar <a href="../../../../2017/06/23/lamba3d-elektronik/" target="_blank" rel="noopener">birçok deneme</a> yanılma ve öğrenmeden sonra programın son durumu <a href="https://drive.google.com/drive/folders/0B7sEEb0WlNywc3VTUmZtYUctaWs?usp=sharing" target="_blank" rel="noopener">şöyle</a> oldu. Arduino programı tanımak adına ilk denemem Blink isimli, kartın üzerindeki ledi yakıp söndürmeye yarayan örnek programdı. Bununla ilgili internette küçük bir araştırmayla büyük bir deryaya ulaşabilirsiniz&#8230;</p>
+<p><div data-shortcode="caption" id="attachment_365" style="width: 1010px" class="wp-caption alignnone"><img aria-describedby="caption-attachment-365" loading="lazy" data-attachment-id="365" data-permalink="../../../../2017/06/23/lamba3d-elektronik/arduino_blink/" data-orig-file="../../../../media/2017/06/arduino_blink.jpg" data-orig-size="1000,617" data-comments-opened="1" data-image-meta="{&quot;orientation&quot;:&quot;1&quot;}" data-image-title="Arduino_Blink" data-image-description="" data-image-caption="" data-large-file="../../../../media/2017/06/arduino_blink.jpg" class="alignnone size-full wp-image-365" src="../../../../media/2017/06/arduino_blink.jpg" alt="Arduino_Blink" width="1000" height="617" /><p id="caption-attachment-365" class="wp-caption-text">Arduino programı içindeki örneklerden, Blink isimli çalışma</p></div></p>
+<p>Gelelim Lamba3D projesi için yazdığım programı biraz açıklamaya. Program iki katmanlı sayılabilir. İlki alıcıdan verilerin alınması. İkincisi de alınan verilere göre kartımızın pinlerine sinyaller gönderilmesi.</p>
+<p>Arduino kartın görevi, bluetooth ile gelen verilerin yaptığımız Arduino programına göre servo motorun kollarını istediğimiz pozisyona getirmek ve röleyi açıp kapatarak ampulümüzü yakıp söndürmek hepsi bu &#8230;</p>
+<ul>
+<li>7 numaralı pine bağlı röleyle lambamızdaki ampulün &#8220;on&#8221; veya &#8220;off&#8221; olmasını sağlıyoruz</li>
+<li>9 numaralı pine bağlı servomuzun kolları da belirlediğimiz derecelerde dönmesiyle dış kabuğu oluşturan esnek malzemeye hareket sağlıyor. Tercihim üç kademeli olmasıydı, kapalı, yarı açık, tam açık&#8230;</li>
+</ul>
+<p>Programı <a href="https://drive.google.com/file/d/0B7sEEb0WlNywckpabXdObEtORnM/view?usp=sharing" target="_blank" rel="noopener">indirip</a> inceleyebilirsiniz.</p>
+<h5>2.Bölüm</h5>
+<p>Yazılım safhamızın bir diğer kısımı, Android telefona aplikasyon yazmak oldu. Amaç Bluetooth iletişimiyle veri gönderebilen gerektiğinde alabilen bir yazılımdı. İnternetten yaptığım ön araştırmada bu işin yapılabilirliğini görünce çok sevindim 🙂 Örnek programlar her ne kadar yapmak istediğim aşamaları içeriyorsa da tam da istediğim ve benim kontrolümde olan aplikasyonlar değildi. Anlaşılan yeni bir program daha öğrenmem gerekiyordu, ama hangisi&#8230;</p>
+<p>Bu konuda da birçok program var. Basit ve işlevsel olanı tercih etmeliydim. Bu tespiti bile yapmak oldukça vaktimi aldı. Çok şeyler öğrendim. Öğrendikçe de ne kadar büyük bir dünyada olduğumu görüyordum. Benim gibi bu işlerle uğraşan arkadaşların da farkettiği gibi bu konularda doyurucu <a href="https://youtu.be/b5co2iOyvYg" target="_blank" rel="noopener">türkçe kaynak</a> bulmak pek kolay değil&#8230;</p>
+<p><div data-shortcode="caption" id="attachment_720" style="width: 1292px" class="wp-caption alignnone"><img aria-describedby="caption-attachment-720" loading="lazy" data-attachment-id="720" data-permalink="../../../../2017/07/07/lamba3d-yazilim/mit-app-invertor/" data-orig-file="../../../../media/2017/07/mit-app-invertor.jpg" data-orig-size="1282,876" data-comments-opened="1" data-image-meta="{&quot;orientation&quot;:&quot;1&quot;}" data-image-title="MIT App Invertor" data-image-description="" data-image-caption="" data-large-file="../../../../media/2017/07/mit-app-invertor.jpg" class="alignnone size-full wp-image-720" src="../../../../media/2017/07/mit-app-invertor.jpg" alt="MIT App Invertor" width="1282" height="876" /><p id="caption-attachment-720" class="wp-caption-text"><a href="http://appinventor.mit.edu/explore/#" target="_blank" rel="noopener">MIT App Invertor 2</a>  güzel program&#8230;</p></div></p>
+<p>Program hakkında başlangıç için güzel bir video. <a href="https://www.youtube.com/results?search_query=mit+app+inventor+dersleri" target="_blank" rel="noopener">Youtube</a> dan araştırılırsa daha fazla kaynağa ulaşmak mümkün&#8230;</p>
+<p><a href="https://youtu.be/uMg2FoXURiM" target="_blank" rel="noopener">Samsung Galaxy Ace s5830</a> telefonum bir çekmecede duruyordu. Telefon sağlam ama kapasite yetersizliğinden kullanamıyordum. <a href="../../../../2017/06/17/lamba3d/" target="_blank" rel="noopener">Lamba3D</a> projem için çekmeceden çıkarttım ve çok ta işime yaradı. Projem için lazım olan bluetooth iletişimli android telefon işini, emektar telefonuma <a href="https://drive.google.com/file/d/0B7sEEb0WlNywa0lfTXJGa05vbHM/view?usp=sharing" target="_blank" rel="noopener">yazdığım  programla</a> halletmiş oldum&#8230;</p>
+<p><div data-shortcode="caption" id="attachment_826" style="width: 1010px" class="wp-caption alignnone"><img aria-describedby="caption-attachment-826" loading="lazy" data-attachment-id="826" data-permalink="../../../../2017/07/07/lamba3d-yazilim/mit2/" data-orig-file="../../../../media/2017/07/mit21.jpg" data-orig-size="1000,507" data-comments-opened="1" data-image-meta="{&quot;orientation&quot;:&quot;1&quot;}" data-image-title="MIT2" data-image-description="" data-image-caption="" data-large-file="../../../../media/2017/07/mit21.jpg" class="alignnone size-full wp-image-826" src="../../../../media/2017/07/mit21.jpg" alt="MIT2" width="1000" height="507" /><p id="caption-attachment-826" class="wp-caption-text"><a href="http://appinventor.mit.edu/explore/#" target="_blank" rel="noopener">MIT App Invertor 2</a> &#8211; Blocks editörü</p></div></p>
+<p><div data-shortcode="caption" id="attachment_831" style="width: 1010px" class="wp-caption alignnone"><img aria-describedby="caption-attachment-831" loading="lazy" data-attachment-id="831" data-permalink="../../../../2017/07/07/lamba3d-yazilim/telefon/" data-orig-file="../../../../media/2017/07/telefon.jpg" data-orig-size="1000,655" data-comments-opened="1" data-image-meta="{&quot;orientation&quot;:&quot;1&quot;}" data-image-title="Telefon" data-image-description="" data-image-caption="" data-large-file="../../../../media/2017/07/telefon.jpg" class="alignnone size-full wp-image-831" src="../../../../media/2017/07/telefon.jpg" alt="Telefon" width="1000" height="655" /><p id="caption-attachment-831" class="wp-caption-text">Programı telefona kurup çalıştırdıktan sonraki görüntüsü 🙂</p></div></p>
+<p>Umarım faydalı olabilmişimdir, ilginiz için teşekkür ederim&#8230;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+<p class="orig">İlk yayın: <a href="https://pointpointblog.wordpress.com/2017/07/07/lamba3d-yazilim/">https://pointpointblog.wordpress.com/2017/07/07/lamba3d-yazilim/</a></p>
+</article>
+<section class="comments"><h2>Yorumlar (1)</h2><p class="note">Yorumlar blogun ilk yayınından arşivlenmiştir; yeni yorum alınmıyor.</p><ol><li class="cmt"><div class="cmt-h"><b>Lamba3D &amp;#8211; everytıng ıs ın one place</b><time>6 Haziran 2022</time></div><div class="cmt-b"><p>[&#8230;] Projemizin yazılım ile ilgili bölümü için; [&#8230;]</p>
+</div></li></ol></section>
+<nav class="pn"><a class="prev" href="../../../../2017/07/06/processing-maceram/"><span>Önceki yazı</span>Processing Maceram…</a><a class="next" href="../../../../2017/07/12/arduino-zaman-ayarli-asprator/"><span>Sonraki yazı</span>Arduino Zaman Ayarlı Aspratör</a></nav>
+</main>
+<footer class="foot"><div class="wrap"><span>© Ahmet Çandöken</span><span>Bu yazılar 2017–2026 arasında <a href="https://pointpointblog.wordpress.com/">pointpointblog.wordpress.com</a> adresinde yayımlandı.</span></div></footer>
+</body>
+</html>

@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Programcılık maceralarım · everything is in one place</title>
+<meta name="description" content="Fortran-Basic-AutoLisp-VisualBasic-MaxScript-Processing-Arduino">
+<meta name="author" content="Ahmet Çandöken">
+<link rel="canonical" href="https://ahmetoff.com/blog/2017/06/13/programcilik/">
+<meta property="og:title" content="Programcılık maceralarım · everything is in one place">
+<meta property="og:description" content="Fortran-Basic-AutoLisp-VisualBasic-MaxScript-Processing-Arduino">
+<meta property="og:type" content="article">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="everything is in one place" href="/blog/feed.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&display=swap">
+<style>/* Blog: ahmetoff.com ile aynı renk ailesi; okuma için serif gövde, arayüz için Onest */
+:root{--bg:#fff;--surface:#f2f5f6;--ink:#1a1d21;--soft:#5c6670;--line:#dde3e6;--accent:#0b8a8a;--accent-soft:#e2f3f2;
+ --ui:"Onest",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;--read:"Literata",Georgia,"Times New Roman",serif;color-scheme:light}
+@media (prefers-color-scheme:dark){:root{--bg:#0f1316;--surface:#171d21;--ink:#eef2f4;--soft:#9aa6ae;--line:#28323a;--accent:#3cc4bf;--accent-soft:#13302f;color-scheme:dark}}
+*{box-sizing:border-box}
+html{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.65 var(--ui);-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-underline-offset:3px}
+img{max-width:100%;height:auto}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+/* üst çubuk */
+.bar{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 85%,transparent);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.bar-in{max-width:1080px;margin:0 auto;display:flex;align-items:center;gap:16px;padding:10px max(20px,env(safe-area-inset-right,0px)) 10px max(20px,env(safe-area-inset-left,0px))}
+.home{display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--ink);font-weight:600;font-size:15px}
+.blogname{color:var(--soft);text-decoration:none;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.blogname:hover{color:var(--accent)}
+.bar nav{margin-left:auto;display:flex;gap:14px;font-size:15px}
+.bar nav a{color:var(--ink);text-decoration:none}
+.bar nav a:hover{color:var(--accent)}
+/* ana liste */
+.hero{padding:56px 0 20px;max-width:760px}
+.hero h1{font-size:clamp(38px,6vw,64px);line-height:1.02;letter-spacing:-.03em;margin:0;font-weight:700;text-wrap:balance}
+.hero .desc{margin:8px 0 0;color:var(--soft);font-size:18px}
+.hero.small .desc{margin:0 0 6px;font-size:15px}
+.hero .intro{margin:16px 0 0;color:var(--soft)}
+.cats{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:999px;background:var(--surface);color:var(--ink);text-decoration:none;font-size:14px}
+.chip small{color:var(--soft)}
+.chip:hover{background:var(--accent-soft);color:var(--accent)}
+.yr{font-size:15px;color:var(--soft);font-weight:600;margin:40px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.card{display:flex;flex-direction:column;border-radius:16px;background:var(--surface);overflow:hidden;text-decoration:none;color:var(--ink);min-width:0}
+.card img,.card .noimg{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;background:var(--line)}
+.card .ct{display:flex;flex-direction:column;gap:6px;padding:14px 16px 18px}
+.card .meta{font-size:13px;color:var(--soft)}
+.card b{font-size:19px;line-height:1.3;letter-spacing:-.01em}
+.card .ex{font-size:15px;color:var(--soft);line-height:1.5}
+.card:hover b{color:var(--accent)}
+/* yazı */
+.post{max-width:740px;margin:0 auto;padding:40px 0 8px}
+.ph .meta{display:flex;flex-wrap:wrap;align-items:center;gap:8px;color:var(--soft);font-size:15px}
+.ph h1{font-size:clamp(32px,5vw,48px);line-height:1.1;letter-spacing:-.025em;margin:12px 0 28px;text-wrap:balance}
+.entry{font-family:var(--read);font-size:19px;line-height:1.75;overflow-wrap:break-word}
+.entry p{margin:0 0 1.1em}
+.entry h1,.entry h2,.entry h3,.entry h4,.entry h5,.entry h6{font-family:var(--ui);line-height:1.25;margin:1.8em 0 .6em;letter-spacing:-.01em}
+.entry h5{font-size:18px}.entry h6{font-size:16px}
+.entry ul,.entry ol{padding-left:1.3em;margin:0 0 1.1em}
+.entry figure{margin:1.6em 0}
+.entry img{border-radius:6px}
+.entry .wp-caption{max-width:100%!important;width:auto!important;margin:1.6em 0}
+.entry .wp-caption-text,.entry figcaption{font-family:var(--ui);font-size:14px;color:var(--soft);margin-top:6px;text-align:center}
+.entry .aligncenter{display:block;margin-left:auto;margin-right:auto}
+.entry .alignleft{float:left;margin:0 1.2em 1em 0;max-width:50%}
+.entry .alignright{float:right;margin:0 0 1em 1.2em;max-width:50%}
+.entry .has-text-align-center{text-align:center}
+.entry hr{border:0;border-top:1px solid var(--line);margin:2em 0}
+.entry iframe{max-width:100%;border:0;border-radius:8px}
+.entry::after{content:"";display:block;clear:both}
+/* galeriler (WordPress/Jetpack) */
+.entry .wp-block-gallery,.entry .blocks-gallery-grid{display:flex;flex-wrap:wrap;gap:8px;padding:0;list-style:none;margin:1.6em 0}
+.entry .wp-block-gallery>figure,.entry .blocks-gallery-item{flex:1 1 calc(33.33% - 8px);margin:0;position:relative}
+.entry .wp-block-gallery.columns-2>figure,.entry .columns-2 .blocks-gallery-item{flex-basis:calc(50% - 8px)}
+.entry .wp-block-gallery img,.entry .blocks-gallery-item img{width:100%;height:100%;object-fit:cover;display:block}
+.entry .tiled-gallery__gallery{margin:1.6em 0}
+.entry .tiled-gallery__row{display:flex;gap:6px;margin-bottom:6px}
+.entry .tiled-gallery__col{display:flex;flex-direction:column;gap:6px}
+.entry .tiled-gallery__item{margin:0}
+.entry .tiled-gallery__item img{display:block;width:100%;height:auto;border-radius:4px}
+.entry .tiled-gallery{margin:1.6em 0}
+.entry .tiled-gallery .gallery-row{display:flex;gap:6px;width:100%!important;height:auto!important;margin-bottom:6px}
+.entry .tiled-gallery .gallery-group{display:flex;flex-direction:column;gap:6px;flex:1;width:auto!important;height:auto!important}
+.entry .tiled-gallery .tiled-gallery-item{margin:0;width:auto!important;height:auto!important}
+.entry .tiled-gallery .tiled-gallery-item img{display:block;width:100%!important;height:auto!important;border-radius:4px}
+.entry .tiled-gallery-caption{font-family:var(--ui);font-size:13px;color:var(--soft);padding:4px 2px}
+.entry meta{display:none}
+.tags{font-size:14px;color:var(--soft);margin:28px 0 0}
+.tags span{font-weight:600}
+.orig{font-size:13.5px;color:var(--soft);margin:18px 0 0;overflow-wrap:anywhere}
+/* yorumlar */
+.comments{max-width:740px;margin:44px auto 0;padding-top:24px;border-top:1px solid var(--line)}
+.comments h2{font-size:22px;margin:0 0 4px}
+.comments .note{color:var(--soft);font-size:14px;margin:0 0 18px}
+.comments ol{list-style:none;padding:0;margin:0;display:grid;gap:12px}
+.comments ol ol{margin:12px 0 0 20px}
+.cmt{background:var(--surface);border-radius:14px;padding:14px 16px}
+.cmt-h{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;font-size:15px}
+.cmt-h time{color:var(--soft);font-size:13px}
+.cmt-b{font-size:16px}
+.cmt-b p{margin:.4em 0}
+/* önceki / sonraki */
+.pn{max-width:740px;margin:44px auto 0;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.pn a{display:flex;flex-direction:column;gap:4px;padding:14px 16px;border-radius:14px;background:var(--surface);text-decoration:none;color:var(--ink);font-weight:600;line-height:1.3}
+.pn a span{font-weight:400;font-size:13px;color:var(--soft)}
+.pn .next{text-align:right}
+.pn a:hover{background:var(--accent-soft)}
+.foot{margin-top:64px;border-top:1px solid var(--line);padding:18px 0 28px;font-size:13.5px;color:var(--soft)}
+.foot .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+@media (max-width:640px){
+  body{font-size:16px}
+  .entry{font-size:17.5px}
+  .blogname{display:none}
+  .pn{grid-template-columns:1fr}
+  .pn .next{text-align:left}
+  .entry .tiled-gallery__row,.entry .tiled-gallery .gallery-row{flex-direction:column}
+  .entry .tiled-gallery__col{flex-basis:auto!important}
+  .entry .alignleft,.entry .alignright{float:none;max-width:100%;margin:1em 0}
+}
+</style>
+
+</head>
+<body>
+<header class="bar"><div class="bar-in">
+<a class="home" href="/" aria-label="ahmetoff.com ana sayfa"><img src="/favicon.svg" width="22" height="22" alt=""><span>ahmetoff</span></a>
+<a class="blogname" href="../../../../">everything is in one place</a>
+<nav><a href="../../../../kim/">Kim</a><a href="../../../../iletisim/">İletişim</a></nav>
+</div></header>
+<main class="wrap">
+<article class="post">
+<header class="ph"><div class="meta"><time datetime="2017-06-13">13 Haziran 2017</time><a class="chip" href="../../../../kategori/yazilim/">Yazılım</a></div>
+<h1>Programcılık maceralarım</h1></header>
+<div class="entry"><h3 style="text-align:left;">G i r i ş</h3>
+<p>Programlama ile tanışmam <a href="https://tr.wikipedia.org/wiki/Fortran" target="_blank" rel="noopener noreferrer">Fortran</a> ve delikli kartlarda program yazarak olmuştu. Bir kere uygulama fırsatı buldum, kalanı kitaptan teorik olarak devam etmişti. Birşeyler öğrendim ama o zamanlar benim baş edebileceğim bir dil değildi. Uygulama yapmadan programcılığı ilerletmemin mümkünü yoktu.</p>
+<p><div data-shortcode="caption" id="attachment_161" style="width: 1930px" class="wp-caption alignnone"><img aria-describedby="caption-attachment-161" loading="lazy" data-attachment-id="161" data-permalink="../../../../2017/06/13/programcilik/yedikule_istanbul/" data-orig-file="../../../../media/2017/05/yedikule_istanbul3.jpg" data-orig-size="1920,2560" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;2.6&quot;,&quot;camera&quot;:&quot;GT-S5830&quot;,&quot;created_timestamp&quot;:&quot;1451827859&quot;,&quot;focal_length&quot;:&quot;3.55&quot;,&quot;iso&quot;:&quot;100&quot;,&quot;shutter_speed&quot;:&quot;1/0&quot;,&quot;orientation&quot;:&quot;1&quot;}" data-image-title="Yedikule_İstanbul" data-image-description="&lt;p&gt;Yedikule_sur_kapı_giriş_roma_kitabe&lt;br /&gt;
+door_entry_rome_inscription&lt;/p&gt;
+" data-image-caption="&lt;p&gt;Yedikule / istanbul &amp;#8211; 2016&lt;/p&gt;
+" data-large-file="../../../../media/2017/05/yedikule_istanbul3.jpg" class="alignnone size-full wp-image-161" src="../../../../m/2017/05/yedikule_istanbul3.jpg" alt="Yedikule_İstanbul" width="1920" height="2560" /><p id="caption-attachment-161" class="wp-caption-text">Yedikule / istanbul &#8211; 2016</p></div></p>
+<h5>1.Bölüm</h5>
+<p>Bakırköy&#8217;e yeni taşınmıştık. Evimizin yakınında <a href="https://tr.wikipedia.org/wiki/Commodore_64" target="_blank" rel="noopener noreferrer">Commodore</a>  ve <a href="http://www.atarimuseum.com/computers/8bits/xl/800xl/800xl.htm" target="_blank" rel="noopener noreferrer">Atari</a> bilgisayar mağazası vardı. Okula giderken ve dönerken vitrinden içeriye bakıp bunlardan birisini muhakkak almalıyım diye düşünüyordum. Düşünüyordum da nasıl, para nerde.</p>
+<p><div data-shortcode="caption" id="attachment_139" style="width: 1010px" class="wp-caption alignnone"><img aria-describedby="caption-attachment-139" loading="lazy" data-attachment-id="139" data-permalink="../../../../2017/06/13/programcilik/crack/" data-orig-file="../../../../media/2017/05/crack2.jpg" data-orig-size="1000,500" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;2.6&quot;,&quot;camera&quot;:&quot;GT-S5830&quot;,&quot;created_timestamp&quot;:&quot;1460385126&quot;,&quot;focal_length&quot;:&quot;3.55&quot;,&quot;iso&quot;:&quot;100&quot;,&quot;shutter_speed&quot;:&quot;1/0&quot;,&quot;orientation&quot;:&quot;1&quot;}" data-image-title="Crack" data-image-description="&lt;p&gt;Crack_kırık_çatlak_yama_bant_sınır&lt;/p&gt;
+" data-image-caption="&lt;p&gt;uzak bir yer &amp;#8211; 2016&lt;/p&gt;
+" data-large-file="../../../../media/2017/05/crack2.jpg" class="alignnone size-full wp-image-139" src="../../../../media/2017/05/crack2.jpg" alt="Crack" width="1000" height="500" /><p id="caption-attachment-139" class="wp-caption-text">uzak bir yer &#8211; 2016</p></div></p>
+<h5>2.Bölüm</h5>
+<p>Bir gün dükkan sahibinin dikkatinden kaçmamış beni işaret edip içeriye çağırdı. &#8221; Neden hergün dışarıdan bakıp ta içeriye girmiyorsun &#8220;. İyi de o zamanlar şimdiki gibi her yere girip çıkmak kolay değil. Utangaçlık bir yandan, konu da merak edip ama çokta bilemediğim bir konu. İçeri giripte ne diyeceğim ki&#8230;</p>
+<p>Meğer mağaza daha yeni açılmış, reklam yapmak için afiş gibi birşeyler yaptırmak istiyor. Ben de <a href="http://gsf.marmara.edu.tr/" target="_blank" rel="noopener noreferrer">M.Ü.</a> Güzel Sanatlar sınavlarına yeni girmiştim.Bahsi geçince hemen &#8220;sen afişleri hazırlarmısın&#8221; deyip, yandaki kırtasiyeden 20 adet beyaz karton birer tane kırmızı ve mavi keçeli kalem alıp elime tutuşturdu. &#8220;Yarına hazır olur değil mi&#8221;. Eee tabi hazırlarım deyip heyecanla evin yolunu tuttum.</p>
+<p>Sabah okula giderken afişleri de yanıma alıp hemen mağazaya uğradım.&#8221; Ooo çok güzel olmuşlar eline sağlık, buraya istediğin zaman uğrayabilirsin&#8221; dedi. İşte benim bilgisayar maceram başlamış oldu. Artık okuldan çıkışta neredeyse hergün uğruyordum. Bilgisayarın ne olduğunu burada anladım. Program ne demek, işletim sistemi ne demek burada öğrendim. Başlamam gereken programın da <a href="https://en.wikipedia.org/wiki/BASIC" target="_blank" rel="noopener noreferrer">Basic</a> olduğunu anladım. Mağaza sahibinin desteğiyle çok şey öğrendim ve denemeler yapma fırsatı buldum.</p>
+<p><div data-shortcode="caption" id="attachment_140" style="width: 1510px" class="wp-caption alignnone"><img aria-describedby="caption-attachment-140" loading="lazy" data-attachment-id="140" data-permalink="../../../../2017/06/13/programcilik/basit/" data-orig-file="../../../../media/2017/05/basit1.jpg" data-orig-size="1500,848" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;2&quot;,&quot;camera&quot;:&quot;HTC One&quot;,&quot;created_timestamp&quot;:&quot;1471888623&quot;,&quot;focal_length&quot;:&quot;3.63&quot;,&quot;iso&quot;:&quot;500&quot;,&quot;shutter_speed&quot;:&quot;0.069998&quot;,&quot;orientation&quot;:&quot;1&quot;,&quot;latitude&quot;:&quot;38.396282194444&quot;,&quot;longitude&quot;:&quot;27.070766444444&quot;}" data-image-title="basit" data-image-description="&lt;p&gt;Bornova_izmir_dantel_resim_çocuk_masa_kuru boya_aile&lt;/p&gt;
+" data-image-caption="&lt;p&gt;Bornova / İzmir &amp;#8211; 2016&lt;/p&gt;
+" data-large-file="../../../../media/2017/05/basit1.jpg" class="alignnone size-full wp-image-140" src="../../../../m/2017/05/basit1.jpg" alt="basit" width="1500" height="848" /><p id="caption-attachment-140" class="wp-caption-text">Bornova / İzmir &#8211; 2016</p></div></p>
+<h5>3.Bölüm</h5>
+<p>Babam yeni taşındığımız apartmanda yönetici olmuştu. Apartmandan bir komşumuz gelmiş ve aidatlarla ilgili birşeyler konuşuyorlardı. İster istemez kulak misafiri oldum. Yöneticiliği yapmak istemese de yönetici olma sırası bizim daireye geldiği için bu işi yapması gerekiyormuş. Önünde koca bir defter, aidatları kim verdi kim vermedi ne zaman verdi kaç lira verdi kayıtları tutuluyormuş. Konuşmalar devam ederken&#8230;</p>
+<p>Aklımda bunun bilgisayarla basitçe yapılabilecek bir şey olduğu ve takibinin de çok rahat yapılabileceği program satırları belirmeye başladı. Gerçi henüz bazı komutları iyi bilmiyordum ama yine de yapılabileceğini düşündüm.</p>
+<p><div data-shortcode="caption" id="attachment_142" style="width: 1010px" class="wp-caption alignnone"><img aria-describedby="caption-attachment-142" loading="lazy" data-attachment-id="142" data-permalink="../../../../2017/06/13/programcilik/fikir/" data-orig-file="../../../../media/2017/05/fikir2.jpg" data-orig-size="1000,1672" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;2&quot;,&quot;camera&quot;:&quot;HTC One&quot;,&quot;created_timestamp&quot;:&quot;1481186706&quot;,&quot;focal_length&quot;:&quot;3.63&quot;,&quot;iso&quot;:&quot;125&quot;,&quot;shutter_speed&quot;:&quot;0.000201&quot;,&quot;orientation&quot;:&quot;1&quot;}" data-image-title="Fikir" data-image-description="&lt;p&gt;karadeniz_uçak_fikir_güneş_saç_pencere_ışın&lt;br /&gt;
+plane_idea_sun_hair_ray&lt;/p&gt;
+" data-image-caption="&lt;p&gt;Karadeniz semaları &amp;#8211; 2016&lt;/p&gt;
+" data-large-file="../../../../media/2017/05/fikir2.jpg" class="alignnone size-full wp-image-142" src="../../../../m/2017/05/fikir2.jpg" alt="Fikir" width="1000" height="1672" /><p id="caption-attachment-142" class="wp-caption-text">Karadeniz semaları &#8211; 2016</p></div></p>
+<h5>4.Bölüm</h5>
+<p>Babamı bir bilgisayar alabilmek için, apartman yöneticiliğini bilgisayarda daha rahat takib edilebileceğini izah eden uzun bir konuşma yapmam gerekti. Kendisi de çok meraklıydı söylediklerime hak veriyor ancak temkinli yaklaşıyordu. Haklı tabii ki o tarihlerde bilgisayar denen o aleti alıp eve koymak daha kimselerde görülmemiş bir şey. Ne yapılır ki bununla? Küçük bir muhasebe işi. Peki başka. Çizim de yapılır, müzik te yapılır oyun da oynanır. İyi ama hiç örneğini görmemiş ki babam. İkna etmek için, benim gittiğim bilgisayar mağazasına götürüp gezdirdim, heyecanla neler yapabildiğimi anlattım. Sağolsun mağaza sahibi de beni bir güzel övüp &#8221; Bu çocukta iş var efendim&#8221; deyince babam da tamam deyip <strong>Atari 800 XL</strong> bilgisayarımızı aldı.</p>
+<p><div data-shortcode="caption" id="attachment_143" style="width: 1010px" class="wp-caption alignnone"><img aria-describedby="caption-attachment-143" loading="lazy" data-attachment-id="143" data-permalink="../../../../2017/06/13/programcilik/ucuyorum/" data-orig-file="../../../../media/2017/05/ucuyorum3.jpg" data-orig-size="1000,1333" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;2.6&quot;,&quot;camera&quot;:&quot;GT-S5830&quot;,&quot;created_timestamp&quot;:&quot;1460293766&quot;,&quot;focal_length&quot;:&quot;3.55&quot;,&quot;iso&quot;:&quot;100&quot;,&quot;shutter_speed&quot;:&quot;1/0&quot;,&quot;orientation&quot;:&quot;1&quot;}" data-image-title="ucuyorum" data-image-description="&lt;p&gt;Uzak_müze_uçmak_maket_boing 747&lt;br /&gt;
+far_museum_fly_model_boing 747&lt;/p&gt;
+" data-image-caption="&lt;p&gt;Uzakta bir müze &amp;#8211; 2016&lt;/p&gt;
+" data-large-file="../../../../media/2017/05/ucuyorum3.jpg" class="alignnone size-full wp-image-143" src="../../../../media/2017/05/ucuyorum3.jpg" alt="ucuyorum" width="1000" height="1333" /><p id="caption-attachment-143" class="wp-caption-text">Uzakta bir müze &#8211; 2016</p></div></p>
+<h5>5.Bölüm</h5>
+<p>Mahalleden bir arkadaşım da Atari 800 XL almıştı. Sürekli bilgisayarlar hakkında konuşup aklımıza gelen programları yazmaya çalışıyorduk. Arkadaşım daha çok bulmaca tarzı programlara meraklıydı. Ben de <a href="https://www.edumedia-sciences.com/tr/node/69-mercekler-ve-aynalar" target="_blank" rel="noopener noreferrer">bu</a> linktekine benzer mercekler ve aynalar konulu hesap ve grafik çizebilen programlar yapıyordum. Daha çok da müzik ve grafik programları yapmaya hevesliydim. Biraz usta olduğumuzda aynı programı daha az satırla kim yazacak diye yarışlar bile yaptık&#8230;</p>
+<p><div data-shortcode="caption" id="attachment_145" style="width: 1010px" class="wp-caption alignnone"><img aria-describedby="caption-attachment-145" loading="lazy" data-attachment-id="145" data-permalink="../../../../2017/06/13/programcilik/azim/" data-orig-file="../../../../media/2017/05/azim1.jpg" data-orig-size="1000,1146" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;2.6&quot;,&quot;camera&quot;:&quot;GT-S5830&quot;,&quot;created_timestamp&quot;:&quot;1463561037&quot;,&quot;focal_length&quot;:&quot;3.55&quot;,&quot;iso&quot;:&quot;50&quot;,&quot;shutter_speed&quot;:&quot;1/0&quot;,&quot;orientation&quot;:&quot;1&quot;}" data-image-title="Azim" data-image-description="&lt;p&gt;Bağlarbaşı_istanbul_azim_çiçek_aslanağazı_taş duvar&lt;br /&gt;
+perseverance_flower_stone wall&lt;/p&gt;
+" data-image-caption="&lt;p&gt;Bağlarbaşı / İstanbul &amp;#8211; 2016&lt;/p&gt;
+" data-large-file="../../../../media/2017/05/azim1.jpg" class="alignnone size-full wp-image-145" src="../../../../m/2017/05/azim1.jpg" alt="Azim" width="1000" height="1146" /><p id="caption-attachment-145" class="wp-caption-text">Bağlarbaşı / İstanbul &#8211; 2016</p></div></p>
+<h5>6.Bölüm</h5>
+<p>Dört beş yıl sonra arkadaşım ve ben <a href="https://tr.wikipedia.org/wiki/Amiga_500" target="_blank" rel="noopener noreferrer">Amiga 500</a> bilgisayarına terfi ettik. Acemiliğimizi attığımız Atari bilgisayarlardan sonra bu müthiş bir sıçrayış oldu. Amiga&#8217;nın ses ve grafik özellikleri çok iyiydi , hız da fark atıyordu. O tarihlerde <a href="https://en.wikipedia.org/wiki/Personal_computer" target="_blank" rel="noopener noreferrer">PC</a> siyah veya yeşil ekranda <a href="https://en.wikipedia.org/wiki/MS-DOS" target="_blank" rel="noopener noreferrer">DOS</a> sistemini kullanırken biz <a href="https://en.wikipedia.org/wiki/Workbench_(AmigaOS)" target="_blank" rel="noopener noreferrer">Workbench</a> işletim sistemiyle renkli ekran ve mouse kullanıyorduk. Yine çizim ve müzik programları yapmaya çalışırken, Amiga için yapılmış özel çizim ve müzik programlarını da kullanmaya başladım. Artık daha uygulamaya yönelik çalışıyordum. Hatta bir bilgisayar kulübünün açtığı, birinciliğe layık bulunamayan Animasyon yarışmasının ikincisi olmuştum 🙂</p>
+<p>Keşke o çalışma dosyalarımı saklayabilseydim&#8230;</p>
+<p><div data-shortcode="caption" id="attachment_146" style="width: 1254px" class="wp-caption alignnone"><img aria-describedby="caption-attachment-146" loading="lazy" data-attachment-id="146" data-permalink="../../../../2017/06/13/programcilik/basari/" data-orig-file="../../../../media/2017/05/bac59farc4b11.jpg" data-orig-size="1244,1000" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;3.5&quot;,&quot;camera&quot;:&quot;Canon EOS 650D&quot;,&quot;created_timestamp&quot;:&quot;1460319966&quot;,&quot;focal_length&quot;:&quot;23&quot;,&quot;iso&quot;:&quot;5000&quot;,&quot;shutter_speed&quot;:&quot;0.033333333333333&quot;,&quot;orientation&quot;:&quot;1&quot;}" data-image-title="başarı" data-image-description="&lt;p&gt;müze_madalya_sergi_açıklama&lt;br /&gt;
+museum_medal_exhibition_explanation&lt;/p&gt;
+" data-image-caption="&lt;p&gt;Uzakta bir müze &amp;#8211; 2016&lt;/p&gt;
+" data-large-file="../../../../media/2017/05/bac59farc4b11.jpg" class="alignnone size-full wp-image-146" src="../../../../m/2017/05/bac59farc4b11.jpg" alt="başarı" width="1244" height="1000" /><p id="caption-attachment-146" class="wp-caption-text">Uzakta bir müze &#8211; 2016</p></div></p>
+<h5>7.Bölüm</h5>
+<p>1989 yılında özel bir içmimarlık firmasında çalışmaya başladım. Projeler <a href="https://en.wikipedia.org/wiki/Technical_pen" target="_blank" rel="noopener noreferrer">rapido</a> ve kurşun kalemle elde çiziliyordu. Evde bazı projeleri Amiga bilgisayarımda 2D veya 3D çalışıyordum. Bunu keyif aldığım için yapıyordum. Hatta yaptıklarımı kağıda aktarabilmek için nokta vuruşlu <a href="http://www.computinghistory.org.uk/det/32645/Star-LC200-Colour-Printer/" target="_blank" rel="noopener noreferrer">Star LC200</a> renkli bir printer aldım. Artık tual üzerine yağlıboya yada kağıt üzerine kalemle resim yapmıyordum. Kalemin yerini mouse, boyanın yerini renkli pixeller (4096 renk) tualin yerini ise ekran almıştı.</p>
+<p>Bir gün ofiste masa tasarlamam gerekiyordu. Güzel bir tasarım yaptım paslanmaz çelik ve cam tablalı. Teknik çizimlerini yaptım. Herşeyi ile imalata hazır.</p>
+<p>Akşam evde hemen <a href="https://youtu.be/WslSzQydnNs" target="_blank" rel="noopener noreferrer">imagine 3D</a> programıyla çizimini yapıp kaliteli bir kağıda bastım. Ertesi gün ofiste olay oldu. Başta ofis arkadaşlarım olmak üzere nasıl ve nerede yaptığımı anlattım. Patronumuz gelip te &#8220;ne yapıyorsunuz orada, neden toplandınız&#8221; deyince durumu benim yerime arkadaşlar anlatmaya başladı. O gün ofisin proje işlerinin kaderi değişiverdi.</p>
+<p><div data-shortcode="caption" id="attachment_164" style="width: 1010px" class="wp-caption alignnone"><img aria-describedby="caption-attachment-164" loading="lazy" data-attachment-id="164" data-permalink="../../../../2017/06/13/programcilik/konut-projesi/" data-orig-file="../../../../media/2017/05/konut-projesi1.jpg" data-orig-size="1000,750" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;2.6&quot;,&quot;camera&quot;:&quot;GT-S5830&quot;,&quot;created_timestamp&quot;:&quot;1453470659&quot;,&quot;focal_length&quot;:&quot;3.55&quot;,&quot;iso&quot;:&quot;100&quot;,&quot;shutter_speed&quot;:&quot;1/0&quot;,&quot;orientation&quot;:&quot;1&quot;}" data-image-title="konut projesi" data-image-description="&lt;p&gt;Konut_proje_policor_içmimar_maket_kapı&lt;br /&gt;
+house_interiorarchitect_interior designer_model_door&lt;/p&gt;
+" data-image-caption="&lt;p&gt;Konut Projesi &amp;#8211; Beşiktaş / İstanbul &amp;#8211; 2016&lt;/p&gt;
+" data-large-file="../../../../media/2017/05/konut-projesi1.jpg" class="alignnone size-full wp-image-164" src="../../../../media/2017/05/konut-projesi1.jpg" alt="konut projesi" width="1000" height="750" /><p id="caption-attachment-164" class="wp-caption-text">Konut Projesi &#8211; Beşiktaş / İstanbul &#8211; 2016</p></div></p>
+<h5>8.Bölüm</h5>
+<p>Daha sonraki iki yıl içerisinde birçok defa benden kimse istemese de ofisin bazı işlerini evde 2D veya 3D olarak çiziyordum. Bu durum patronların ve müşterilerin beklentileri haline gelmişti.</p>
+<p>Bir gün odalarına çağırıp &#8220;artık ofise de bilgisayar almayı düşünüyoruz&#8221; dediler. Ancak bunları ofis arkadaşlarımın nasıl kullanacağını ve benim onlara önderlik edip yardımcı olup olamayacağımı sordular. Ooo ben havalara uçtum. Ofise bilgisayar alınacak yaşasın. Hem de arkadaşlarım da bilgisayar kullanıp çizim yapacaklar. Ne mutlu bana&#8230;</p>
+<p>İyi ama ben PC hiç kullanmadım ki. Ne <a href="https://en.wikipedia.org/wiki/MS-DOS" target="_blank" rel="noopener noreferrer">DOS</a> biliyorum ne programları hakkında birşey. Durumu anlatıp, patronlarımdan bana biraz vakit tanırlarsa bu işi kıvırabileceğimi anlattım. Sağ olsunlar güvendiler&#8230;</p>
+<p>Bilgiye o zamanlar şimdiki gibi bir tuşla ulaşılamıyor. Hatta ilgili tuşu bile olmayan bir zamandan bahsediyorum.</p>
+<p>Ofise iki <a href="https://support.hp.com/tr-tr/products/" target="_blank" rel="noopener noreferrer">HP</a> bilgisayar geldi. Bilgisayarları satan mağaza da mimarlık ofisinin yapısına uygun programları yüklemiş. İşlem tamam&#8230;Tamam da nasıl.</p>
+<p>Toplaştık PC nin başına herkes bana hadi aç bakalım neler yapılıyor bununla demeye başladı. Gerçekten ben de tam olarak ne yapabildiğini ve kapasitesinin ne olduğunu bilmiyordum. Ama konunun kıdemlisi olarak açma düğmesine basmak bana nasib oldu.</p>
+<p><div data-shortcode="caption" id="attachment_166" style="width: 1010px" class="wp-caption alignnone"><img aria-describedby="caption-attachment-166" loading="lazy" data-attachment-id="166" data-permalink="../../../../2017/06/13/programcilik/dolap/" data-orig-file="../../../../media/2017/05/dolap.jpg" data-orig-size="1000,723" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;2.6&quot;,&quot;camera&quot;:&quot;GT-S5830&quot;,&quot;created_timestamp&quot;:&quot;1339874308&quot;,&quot;focal_length&quot;:&quot;3.55&quot;,&quot;iso&quot;:&quot;200&quot;,&quot;shutter_speed&quot;:&quot;1/0&quot;,&quot;orientation&quot;:&quot;1&quot;}" data-image-title="dolap" data-image-description="&lt;p&gt;dolap_lake_modern_eski_gri&lt;br /&gt;
+hall cupboard_lak_old_gray&lt;/p&gt;
+" data-image-caption="&lt;p&gt;Salon dolabı &amp;#8211; 1989&lt;/p&gt;
+" data-large-file="../../../../media/2017/05/dolap.jpg" class="alignnone size-full wp-image-166" src="../../../../media/2017/05/dolap.jpg" alt="dolap" width="1000" height="723" /><p id="caption-attachment-166" class="wp-caption-text">Salon dolabı &#8211; 1989</p></div></p>
+<h5>9.Bölüm</h5>
+<p><a href="https://en.wikipedia.org/wiki/Personal_computer" target="_blank" rel="noopener">PC</a> siyah ekran ve yanıp sönen <a href="http://bidb.itu.edu.tr/seyirdefteri/blog/2013/09/07/i-mle%C3%A7-(cursor)-kullan%C4%B1m%C4%B1" target="_blank" rel="noopener">cursor</a> denen imleç. Program başlatmak bile mesele. Hiç alışık olmadığım ve henüz bilmediğim, ezberden yazarak birşeyler yapabildiğim bir alem&#8230;</p>
+<p>Adını <a href="http://www.atarimuseum.com/computers/8bits/xl/800xl/800xl.htm" target="_blank" rel="noopener">Atari</a> 800XL kullanırken duyduğum ama ilk defa gördüğüm <a href="https://www.autodesk.com.tr/products/autocad/overview" target="_blank" rel="noopener">Autocad</a> denilen programla nihayet tanıştım. Birşeyler çizmeye başladım. Öğrendiklerimi hemen ofis arkadaşlarıma da dilim döndüğünce anlatıyordum&#8230;</p>
+<p>Meğer bilgisayarımızda <a href="https://winworldpc.com/product/3d-studio/4" target="_blank" rel="noopener">3dstudio</a> diye bir program daha yüklemişler. Hemen heyecanla programı çalıştırıp birşeyler yapmaya çalıştım ama hiç te beklediğim gibi kolay bir program değildi. Üç hafta kadar programla sabah akşam boğuştum. Programı tanıdıkça PC de tam aradığım program olduğunu anladım. Amiga&#8217;daki <a href="https://youtu.be/WslSzQydnNs" target="_blank" rel="noopener noreferrer">imagine 3D</a> programından daha verimli olabilecek bir programdı.</p>
+<p>Gündüz iş yerinde PC 3dstudio, akşam evde Amiga İmagine sürekli testler yapıp birbirlerine olan üstünlüklerini test ediyordum. Sonunda bir tane de eve HP 486 dx2-50 PC aldım. Beni en çok şaşırtan 120 MB lık <a href="http://www.nedir.com/harddisk" target="_blank" rel="noopener">harddisk</a> kapasitesi olmuştu. Nasıl bir kapasite bu. Ne yaparım bu kadar çok, ne çizebilirim ki. Her halde ömrümün sonuna kadar bu bilgisayar bana yeter diyordum&#8230;</p>
+<p><div data-shortcode="caption" id="attachment_231" style="width: 1010px" class="wp-caption alignnone"><img aria-describedby="caption-attachment-231" loading="lazy" data-attachment-id="231" data-permalink="../../../../2017/06/13/programcilik/kipi-sacak/" data-orig-file="../../../../media/2017/06/kipi-sac3a7ak.jpg" data-orig-size="1000,656" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;2.6&quot;,&quot;camera&quot;:&quot;GT-S5830&quot;,&quot;created_timestamp&quot;:&quot;1459613842&quot;,&quot;focal_length&quot;:&quot;3.55&quot;,&quot;iso&quot;:&quot;50&quot;,&quot;shutter_speed&quot;:&quot;1/0&quot;,&quot;orientation&quot;:&quot;1&quot;}" data-image-title="kipi saçak" data-image-description="" data-image-caption="" data-large-file="../../../../media/2017/06/kipi-sac3a7ak.jpg" class="alignnone size-full wp-image-231" src="../../../../media/2017/06/kipi-sac3a7ak.jpg" alt="kipi saçak" width="1000" height="656" /><p id="caption-attachment-231" class="wp-caption-text">Kirpi saçak &#8211; Üsküdar / İstanbul- 2016</p></div></p>
+<h5>10.Bölüm</h5>
+<p>Programcılık maceram PC ye geçikten sonra da devam etti. <a href="https://en.wikipedia.org/wiki/QBasic" target="_blank" rel="noopener">QBasic</a> ile tanıştım ve PC nin o karanlık yüzünün arkasında neler olduğunu yavaş yavaş anlamaya başladım. Amiga dünyasında <a href="https://en.wikipedia.org/wiki/BASIC" target="_blank" rel="noopener">Basic</a> ile yaptıklarımın hemen hemen hepsini QBasic ile PC de yapmaya başladım. Programcılık sevdam hala devam ediyor ama daha güncel programlarla&#8230;</p>
+<p><div data-shortcode="caption" id="attachment_930" style="width: 1010px" class="wp-caption alignnone"><img aria-describedby="caption-attachment-930" loading="lazy" data-attachment-id="930" data-permalink="../../../../2017/06/13/programcilik/commodore-64-atari_drive/" data-orig-file="../../../../media/2017/06/commodore-64-atari_drive.jpg" data-orig-size="1000,440" data-comments-opened="1" data-image-meta="{&quot;orientation&quot;:&quot;1&quot;}" data-image-title="commodore-64-Atari_drive" data-image-description="" data-image-caption="" data-large-file="../../../../media/2017/06/commodore-64-atari_drive.jpg" class="alignnone size-full wp-image-930" src="../../../../media/2017/06/commodore-64-atari_drive.jpg" alt="commodore-64-Atari_drive" width="1000" height="440" /><p id="caption-attachment-930" class="wp-caption-text">Kaset kayıt-okuyucu C64 ve 5 çeyrek disk drive Atari&#8230;</p></div></p>
+<h5>11.Bölüm</h5>
+<ul>
+<li><strong><a href="../../../../2017/07/06/processing-maceram/" target="_blank" rel="noopener">Processing</a></strong> &#8211; Zamanımızın bana göre en kolay uygulanan programı şimdilik bu 🙂 Şahsi fikrim, ileriki yıllarda da çok daha popüler ve aranılan bir dil olacak&#8230;</li>
+<li><a href="http://appinventor.mit.edu/explore/" target="_blank" rel="noopener"><strong>MIT App Inventor</strong> </a>&#8211; Cep telefonları için aplikasyon yazabileceğiniz <a href="../../../../2017/07/07/lamba3d-yazilim/" target="_blank" rel="noopener">basit ama güçlü</a> bir program</li>
+<li><strong><a href="https://www.arduino.cc/en/Main/Software" target="_blank" rel="noopener">Arduino IDE</a></strong> &#8211; Arduino elektronik kartlarının <a href="../../../../2017/07/07/lamba3d-yazilim/" target="_blank" rel="noopener">programlanabilmesi</a> ve PC ile beraber kullanılabilmesi için geliştirilmiş bir program</li>
+<li><strong>Visual Basic</strong> &#8211; QBasic dilinin gelişmiş versiyonu diyebiliriz.</li>
+<li><strong>Prolog</strong> &#8211; Yapay zeka üzerine yapılmış kullanışlı bir program.</li>
+<li><strong>Autocad14  Lisp</strong> &#8211; Autocad çizim programında çalışacak yardımcı programlar yapmaya yarayan dil.</li>
+<li><strong>3dsmax2011 Script</strong> &#8211; 3dsmax çizim programında çalışacak yardımcı programlar yapmaya yarayan dil.</li>
+</ul>
+<h5>12.Bölüm</h5>
+<p>2000 yılında Autocad r14 programında çalışacak bir Lisp yazmıştım.Daha önceleri Basic dilinde basit programlar yazabiliyordum.</p>
+<p>&#8230;.devam edecek.</p>
+</div>
+<div class="tags"><span>Etiketler:</span> <a href="../../../../etiket/amiga/">amiga</a>, <a href="../../../../etiket/atari/">atari</a>, <a href="../../../../etiket/autolisp/">autolisp</a>, <a href="../../../../etiket/basic/">basic</a>, <a href="../../../../etiket/dos/">dos</a>, <a href="../../../../etiket/fortran/">fortran</a>, <a href="../../../../etiket/maxscript/">maxscript</a>, <a href="../../../../etiket/workbench/">workbench</a></div>
+<p class="orig">İlk yayın: <a href="https://pointpointblog.wordpress.com/2017/06/13/programcilik/">https://pointpointblog.wordpress.com/2017/06/13/programcilik/</a></p>
+</article>
+
+<nav class="pn"><a class="prev" href="../../../../2017/05/04/tablolarim/"><span>Önceki yazı</span>Resim maceralarım…</a><a class="next" href="../../../../2017/06/17/lamba3d/"><span>Sonraki yazı</span>Lamba3D</a></nav>
+</main>
+<footer class="foot"><div class="wrap"><span>© Ahmet Çandöken</span><span>Bu yazılar 2017–2026 arasında <a href="https://pointpointblog.wordpress.com/">pointpointblog.wordpress.com</a> adresinde yayımlandı.</span></div></footer>
+</body>
+</html>

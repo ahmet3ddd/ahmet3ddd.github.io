@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://ahmetoff.com/sitemap.xml
+Sitemap: https://ahmetoff.com/blog/sitemap.xml

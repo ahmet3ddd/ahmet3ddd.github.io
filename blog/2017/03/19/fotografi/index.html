@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Foto Hayat · everything is in one place</title>
+<meta name="description" content="Fotoğrafla yazmak…">
+<meta name="author" content="Ahmet Çandöken">
+<link rel="canonical" href="https://ahmetoff.com/blog/2017/03/19/fotografi/">
+<meta property="og:title" content="Foto Hayat · everything is in one place">
+<meta property="og:description" content="Fotoğrafla yazmak…">
+<meta property="og:type" content="article">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="everything is in one place" href="/blog/feed.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&display=swap">
+<style>/* Blog: ahmetoff.com ile aynı renk ailesi; okuma için serif gövde, arayüz için Onest */
+:root{--bg:#fff;--surface:#f2f5f6;--ink:#1a1d21;--soft:#5c6670;--line:#dde3e6;--accent:#0b8a8a;--accent-soft:#e2f3f2;
+ --ui:"Onest",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;--read:"Literata",Georgia,"Times New Roman",serif;color-scheme:light}
+@media (prefers-color-scheme:dark){:root{--bg:#0f1316;--surface:#171d21;--ink:#eef2f4;--soft:#9aa6ae;--line:#28323a;--accent:#3cc4bf;--accent-soft:#13302f;color-scheme:dark}}
+*{box-sizing:border-box}
+html{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.65 var(--ui);-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-underline-offset:3px}
+img{max-width:100%;height:auto}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+/* üst çubuk */
+.bar{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 85%,transparent);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.bar-in{max-width:1080px;margin:0 auto;display:flex;align-items:center;gap:16px;padding:10px max(20px,env(safe-area-inset-right,0px)) 10px max(20px,env(safe-area-inset-left,0px))}
+.home{display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--ink);font-weight:600;font-size:15px}
+.blogname{color:var(--soft);text-decoration:none;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.blogname:hover{color:var(--accent)}
+.bar nav{margin-left:auto;display:flex;gap:14px;font-size:15px}
+.bar nav a{color:var(--ink);text-decoration:none}
+.bar nav a:hover{color:var(--accent)}
+/* ana liste */
+.hero{padding:56px 0 20px;max-width:760px}
+.hero h1{font-size:clamp(38px,6vw,64px);line-height:1.02;letter-spacing:-.03em;margin:0;font-weight:700;text-wrap:balance}
+.hero .desc{margin:8px 0 0;color:var(--soft);font-size:18px}
+.hero.small .desc{margin:0 0 6px;font-size:15px}
+.hero .intro{margin:16px 0 0;color:var(--soft)}
+.cats{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:999px;background:var(--surface);color:var(--ink);text-decoration:none;font-size:14px}
+.chip small{color:var(--soft)}
+.chip:hover{background:var(--accent-soft);color:var(--accent)}
+.yr{font-size:15px;color:var(--soft);font-weight:600;margin:40px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.card{display:flex;flex-direction:column;border-radius:16px;background:var(--surface);overflow:hidden;text-decoration:none;color:var(--ink);min-width:0}
+.card img,.card .noimg{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;background:var(--line)}
+.card .ct{display:flex;flex-direction:column;gap:6px;padding:14px 16px 18px}
+.card .meta{font-size:13px;color:var(--soft)}
+.card b{font-size:19px;line-height:1.3;letter-spacing:-.01em}
+.card .ex{font-size:15px;color:var(--soft);line-height:1.5}
+.card:hover b{color:var(--accent)}
+/* yazı */
+.post{max-width:740px;margin:0 auto;padding:40px 0 8px}
+.ph .meta{display:flex;flex-wrap:wrap;align-items:center;gap:8px;color:var(--soft);font-size:15px}
+.ph h1{font-size:clamp(32px,5vw,48px);line-height:1.1;letter-spacing:-.025em;margin:12px 0 28px;text-wrap:balance}
+.entry{font-family:var(--read);font-size:19px;line-height:1.75;overflow-wrap:break-word}
+.entry p{margin:0 0 1.1em}
+.entry h1,.entry h2,.entry h3,.entry h4,.entry h5,.entry h6{font-family:var(--ui);line-height:1.25;margin:1.8em 0 .6em;letter-spacing:-.01em}
+.entry h5{font-size:18px}.entry h6{font-size:16px}
+.entry ul,.entry ol{padding-left:1.3em;margin:0 0 1.1em}
+.entry figure{margin:1.6em 0}
+.entry img{border-radius:6px}
+.entry .wp-caption{max-width:100%!important;width:auto!important;margin:1.6em 0}
+.entry .wp-caption-text,.entry figcaption{font-family:var(--ui);font-size:14px;color:var(--soft);margin-top:6px;text-align:center}
+.entry .aligncenter{display:block;margin-left:auto;margin-right:auto}
+.entry .alignleft{float:left;margin:0 1.2em 1em 0;max-width:50%}
+.entry .alignright{float:right;margin:0 0 1em 1.2em;max-width:50%}
+.entry .has-text-align-center{text-align:center}
+.entry hr{border:0;border-top:1px solid var(--line);margin:2em 0}
+.entry iframe{max-width:100%;border:0;border-radius:8px}
+.entry::after{content:"";display:block;clear:both}
+/* galeriler (WordPress/Jetpack) */
+.entry .wp-block-gallery,.entry .blocks-gallery-grid{display:flex;flex-wrap:wrap;gap:8px;padding:0;list-style:none;margin:1.6em 0}
+.entry .wp-block-gallery>figure,.entry .blocks-gallery-item{flex:1 1 calc(33.33% - 8px);margin:0;position:relative}
+.entry .wp-block-gallery.columns-2>figure,.entry .columns-2 .blocks-gallery-item{flex-basis:calc(50% - 8px)}
+.entry .wp-block-gallery img,.entry .blocks-gallery-item img{width:100%;height:100%;object-fit:cover;display:block}
+.entry .tiled-gallery__gallery{margin:1.6em 0}
+.entry .tiled-gallery__row{display:flex;gap:6px;margin-bottom:6px}
+.entry .tiled-gallery__col{display:flex;flex-direction:column;gap:6px}
+.entry .tiled-gallery__item{margin:0}
+.entry .tiled-gallery__item img{display:block;width:100%;height:auto;border-radius:4px}
+.entry .tiled-gallery{margin:1.6em 0}
+.entry .tiled-gallery .gallery-row{display:flex;gap:6px;width:100%!important;height:auto!important;margin-bottom:6px}
+.entry .tiled-gallery .gallery-group{display:flex;flex-direction:column;gap:6px;flex:1;width:auto!important;height:auto!important}
+.entry .tiled-gallery .tiled-gallery-item{margin:0;width:auto!important;height:auto!important}
+.entry .tiled-gallery .tiled-gallery-item img{display:block;width:100%!important;height:auto!important;border-radius:4px}
+.entry .tiled-gallery-caption{font-family:var(--ui);font-size:13px;color:var(--soft);padding:4px 2px}
+.entry meta{display:none}
+.tags{font-size:14px;color:var(--soft);margin:28px 0 0}
+.tags span{font-weight:600}
+.orig{font-size:13.5px;color:var(--soft);margin:18px 0 0;overflow-wrap:anywhere}
+/* yorumlar */
+.comments{max-width:740px;margin:44px auto 0;padding-top:24px;border-top:1px solid var(--line)}
+.comments h2{font-size:22px;margin:0 0 4px}
+.comments .note{color:var(--soft);font-size:14px;margin:0 0 18px}
+.comments ol{list-style:none;padding:0;margin:0;display:grid;gap:12px}
+.comments ol ol{margin:12px 0 0 20px}
+.cmt{background:var(--surface);border-radius:14px;padding:14px 16px}
+.cmt-h{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;font-size:15px}
+.cmt-h time{color:var(--soft);font-size:13px}
+.cmt-b{font-size:16px}
+.cmt-b p{margin:.4em 0}
+/* önceki / sonraki */
+.pn{max-width:740px;margin:44px auto 0;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.pn a{display:flex;flex-direction:column;gap:4px;padding:14px 16px;border-radius:14px;background:var(--surface);text-decoration:none;color:var(--ink);font-weight:600;line-height:1.3}
+.pn a span{font-weight:400;font-size:13px;color:var(--soft)}
+.pn .next{text-align:right}
+.pn a:hover{background:var(--accent-soft)}
+.foot{margin-top:64px;border-top:1px solid var(--line);padding:18px 0 28px;font-size:13.5px;color:var(--soft)}
+.foot .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+@media (max-width:640px){
+  body{font-size:16px}
+  .entry{font-size:17.5px}
+  .blogname{display:none}
+  .pn{grid-template-columns:1fr}
+  .pn .next{text-align:left}
+  .entry .tiled-gallery__row,.entry .tiled-gallery .gallery-row{flex-direction:column}
+  .entry .tiled-gallery__col{flex-basis:auto!important}
+  .entry .alignleft,.entry .alignright{float:none;max-width:100%;margin:1em 0}
+}
+</style>
+
+</head>
+<body>
+<header class="bar"><div class="bar-in">
+<a class="home" href="/" aria-label="ahmetoff.com ana sayfa"><img src="/favicon.svg" width="22" height="22" alt=""><span>ahmetoff</span></a>
+<a class="blogname" href="../../../../">everything is in one place</a>
+<nav><a href="../../../../kim/">Kim</a><a href="../../../../iletisim/">İletişim</a></nav>
+</div></header>
+<main class="wrap">
+<article class="post">
+<header class="ph"><div class="meta"><time datetime="2017-03-19">19 Mart 2017</time><a class="chip" href="../../../../kategori/foto/">Foto</a></div>
+<h1>Foto Hayat</h1></header>
+<div class="entry"><p>Herşey duruyorken nasıl oluyor da hareketli algılıyoruz. Sanıyorum MERAK&#8230;</p>
+<p>Haydi başlayalım&#8230;</p>
+<p>Bahçedeki <a href="https://en.wikipedia.org/wiki/Yucca" target="_blank" rel="noopener">yukka</a> saksının içinde davetsiz ama çok sevimli yoncaları sabah işe giderken ve akşam eve geldiğimde gözümün ucuyla yıllardır izlerim. Yapraklarını bazen kapalı bazen açık görüp kendimce hayret edip bir mana çıkarmaya çalışıyordum&#8230;</p>
+<p><a href="https://en.wikipedia.org/wiki/Time-lapse_photography" target="_blank" rel="noopener">Time lapse</a> ilk denemem <a href="https://youtu.be/lLy0nvIoJIA" target="_blank" rel="noopener">&#8220;Günaydın Yonca&#8221;</a></p>
+<p><div data-shortcode="caption" id="attachment_346" style="width: 1010px" class="wp-caption alignnone"><img aria-describedby="caption-attachment-346" loading="lazy" data-attachment-id="346" data-permalink="../../../../2017/03/19/fotografi/yonca_time_lapse/" data-orig-file="../../../../media/2017/03/yonca_time_lapse.jpg" data-orig-size="1000,600" data-comments-opened="1" data-image-meta="{&quot;orientation&quot;:&quot;1&quot;}" data-image-title="yonca_time_lapse" data-image-description="" data-image-caption="&lt;p&gt;Yoncanın yapraklarının akşam kapandığını sabah açıldığını nihayet kayıt altına alabildim :) https:/youtu.be/u8SB2G5c3r8&lt;/p&gt;
+" data-large-file="../../../../media/2017/03/yonca_time_lapse.jpg" class="alignnone size-full wp-image-346" src="../../../../media/2017/03/yonca_time_lapse.jpg" alt="yonca_time_lapse" width="1000" height="600" /><p id="caption-attachment-346" class="wp-caption-text">Yoncanın yapraklarının akşam kapandığını sabah açıldığını nihayet kayıt altına alabildim 🙂    <a href="https://youtu.be/lLy0nvIoJIA" target="_blank" rel="noopener">https://youtu.be/lLy0nvIoJIA</a></p></div></p>
+<p>HTC one m7 Cep telefonuyla, 1saat 20 dakika ve saniyede 1 kare çekim, ayrıca AdobePremiere&#8217; de 10 kat hızlandırıldı.</p>
+<p>Fotoğrafçılıkta time lapse tekniğini duyduğum günden beri ben de şu işle bir uğraşsam derdim. Nihayet kalktım ve yaptım&#8230;</p>
+<p>Bu iş için temelde üç şey lazım;</p>
+<p>1- Cep telefonu &#8211; hepimizde olan bir cihaz, içinde yok yok&#8230;</p>
+<p>2- Time lapse dediğimiz teknikte çekim yapabilmemiz için bir aplikasyon&#8230;</p>
+<p>3- Sabır &#8230; &#8211; Hepimizde olmayabilir, ama bu iş için çok ta sorun değil. Kayıt başladıktan sonra yaptığımız işi unutup başka işlere dalabiliriz. Tabi ki telefonsuz 🙂</p>
+<p>Evimin penceresinden yaptığım ilk kayıt  <a href="https://youtu.be/dJVhtf-Qz1k" target="_blank" rel="noopener">&#8220;Güneş Saati&#8221;</a></p>
+<p><div data-shortcode="caption" id="attachment_348" style="width: 1010px" class="wp-caption alignnone"><img aria-describedby="caption-attachment-348" loading="lazy" data-attachment-id="348" data-permalink="../../../../2017/03/19/fotografi/mywindow_time_lapse/" data-orig-file="../../../../media/2017/03/mywindow_time_lapse.jpg" data-orig-size="1000,500" data-comments-opened="1" data-image-meta="{&quot;orientation&quot;:&quot;1&quot;}" data-image-title="MyWindow_time_lapse" data-image-description="" data-image-caption="" data-large-file="../../../../media/2017/03/mywindow_time_lapse.jpg" class="alignnone size-full wp-image-348" src="../../../../media/2017/03/mywindow_time_lapse.jpg" alt="MyWindow_time_lapse" width="1000" height="500" /><p id="caption-attachment-348" class="wp-caption-text">Vakit nasıl da geçiyor&#8230;     <a href="https://youtu.be/dJVhtf-Qz1k" target="_blank" rel="noopener">https://youtu.be/NFPiJxdqM8Q</a></p></div></p>
+<p>HTC one M7 cep telefonumla 45 dakika ve 12 saniyede 1 kare olarak yaptığım çekimle evimin penceresinden gelen geçeni izleyebildiğim gibi zamanın da geçişini izleyebiliyorum&#8230; Yaşasınnnn&#8230;</p>
+<p><a href="http://www.photographyblog.com/reviews/olympus_vr_310_review/" target="_blank" rel="noopener">Olympus VR310</a> fotoğraf makinasıyla yaptığım çalışmalara da yer vermeye çalışacağım.</p>
+<p>Bu grup çalışmada fotoğrafların herbirine ayrı ayrı Photoshop, level uyguladım.</p>
+<p><div class="tiled-gallery type-rectangular tiled-gallery-unresized" data-original-width="500" data-carousel-extra='{&quot;blog_id&quot;:125954656,&quot;permalink&quot;:&quot;https:\/\/pointpointblog.wordpress.com\/2017\/03\/19\/fotografi\/&quot;,&quot;likes_blog_id&quot;:125954656}' itemscope itemtype="http://schema.org/ImageGallery" > <div class="gallery-row" style="width: 500px; height: 151px;" data-original-width="500" data-original-height="151" > <div class="gallery-group images-1" style="width: 200px; height: 151px;" data-original-width="200" data-original-height="151" > <div class="tiled-gallery-item tiled-gallery-item-small" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject"> <a href="../../../../media/2017/03/gc3bcnaydc4b1n-avrupa.jpg" border="0" itemprop="url"> <meta itemprop="width" content="196"> <meta itemprop="height" content="147"> <img class="" data-attachment-id="937" data-orig-file="../../../../media/2017/03/gc3bcnaydc4b1n-avrupa.jpg" data-orig-size="4138,3103" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;5.7&quot;,&quot;camera&quot;:&quot;VR310,D720&quot;,&quot;caption&quot;:&quot;OLYMPUS DIGITAL CAMERA&quot;,&quot;created_timestamp&quot;:&quot;-62169984000&quot;,&quot;focal_length&quot;:&quot;42.54&quot;,&quot;iso&quot;:&quot;250&quot;,&quot;shutter_speed&quot;:&quot;0.002&quot;,&quot;title&quot;:&quot;OLYMPUS DIGITAL CAMERA&quot;,&quot;orientation&quot;:&quot;1&quot;}" data-image-title="OLYMPUS DIGITAL CAMERA" data-image-description="" data-medium-file="../../../../media/2017/03/gc3bcnaydc4b1n-avrupa.jpg" data-large-file="../../../../media/2017/03/gc3bcnaydc4b1n-avrupa.jpg" src="../../../../m/2017/03/gc3bcnaydc4b1n-avrupa.jpg" width="196" height="147" loading="lazy" data-original-width="196" data-original-height="147" itemprop="http://schema.org/image" title="OLYMPUS DIGITAL CAMERA" alt="günaydın Ayasofya günaydın Sultanahmet" style="width: 196px; height: 147px;" /> </a> <div class="tiled-gallery-caption" itemprop="caption description"> günaydın Ayasofya günaydın Sultanahmet </div> </div> </div> <!-- close group --> <div class="gallery-group images-1" style="width: 300px; height: 151px;" data-original-width="300" data-original-height="151" > <div class="tiled-gallery-item tiled-gallery-item-large" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject"> <a href="../../../../media/2017/03/gc3bcnaydc4b1n.jpg" border="0" itemprop="url"> <meta itemprop="width" content="296"> <meta itemprop="height" content="147"> <img class="" data-attachment-id="938" data-orig-file="../../../../media/2017/03/gc3bcnaydc4b1n.jpg" data-orig-size="4156,2064" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;5.7&quot;,&quot;camera&quot;:&quot;VR310,D720&quot;,&quot;caption&quot;:&quot;OLYMPUS DIGITAL CAMERA&quot;,&quot;created_timestamp&quot;:&quot;-62169984000&quot;,&quot;focal_length&quot;:&quot;42.54&quot;,&quot;iso&quot;:&quot;125&quot;,&quot;shutter_speed&quot;:&quot;0.002&quot;,&quot;title&quot;:&quot;OLYMPUS DIGITAL CAMERA&quot;,&quot;orientation&quot;:&quot;1&quot;}" data-image-title="OLYMPUS DIGITAL CAMERA" data-image-description="" data-medium-file="../../../../media/2017/03/gc3bcnaydc4b1n.jpg" data-large-file="../../../../media/2017/03/gc3bcnaydc4b1n.jpg" src="../../../../m/2017/03/gc3bcnaydc4b1n.jpg" width="296" height="147" loading="lazy" data-original-width="296" data-original-height="147" itemprop="http://schema.org/image" title="OLYMPUS DIGITAL CAMERA" alt="günaydın arkadaşlar" style="width: 296px; height: 147px;" /> </a> <div class="tiled-gallery-caption" itemprop="caption description"> günaydın arkadaşlar </div> </div> </div> <!-- close group --> </div> <!-- close row --> <div class="gallery-row" style="width: 500px; height: 228px;" data-original-width="500" data-original-height="228" > <div class="gallery-group images-1" style="width: 328px; height: 228px;" data-original-width="328" data-original-height="228" > <div class="tiled-gallery-item tiled-gallery-item-large" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject"> <a href="../../../../media/2017/03/istanbulu-dinliyorum.jpg" border="0" itemprop="url"> <meta itemprop="width" content="324"> <meta itemprop="height" content="224"> <img class="" data-attachment-id="939" data-orig-file="../../../../media/2017/03/istanbulu-dinliyorum.jpg" data-orig-size="4220,2916" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;5.7&quot;,&quot;camera&quot;:&quot;VR310,D720&quot;,&quot;caption&quot;:&quot;OLYMPUS DIGITAL CAMERA&quot;,&quot;created_timestamp&quot;:&quot;-62169984000&quot;,&quot;focal_length&quot;:&quot;42.54&quot;,&quot;iso&quot;:&quot;200&quot;,&quot;shutter_speed&quot;:&quot;0.002&quot;,&quot;title&quot;:&quot;OLYMPUS DIGITAL CAMERA&quot;,&quot;orientation&quot;:&quot;1&quot;}" data-image-title="OLYMPUS DIGITAL CAMERA" data-image-description="" data-medium-file="../../../../media/2017/03/istanbulu-dinliyorum.jpg" data-large-file="../../../../media/2017/03/istanbulu-dinliyorum.jpg" src="../../../../m/2017/03/istanbulu-dinliyorum.jpg" width="324" height="224" loading="lazy" data-original-width="324" data-original-height="224" itemprop="http://schema.org/image" title="OLYMPUS DIGITAL CAMERA" alt="İstanbul&#039;u dinliyorum..." style="width: 324px; height: 224px;" /> </a> <div class="tiled-gallery-caption" itemprop="caption description"> İstanbul&#8217;u dinliyorum&#8230; </div> </div> </div> <!-- close group --> <div class="gallery-group images-1" style="width: 172px; height: 228px;" data-original-width="172" data-original-height="228" > <div class="tiled-gallery-item tiled-gallery-item-small" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject"> <a href="../../../../media/2017/03/sandal-sandal.jpg" border="0" itemprop="url"> <meta itemprop="width" content="168"> <meta itemprop="height" content="224"> <img class="" data-attachment-id="940" data-orig-file="../../../../media/2017/03/sandal-sandal.jpg" data-orig-size="3216,4288" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;5.7&quot;,&quot;camera&quot;:&quot;VR310,D720&quot;,&quot;caption&quot;:&quot;OLYMPUS DIGITAL CAMERA&quot;,&quot;created_timestamp&quot;:&quot;-62169984000&quot;,&quot;focal_length&quot;:&quot;42.54&quot;,&quot;iso&quot;:&quot;800&quot;,&quot;shutter_speed&quot;:&quot;0.00625&quot;,&quot;title&quot;:&quot;OLYMPUS DIGITAL CAMERA&quot;,&quot;orientation&quot;:&quot;1&quot;}" data-image-title="OLYMPUS DIGITAL CAMERA" data-image-description="" data-medium-file="../../../../media/2017/03/sandal-sandal.jpg" data-large-file="../../../../media/2017/03/sandal-sandal.jpg" src="../../../../m/2017/03/sandal-sandal.jpg" width="168" height="224" loading="lazy" data-original-width="168" data-original-height="224" itemprop="http://schema.org/image" title="OLYMPUS DIGITAL CAMERA" alt="sandal-sandal" style="width: 168px; height: 224px;" /> </a> <div class="tiled-gallery-caption" itemprop="caption description"> sandal-sandal </div> </div> </div> <!-- close group --> </div> <!-- close row --> <div class="gallery-row" style="width: 500px; height: 1476px;" data-original-width="500" data-original-height="1476" > <div class="gallery-group images-1" style="width: 500px; height: 1476px;" data-original-width="500" data-original-height="1476" > <div class="tiled-gallery-item tiled-gallery-item-large" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject"> <a href="../../../../media/2017/03/sonra.jpg" border="0" itemprop="url"> <meta itemprop="width" content="496"> <meta itemprop="height" content="1472"> <img class="" data-attachment-id="941" data-orig-file="../../../../media/2017/03/sonra.jpg" data-orig-size="1084,3216" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;5.7&quot;,&quot;camera&quot;:&quot;VR310,D720&quot;,&quot;caption&quot;:&quot;OLYMPUS DIGITAL CAMERA&quot;,&quot;created_timestamp&quot;:&quot;-62169984000&quot;,&quot;focal_length&quot;:&quot;42.54&quot;,&quot;iso&quot;:&quot;250&quot;,&quot;shutter_speed&quot;:&quot;0.002&quot;,&quot;title&quot;:&quot;OLYMPUS DIGITAL CAMERA&quot;,&quot;orientation&quot;:&quot;1&quot;}" data-image-title="OLYMPUS DIGITAL CAMERA" data-image-description="" data-medium-file="../../../../media/2017/03/sonra.jpg" data-large-file="../../../../media/2017/03/sonra.jpg" src="../../../../m/2017/03/sonra.jpg" width="496" height="1472" loading="lazy" data-original-width="496" data-original-height="1472" itemprop="http://schema.org/image" title="OLYMPUS DIGITAL CAMERA" alt="birazdan..." style="width: 496px; height: 1472px;" /> </a> <div class="tiled-gallery-caption" itemprop="caption description"> birazdan&#8230; </div> </div> </div> <!-- close group --> </div> <!-- close row --> </div></p>
+<p>1981 senesinde yaptığım Nusretiye Camii karakalem çalışması ve 2017 yılında çektiğim Üsküdar-Beşiktaş boğaz motor hattı <a href="https://en.wikipedia.org/wiki/Time-lapse_photography" target="_blank" rel="noopener">time-lapse</a> videoyu <a href="http://www.adobe.com/products/premiere.html?promoid=PQ7SQBYQ&amp;mv=other" target="_blank" rel="noopener">Adobe Premiere</a>&#8216; de buluşturdum, <a href="https://youtu.be/5O7_kuNJEHs" target="_blank" rel="noopener">bakalım beğenecekmisiniz</a>.</p>
+<p><div data-shortcode="caption" id="attachment_973" style="width: 1010px" class="wp-caption alignnone"><img aria-describedby="caption-attachment-973" loading="lazy" data-attachment-id="973" data-permalink="../../../../2017/03/19/fotografi/istanbul-_hatirasi/" data-orig-file="../../../../media/2017/03/istanbul-_hatc4b1rasc4b11.jpg" data-orig-size="1000,563" data-comments-opened="1" data-image-meta="{&quot;orientation&quot;:&quot;1&quot;}" data-image-title="istanbul _hatırası" data-image-description="" data-image-caption="" data-large-file="../../../../media/2017/03/istanbul-_hatc4b1rasc4b11.jpg" class="alignnone size-full wp-image-973" src="../../../../media/2017/03/istanbul-_hatc4b1rasc4b11.jpg" alt="istanbul _hatırası" width="1000" height="563" /><p id="caption-attachment-973" class="wp-caption-text">karakalem <strong>+</strong> foto <strong>+</strong> time lapse <strong>+</strong> adobe premiere = <a href="https://youtu.be/UGX9NjrATN4" target="_blank" rel="noopener">🙂</a></p></div></p>
+<p>2018 &#8216;in son sabahı Üsküdar&#8217; dan Beşiktaş&#8217; a geçerken HTC M7 telefonumla çektiğim video.  Daha sonra Adobe Premiere ve Adobe Photoshop programları yardımıyla durum böyle oldu. <a href="https://www.youtube.com/watch?v=iccIi2NguJc" target="_blank" rel="noopener">iyi seyirler 🙂</a></p>
+<p><div data-shortcode="caption" id="attachment_1649" style="width: 1930px" class="wp-caption alignnone"><img aria-describedby="caption-attachment-1649" loading="lazy" data-attachment-id="1649" data-permalink="../../../../2017/03/19/fotografi/istanbul_hatirasi2/" data-orig-file="../../../../media/2017/03/istanbul_hatırası2.jpg" data-orig-size="1920,1080" data-comments-opened="1" data-image-meta="{&quot;orientation&quot;:&quot;1&quot;}" data-image-title="istanbul_hatırası2" data-image-description="" data-image-caption="" data-large-file="../../../../media/2017/03/istanbul_hatırası2.jpg" class="alignnone size-full wp-image-1649" src="../../../../m/2017/03/istanbul_hatırası2.jpg" alt="istanbul_hatırası2" width="1920" height="1080" /><p id="caption-attachment-1649" class="wp-caption-text">31-12-2018 sabahı Üsküdar&#8217; dan Beşiktaş&#8217; a geçerken &#8230;</p></div></p>
+<h3>devam edecek&#8230;</h3>
+</div>
+
+<p class="orig">İlk yayın: <a href="https://pointpointblog.wordpress.com/2017/03/19/fotografi/">https://pointpointblog.wordpress.com/2017/03/19/fotografi/</a></p>
+</article>
+<section class="comments"><h2>Yorumlar (3)</h2><p class="note">Yorumlar blogun ilk yayınından arşivlenmiştir; yeni yorum alınmıyor.</p><ol><li class="cmt"><div class="cmt-h"><b>edacandoken</b><time>23 Eylül 2019</time></div><div class="cmt-b"><p>Hepsi birbirinden güzel ağbi 🕵️‍♀️❤</p>
+</div><ol><li class="cmt"><div class="cmt-h"><b>pointpoint3d</b><time>23 Eylül 2019</time></div><div class="cmt-b"><p>😘</p>
+</div></li></ol></li><li class="cmt"><div class="cmt-h"><b>pointpoint3d</b><time>23 Eylül 2019</time></div><div class="cmt-b"><p>Yorumların için çok teşekkür ederim Eda kardeşim 💗</p>
+</div></li></ol></section>
+<nav class="pn"><span></span><a class="next" href="../../../../2017/03/19/dunya-haritam/"><span>Sonraki yazı</span>Haritam</a></nav>
+</main>
+<footer class="foot"><div class="wrap"><span>© Ahmet Çandöken</span><span>Bu yazılar 2017–2026 arasında <a href="https://pointpointblog.wordpress.com/">pointpointblog.wordpress.com</a> adresinde yayımlandı.</span></div></footer>
+</body>
+</html>

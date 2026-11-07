@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MSI Laptop için fiş adaptörü · everything is in one place</title>
+<meta name="description" content="Merhaba, meraklı dostlar. MSI Laptop ‘u evden ofise getirirken adaptörün 220 V fişini yanıma almadım. Gerek yok nasıl olsa ofiste bu fişten istemediğim kadar va">
+<meta name="author" content="Ahmet Çandöken">
+<link rel="canonical" href="https://ahmetoff.com/blog/2019/01/09/msi-laptop-icin-fis-adaptoru/">
+<meta property="og:title" content="MSI Laptop için fiş adaptörü · everything is in one place">
+<meta property="og:description" content="Merhaba, meraklı dostlar. MSI Laptop ‘u evden ofise getirirken adaptörün 220 V fişini yanıma almadım. Gerek yok nasıl olsa ofiste bu fişten istemediğim kadar va">
+<meta property="og:type" content="article">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="everything is in one place" href="/blog/feed.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&display=swap">
+<style>/* Blog: ahmetoff.com ile aynı renk ailesi; okuma için serif gövde, arayüz için Onest */
+:root{--bg:#fff;--surface:#f2f5f6;--ink:#1a1d21;--soft:#5c6670;--line:#dde3e6;--accent:#0b8a8a;--accent-soft:#e2f3f2;
+ --ui:"Onest",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;--read:"Literata",Georgia,"Times New Roman",serif;color-scheme:light}
+@media (prefers-color-scheme:dark){:root{--bg:#0f1316;--surface:#171d21;--ink:#eef2f4;--soft:#9aa6ae;--line:#28323a;--accent:#3cc4bf;--accent-soft:#13302f;color-scheme:dark}}
+*{box-sizing:border-box}
+html{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.65 var(--ui);-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-underline-offset:3px}
+img{max-width:100%;height:auto}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+/* üst çubuk */
+.bar{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 85%,transparent);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.bar-in{max-width:1080px;margin:0 auto;display:flex;align-items:center;gap:16px;padding:10px max(20px,env(safe-area-inset-right,0px)) 10px max(20px,env(safe-area-inset-left,0px))}
+.home{display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--ink);font-weight:600;font-size:15px}
+.blogname{color:var(--soft);text-decoration:none;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.blogname:hover{color:var(--accent)}
+.bar nav{margin-left:auto;display:flex;gap:14px;font-size:15px}
+.bar nav a{color:var(--ink);text-decoration:none}
+.bar nav a:hover{color:var(--accent)}
+/* ana liste */
+.hero{padding:56px 0 20px;max-width:760px}
+.hero h1{font-size:clamp(38px,6vw,64px);line-height:1.02;letter-spacing:-.03em;margin:0;font-weight:700;text-wrap:balance}
+.hero .desc{margin:8px 0 0;color:var(--soft);font-size:18px}
+.hero.small .desc{margin:0 0 6px;font-size:15px}
+.hero .intro{margin:16px 0 0;color:var(--soft)}
+.cats{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:999px;background:var(--surface);color:var(--ink);text-decoration:none;font-size:14px}
+.chip small{color:var(--soft)}
+.chip:hover{background:var(--accent-soft);color:var(--accent)}
+.yr{font-size:15px;color:var(--soft);font-weight:600;margin:40px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.card{display:flex;flex-direction:column;border-radius:16px;background:var(--surface);overflow:hidden;text-decoration:none;color:var(--ink);min-width:0}
+.card img,.card .noimg{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;background:var(--line)}
+.card .ct{display:flex;flex-direction:column;gap:6px;padding:14px 16px 18px}
+.card .meta{font-size:13px;color:var(--soft)}
+.card b{font-size:19px;line-height:1.3;letter-spacing:-.01em}
+.card .ex{font-size:15px;color:var(--soft);line-height:1.5}
+.card:hover b{color:var(--accent)}
+/* yazı */
+.post{max-width:740px;margin:0 auto;padding:40px 0 8px}
+.ph .meta{display:flex;flex-wrap:wrap;align-items:center;gap:8px;color:var(--soft);font-size:15px}
+.ph h1{font-size:clamp(32px,5vw,48px);line-height:1.1;letter-spacing:-.025em;margin:12px 0 28px;text-wrap:balance}
+.entry{font-family:var(--read);font-size:19px;line-height:1.75;overflow-wrap:break-word}
+.entry p{margin:0 0 1.1em}
+.entry h1,.entry h2,.entry h3,.entry h4,.entry h5,.entry h6{font-family:var(--ui);line-height:1.25;margin:1.8em 0 .6em;letter-spacing:-.01em}
+.entry h5{font-size:18px}.entry h6{font-size:16px}
+.entry ul,.entry ol{padding-left:1.3em;margin:0 0 1.1em}
+.entry figure{margin:1.6em 0}
+.entry img{border-radius:6px}
+.entry .wp-caption{max-width:100%!important;width:auto!important;margin:1.6em 0}
+.entry .wp-caption-text,.entry figcaption{font-family:var(--ui);font-size:14px;color:var(--soft);margin-top:6px;text-align:center}
+.entry .aligncenter{display:block;margin-left:auto;margin-right:auto}
+.entry .alignleft{float:left;margin:0 1.2em 1em 0;max-width:50%}
+.entry .alignright{float:right;margin:0 0 1em 1.2em;max-width:50%}
+.entry .has-text-align-center{text-align:center}
+.entry hr{border:0;border-top:1px solid var(--line);margin:2em 0}
+.entry iframe{max-width:100%;border:0;border-radius:8px}
+.entry::after{content:"";display:block;clear:both}
+/* galeriler (WordPress/Jetpack) */
+.entry .wp-block-gallery,.entry .blocks-gallery-grid{display:flex;flex-wrap:wrap;gap:8px;padding:0;list-style:none;margin:1.6em 0}
+.entry .wp-block-gallery>figure,.entry .blocks-gallery-item{flex:1 1 calc(33.33% - 8px);margin:0;position:relative}
+.entry .wp-block-gallery.columns-2>figure,.entry .columns-2 .blocks-gallery-item{flex-basis:calc(50% - 8px)}
+.entry .wp-block-gallery img,.entry .blocks-gallery-item img{width:100%;height:100%;object-fit:cover;display:block}
+.entry .tiled-gallery__gallery{margin:1.6em 0}
+.entry .tiled-gallery__row{display:flex;gap:6px;margin-bottom:6px}
+.entry .tiled-gallery__col{display:flex;flex-direction:column;gap:6px}
+.entry .tiled-gallery__item{margin:0}
+.entry .tiled-gallery__item img{display:block;width:100%;height:auto;border-radius:4px}
+.entry .tiled-gallery{margin:1.6em 0}
+.entry .tiled-gallery .gallery-row{display:flex;gap:6px;width:100%!important;height:auto!important;margin-bottom:6px}
+.entry .tiled-gallery .gallery-group{display:flex;flex-direction:column;gap:6px;flex:1;width:auto!important;height:auto!important}
+.entry .tiled-gallery .tiled-gallery-item{margin:0;width:auto!important;height:auto!important}
+.entry .tiled-gallery .tiled-gallery-item img{display:block;width:100%!important;height:auto!important;border-radius:4px}
+.entry .tiled-gallery-caption{font-family:var(--ui);font-size:13px;color:var(--soft);padding:4px 2px}
+.entry meta{display:none}
+.tags{font-size:14px;color:var(--soft);margin:28px 0 0}
+.tags span{font-weight:600}
+.orig{font-size:13.5px;color:var(--soft);margin:18px 0 0;overflow-wrap:anywhere}
+/* yorumlar */
+.comments{max-width:740px;margin:44px auto 0;padding-top:24px;border-top:1px solid var(--line)}
+.comments h2{font-size:22px;margin:0 0 4px}
+.comments .note{color:var(--soft);font-size:14px;margin:0 0 18px}
+.comments ol{list-style:none;padding:0;margin:0;display:grid;gap:12px}
+.comments ol ol{margin:12px 0 0 20px}
+.cmt{background:var(--surface);border-radius:14px;padding:14px 16px}
+.cmt-h{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;font-size:15px}
+.cmt-h time{color:var(--soft);font-size:13px}
+.cmt-b{font-size:16px}
+.cmt-b p{margin:.4em 0}
+/* önceki / sonraki */
+.pn{max-width:740px;margin:44px auto 0;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.pn a{display:flex;flex-direction:column;gap:4px;padding:14px 16px;border-radius:14px;background:var(--surface);text-decoration:none;color:var(--ink);font-weight:600;line-height:1.3}
+.pn a span{font-weight:400;font-size:13px;color:var(--soft)}
+.pn .next{text-align:right}
+.pn a:hover{background:var(--accent-soft)}
+.foot{margin-top:64px;border-top:1px solid var(--line);padding:18px 0 28px;font-size:13.5px;color:var(--soft)}
+.foot .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+@media (max-width:640px){
+  body{font-size:16px}
+  .entry{font-size:17.5px}
+  .blogname{display:none}
+  .pn{grid-template-columns:1fr}
+  .pn .next{text-align:left}
+  .entry .tiled-gallery__row,.entry .tiled-gallery .gallery-row{flex-direction:column}
+  .entry .tiled-gallery__col{flex-basis:auto!important}
+  .entry .alignleft,.entry .alignright{float:none;max-width:100%;margin:1em 0}
+}
+</style>
+
+</head>
+<body>
+<header class="bar"><div class="bar-in">
+<a class="home" href="/" aria-label="ahmetoff.com ana sayfa"><img src="/favicon.svg" width="22" height="22" alt=""><span>ahmetoff</span></a>
+<a class="blogname" href="../../../../">everything is in one place</a>
+<nav><a href="../../../../kim/">Kim</a><a href="../../../../iletisim/">İletişim</a></nav>
+</div></header>
+<main class="wrap">
+<article class="post">
+<header class="ph"><div class="meta"><time datetime="2019-01-09">9 Ocak 2019</time><a class="chip" href="../../../../kategori/genel/">Genel</a></div>
+<h1>MSI Laptop için fiş adaptörü</h1></header>
+<div class="entry">
+<p class="wp-block-paragraph">Merhaba, meraklı dostlar.</p>
+
+
+
+<p class="wp-block-paragraph">MSI Laptop &#8216;u evden ofise getirirken adaptörün 220 V fişini yanıma almadım. Gerek yok nasıl olsa ofiste bu fişten istemediğim kadar var. Meğerse bir tane bile yokmuş. Yanıma almadığım fiş &#8220;power supply&#8221; fişi gibi değilmiş. Hiç dikkat etmemişim. </p>
+
+
+
+<ul class="wp-block-gallery columns-1 is-cropped wp-block-gallery-6 is-layout-flex wp-block-gallery-is-layout-flex"><li class="blocks-gallery-item"><figure><img loading="lazy" data-attachment-id="1872" data-permalink="../../../../2019/01/09/msi-laptop-icin-fis-adaptoru/apator-ve-fis/" data-orig-file="../../../../media/2019/01/apatör-ve-fiş.jpg" data-orig-size="1784,1053" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;2&quot;,&quot;camera&quot;:&quot;HTC One&quot;,&quot;created_timestamp&quot;:&quot;1541609600&quot;,&quot;focal_length&quot;:&quot;3.63&quot;,&quot;iso&quot;:&quot;250&quot;,&quot;shutter_speed&quot;:&quot;0.049996&quot;,&quot;orientation&quot;:&quot;1&quot;}" data-image-title="apatör ve fiş" data-image-description="" data-image-caption="" data-large-file="../../../../media/2019/01/apatör-ve-fiş.jpg" src="../../../../m/2019/01/apatör-ve-fiş.jpg" data-id="1872" class="wp-image-1872" /></figure></li></ul>
+
+
+
+<p class="wp-block-paragraph">Fiş bulmam lazım. Ama nereden. Çıktım, elektrikçileri dolaştım. Fiş var mı var. Biraz pahallı geldi (20-25 TL / 7-11-2018) Ben bunu 3D printer&#8217; da yaparım dedim.</p>
+
+
+
+<figure class="wp-block-image"><img loading="lazy" data-attachment-id="1876" data-permalink="../../../../2019/01/09/msi-laptop-icin-fis-adaptoru/pluig/" data-orig-file="../../../../media/2019/01/pluıg.jpg" data-orig-size="718,622" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;2&quot;,&quot;camera&quot;:&quot;HTC One&quot;,&quot;created_timestamp&quot;:&quot;1541608245&quot;,&quot;focal_length&quot;:&quot;3.63&quot;,&quot;iso&quot;:&quot;200&quot;,&quot;shutter_speed&quot;:&quot;0.029995&quot;,&quot;orientation&quot;:&quot;1&quot;}" data-image-title="pluıg" data-image-description="" data-image-caption="" data-large-file="../../../../media/2019/01/pluıg.jpg" src="../../../../media/2019/01/pluıg.jpg" alt="" class="wp-image-1876" /></figure>
+
+
+
+<p class="wp-block-paragraph">Ofiste eski  bir &#8220;power supply&#8221;  den söktüğüm giriş var. Bu girişe adaptöre uygun bir aparat tasarlarsam bu iş tamam 🙂 Biraz ölçüm ve çizim mesaisinden sonra 3D printer&#8217; da basmaya hazırım.</p>
+
+
+
+<figure class="wp-block-image"><img loading="lazy" data-attachment-id="1878" data-permalink="../../../../2019/01/09/msi-laptop-icin-fis-adaptoru/plug-screen/" data-orig-file="../../../../media/2019/01/plug-screen.jpg" data-orig-size="1537,813" data-comments-opened="1" data-image-meta="{&quot;orientation&quot;:&quot;1&quot;}" data-image-title="plug-screen" data-image-description="" data-image-caption="" data-large-file="../../../../media/2019/01/plug-screen.jpg" src="../../../../media/2019/01/plug-screen.jpg" alt="" class="wp-image-1878" /><figcaption>Fiş için adaptör <a href="https://drive.google.com/file/d/18UpcdsEsAR0yeQVrO9hlms_3fQ5tITMA/view?usp=sharing https://drive.google.com/file/d/1BXYteLpAg6iDBIJtwq6bwioXgjsf_32j/view?usp=sharing">3D çizimi</a> hazır</figcaption></figure>
+
+
+
+<ul class="wp-block-gallery columns-3 is-cropped wp-block-gallery-7 is-layout-flex wp-block-gallery-is-layout-flex"><li class="blocks-gallery-item"><figure><img loading="lazy" data-attachment-id="1880" data-permalink="../../../../2019/01/09/msi-laptop-icin-fis-adaptoru/msi_power_adapter_10/" data-orig-file="../../../../media/2019/01/msi_power_adapter_10.jpg" data-orig-size="1712,1308" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;2&quot;,&quot;camera&quot;:&quot;HTC One&quot;,&quot;created_timestamp&quot;:&quot;1541608364&quot;,&quot;focal_length&quot;:&quot;3.63&quot;,&quot;iso&quot;:&quot;125&quot;,&quot;shutter_speed&quot;:&quot;0.029995&quot;,&quot;orientation&quot;:&quot;1&quot;}" data-image-title="msi_power_adapter_10" data-image-description="" data-image-caption="" data-large-file="../../../../media/2019/01/msi_power_adapter_10.jpg" src="../../../../m/2019/01/msi_power_adapter_10.jpg" data-id="1880" class="wp-image-1880" /></figure></li><li class="blocks-gallery-item"><figure><img loading="lazy" data-attachment-id="1881" data-permalink="../../../../2019/01/09/msi-laptop-icin-fis-adaptoru/msi_power_adapter_11/" data-orig-file="../../../../media/2019/01/msi_power_adapter_11.jpg" data-orig-size="1884,1374" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;2&quot;,&quot;camera&quot;:&quot;HTC One&quot;,&quot;created_timestamp&quot;:&quot;1541608349&quot;,&quot;focal_length&quot;:&quot;3.63&quot;,&quot;iso&quot;:&quot;250&quot;,&quot;shutter_speed&quot;:&quot;0.029995&quot;,&quot;orientation&quot;:&quot;1&quot;}" data-image-title="msi_power_adapter_11" data-image-description="" data-image-caption="" data-large-file="../../../../media/2019/01/msi_power_adapter_11.jpg" src="../../../../m/2019/01/msi_power_adapter_11.jpg" data-id="1881" class="wp-image-1881" /></figure></li><li class="blocks-gallery-item"><figure><img loading="lazy" data-attachment-id="1882" data-permalink="../../../../2019/01/09/msi-laptop-icin-fis-adaptoru/msi_power_adapter_12/" data-orig-file="../../../../media/2019/01/msi_power_adapter_12.jpg" data-orig-size="1486,1120" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;2&quot;,&quot;camera&quot;:&quot;HTC One&quot;,&quot;created_timestamp&quot;:&quot;1541608327&quot;,&quot;focal_length&quot;:&quot;3.63&quot;,&quot;iso&quot;:&quot;160&quot;,&quot;shutter_speed&quot;:&quot;0.009993&quot;,&quot;orientation&quot;:&quot;1&quot;}" data-image-title="msi_power_adapter_12" data-image-description="" data-image-caption="" data-large-file="../../../../media/2019/01/msi_power_adapter_12.jpg" src="../../../../media/2019/01/msi_power_adapter_12.jpg" data-id="1882" class="wp-image-1882" /></figure></li><li class="blocks-gallery-item"><figure><img loading="lazy" data-attachment-id="1883" data-permalink="../../../../2019/01/09/msi-laptop-icin-fis-adaptoru/msi_power_adapter_13/" data-orig-file="../../../../media/2019/01/msi_power_adapter_13.jpg" data-orig-size="1104,1464" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;2&quot;,&quot;camera&quot;:&quot;HTC One&quot;,&quot;created_timestamp&quot;:&quot;1541608323&quot;,&quot;focal_length&quot;:&quot;3.63&quot;,&quot;iso&quot;:&quot;200&quot;,&quot;shutter_speed&quot;:&quot;0.009993&quot;,&quot;orientation&quot;:&quot;1&quot;}" data-image-title="msi_power_adapter_13" data-image-description="" data-image-caption="" data-large-file="../../../../media/2019/01/msi_power_adapter_13.jpg" src="../../../../media/2019/01/msi_power_adapter_13.jpg" data-id="1883" class="wp-image-1883" /></figure></li><li class="blocks-gallery-item"><figure><img loading="lazy" data-attachment-id="1884" data-permalink="../../../../2019/01/09/msi-laptop-icin-fis-adaptoru/msi_power_adapter_14/" data-orig-file="../../../../media/2019/01/msi_power_adapter_14.jpg" data-orig-size="1036,1472" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;2&quot;,&quot;camera&quot;:&quot;HTC One&quot;,&quot;created_timestamp&quot;:&quot;1541608278&quot;,&quot;focal_length&quot;:&quot;3.63&quot;,&quot;iso&quot;:&quot;125&quot;,&quot;shutter_speed&quot;:&quot;0.020001&quot;,&quot;orientation&quot;:&quot;1&quot;}" data-image-title="msi_power_adapter_14" data-image-description="" data-image-caption="" data-large-file="../../../../media/2019/01/msi_power_adapter_14.jpg" src="../../../../media/2019/01/msi_power_adapter_14.jpg" data-id="1884" class="wp-image-1884" /></figure></li><li class="blocks-gallery-item"><figure><img loading="lazy" data-attachment-id="1885" data-permalink="../../../../2019/01/09/msi-laptop-icin-fis-adaptoru/msi_power_adapter_15/" data-orig-file="../../../../media/2019/01/msi_power_adapter_15.jpg" data-orig-size="950,1460" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;2&quot;,&quot;camera&quot;:&quot;HTC One&quot;,&quot;created_timestamp&quot;:&quot;1541608260&quot;,&quot;focal_length&quot;:&quot;3.63&quot;,&quot;iso&quot;:&quot;125&quot;,&quot;shutter_speed&quot;:&quot;0.020001&quot;,&quot;orientation&quot;:&quot;1&quot;}" data-image-title="msi_power_adapter_15" data-image-description="" data-image-caption="" data-large-file="../../../../media/2019/01/msi_power_adapter_15.jpg" src="../../../../media/2019/01/msi_power_adapter_15.jpg" data-id="1885" class="wp-image-1885" /></figure></li><li class="blocks-gallery-item"><figure><img loading="lazy" data-attachment-id="1886" data-permalink="../../../../2019/01/09/msi-laptop-icin-fis-adaptoru/msi_power_adapter_16/" data-orig-file="../../../../media/2019/01/msi_power_adapter_16.jpg" data-orig-size="852,1448" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;2&quot;,&quot;camera&quot;:&quot;HTC One&quot;,&quot;created_timestamp&quot;:&quot;1541608245&quot;,&quot;focal_length&quot;:&quot;3.63&quot;,&quot;iso&quot;:&quot;200&quot;,&quot;shutter_speed&quot;:&quot;0.029995&quot;,&quot;orientation&quot;:&quot;1&quot;}" data-image-title="msi_power_adapter_16" data-image-description="" data-image-caption="" data-large-file="../../../../media/2019/01/msi_power_adapter_16.jpg" src="../../../../media/2019/01/msi_power_adapter_16.jpg" data-id="1886" class="wp-image-1886" /><figcaption>Baskıdan sonraki durum böyle oldu 🙂</figcaption></figure></li></ul>
+
+
+
+<p class="wp-block-paragraph">Çıkma &#8220;power suply&#8221; pirizinin elektrik bağlantısının MSI adaptörüne temas edebilmesi için, küçük bir lehimlemeden sonra fiş adaptörümüz kullanıma hazır olacak. </p>
+
+
+
+<ul class="wp-block-gallery columns-2 is-cropped wp-block-gallery-8 is-layout-flex wp-block-gallery-is-layout-flex"><li class="blocks-gallery-item"><figure><img loading="lazy" data-attachment-id="1889" data-permalink="../../../../2019/01/09/msi-laptop-icin-fis-adaptoru/msi_power_adapter_18/" data-orig-file="../../../../media/2019/01/msi_power_adapter_18-e1547191278441.jpg" data-orig-size="1458,1586" data-comments-opened="1" data-image-title="msi_power_adapter_18" data-image-description="" data-image-caption="" data-large-file="../../../../media/2019/01/msi_power_adapter_18-e1547191278441.jpg" src="../../../../media/2019/01/msi_power_adapter_18-e1547191278441.jpg" alt="" data-id="1889" class="wp-image-1889" /></figure></li><li class="blocks-gallery-item"><figure><img loading="lazy" data-attachment-id="1890" data-permalink="../../../../2019/01/09/msi-laptop-icin-fis-adaptoru/msi_power_adapter_20/" data-orig-file="../../../../media/2019/01/msi_power_adapter_20.jpg" data-orig-size="1485,1767" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;2&quot;,&quot;camera&quot;:&quot;HTC One&quot;,&quot;created_timestamp&quot;:&quot;1547027086&quot;,&quot;focal_length&quot;:&quot;3.63&quot;,&quot;iso&quot;:&quot;200&quot;,&quot;shutter_speed&quot;:&quot;0.029995&quot;,&quot;orientation&quot;:&quot;1&quot;}" data-image-title="msi_power_adapter_20" data-image-description="" data-image-caption="" data-large-file="../../../../media/2019/01/msi_power_adapter_20.jpg" src="../../../../m/2019/01/msi_power_adapter_20.jpg" data-id="1890" class="wp-image-1890" /></figure></li><li class="blocks-gallery-item"><figure><img loading="lazy" data-attachment-id="1894" data-permalink="../../../../2019/01/09/msi-laptop-icin-fis-adaptoru/msi_power_adapter_21/" data-orig-file="../../../../media/2019/01/msi_power_adapter_21-2.jpg" data-orig-size="2010,1069" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;2&quot;,&quot;camera&quot;:&quot;HTC One&quot;,&quot;created_timestamp&quot;:&quot;1547027135&quot;,&quot;focal_length&quot;:&quot;3.63&quot;,&quot;iso&quot;:&quot;160&quot;,&quot;shutter_speed&quot;:&quot;0.020001&quot;,&quot;orientation&quot;:&quot;1&quot;}" data-image-title="msi_power_adapter_21" data-image-description="" data-image-caption="" data-large-file="../../../../media/2019/01/msi_power_adapter_21-2.jpg" src="../../../../m/2019/01/msi_power_adapter_21-2.jpg" data-id="1894" class="wp-image-1894" /></figure></li></ul>
+
+
+
+<p class="wp-block-paragraph">Power girişini, bastığımız parçanın içine biraz zolayarak da olsa taktıktan sonraki durum 🙂</p>
+
+
+
+<ul class="wp-block-gallery columns-3 is-cropped wp-block-gallery-9 is-layout-flex wp-block-gallery-is-layout-flex"><li class="blocks-gallery-item"><figure><img loading="lazy" width="1024" height="1014" data-attachment-id="1895" data-permalink="../../../../2019/01/09/msi-laptop-icin-fis-adaptoru/msi_power_adapter_17/" data-orig-file="../../../../media/2019/01/msi_power_adapter_17.jpg" data-orig-size="1520,1506" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;2&quot;,&quot;camera&quot;:&quot;HTC One&quot;,&quot;created_timestamp&quot;:&quot;1547026935&quot;,&quot;focal_length&quot;:&quot;3.63&quot;,&quot;iso&quot;:&quot;125&quot;,&quot;shutter_speed&quot;:&quot;0.029995&quot;,&quot;orientation&quot;:&quot;1&quot;}" data-image-title="msi_power_adapter_17" data-image-description="" data-image-caption="" data-large-file="../../../../media/2019/01/msi_power_adapter_17.jpg" src="../../../../media/2019/01/msi_power_adapter_17.jpg" data-id="1895" class="wp-image-1895" /></figure></li><li class="blocks-gallery-item"><figure><img loading="lazy" width="1024" height="936" data-attachment-id="1896" data-permalink="../../../../2019/01/09/msi-laptop-icin-fis-adaptoru/msi_power_adapter_19/" data-orig-file="../../../../media/2019/01/msi_power_adapter_19.jpg" data-orig-size="1509,1380" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;2&quot;,&quot;camera&quot;:&quot;HTC One&quot;,&quot;created_timestamp&quot;:&quot;1547027273&quot;,&quot;focal_length&quot;:&quot;3.63&quot;,&quot;iso&quot;:&quot;125&quot;,&quot;shutter_speed&quot;:&quot;0.029995&quot;,&quot;orientation&quot;:&quot;1&quot;}" data-image-title="msi_power_adapter_19" data-image-description="" data-image-caption="" data-large-file="../../../../media/2019/01/msi_power_adapter_19.jpg" src="../../../../media/2019/01/msi_power_adapter_19.jpg" data-id="1896" class="wp-image-1896" /></figure></li><li class="blocks-gallery-item"><figure><img loading="lazy" width="1013" height="1023" data-attachment-id="1897" data-permalink="../../../../2019/01/09/msi-laptop-icin-fis-adaptoru/msi_power_adapter_22/" data-orig-file="../../../../media/2019/01/msi_power_adapter_22.jpg" data-orig-size="1520,1536" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;2&quot;,&quot;camera&quot;:&quot;HTC One&quot;,&quot;created_timestamp&quot;:&quot;1547027244&quot;,&quot;focal_length&quot;:&quot;3.63&quot;,&quot;iso&quot;:&quot;125&quot;,&quot;shutter_speed&quot;:&quot;0.029995&quot;,&quot;orientation&quot;:&quot;1&quot;}" data-image-title="msi_power_adapter_22" data-image-description="" data-image-caption="" data-large-file="../../../../media/2019/01/msi_power_adapter_22.jpg" src="../../../../media/2019/01/msi_power_adapter_22.jpg" data-id="1897" class="wp-image-1897" /></figure></li></ul>
+
+
+
+<p class="wp-block-paragraph">Şimdi kullanıma hazır. Gerçekten işe yarıyor 🙂 </p>
+
+
+
+<ul class="wp-block-gallery columns-3 is-cropped wp-block-gallery-10 is-layout-flex wp-block-gallery-is-layout-flex"><li class="blocks-gallery-item"><figure><img loading="lazy" width="1024" height="769" data-attachment-id="1903" data-permalink="../../../../2019/01/09/msi-laptop-icin-fis-adaptoru/msi_power_adapter_7/" data-orig-file="../../../../media/2019/01/msi_power_adapter_7.jpg" data-orig-size="1618,1216" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;2&quot;,&quot;camera&quot;:&quot;HTC One&quot;,&quot;created_timestamp&quot;:&quot;1541609583&quot;,&quot;focal_length&quot;:&quot;3.63&quot;,&quot;iso&quot;:&quot;400&quot;,&quot;shutter_speed&quot;:&quot;0.049996&quot;,&quot;orientation&quot;:&quot;1&quot;}" data-image-title="msi_power_adapter_7" data-image-description="" data-image-caption="" data-large-file="../../../../media/2019/01/msi_power_adapter_7.jpg" src="../../../../m/2019/01/msi_power_adapter_7.jpg" data-id="1903" class="wp-image-1903" /></figure></li><li class="blocks-gallery-item"><figure><img loading="lazy" width="1024" height="708" data-attachment-id="1902" data-permalink="../../../../2019/01/09/msi-laptop-icin-fis-adaptoru/msi_power_adapter_6/" data-orig-file="../../../../media/2019/01/msi_power_adapter_6.jpg" data-orig-size="1842,1274" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;2&quot;,&quot;camera&quot;:&quot;HTC One&quot;,&quot;created_timestamp&quot;:&quot;1541609600&quot;,&quot;focal_length&quot;:&quot;3.63&quot;,&quot;iso&quot;:&quot;250&quot;,&quot;shutter_speed&quot;:&quot;0.049996&quot;,&quot;orientation&quot;:&quot;1&quot;}" data-image-title="msi_power_adapter_6" data-image-description="" data-image-caption="" data-large-file="../../../../media/2019/01/msi_power_adapter_6.jpg" src="../../../../m/2019/01/msi_power_adapter_6.jpg" data-id="1902" class="wp-image-1902" /></figure></li><li class="blocks-gallery-item"><figure><img loading="lazy" width="1024" height="1024" data-attachment-id="1901" data-permalink="../../../../2019/01/09/msi-laptop-icin-fis-adaptoru/msi_power_adapter_5/" data-orig-file="../../../../media/2019/01/msi_power_adapter_5.jpg" data-orig-size="1520,1520" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;2&quot;,&quot;camera&quot;:&quot;HTC One&quot;,&quot;created_timestamp&quot;:&quot;1541609652&quot;,&quot;focal_length&quot;:&quot;3.63&quot;,&quot;iso&quot;:&quot;160&quot;,&quot;shutter_speed&quot;:&quot;0.020001&quot;,&quot;orientation&quot;:&quot;1&quot;}" data-image-title="msi_power_adapter_5" data-image-description="" data-image-caption="" data-large-file="../../../../media/2019/01/msi_power_adapter_5.jpg" src="../../../../media/2019/01/msi_power_adapter_5.jpg" data-id="1901" class="wp-image-1901" /></figure></li><li class="blocks-gallery-item"><figure><img loading="lazy" width="1024" height="553" data-attachment-id="1900" data-permalink="../../../../2019/01/09/msi-laptop-icin-fis-adaptoru/msi_power_adapter_2/" data-orig-file="../../../../media/2019/01/msi_power_adapter_2.jpg" data-orig-size="2518,1360" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;2&quot;,&quot;camera&quot;:&quot;HTC One&quot;,&quot;created_timestamp&quot;:&quot;1541609731&quot;,&quot;focal_length&quot;:&quot;3.63&quot;,&quot;iso&quot;:&quot;160&quot;,&quot;shutter_speed&quot;:&quot;0.020001&quot;,&quot;orientation&quot;:&quot;1&quot;}" data-image-title="msi_power_adapter_2" data-image-description="" data-image-caption="" data-large-file="../../../../media/2019/01/msi_power_adapter_2.jpg" src="../../../../m/2019/01/msi_power_adapter_2.jpg" data-id="1900" class="wp-image-1900" /></figure></li><li class="blocks-gallery-item"><figure><img loading="lazy" width="1024" height="1024" data-attachment-id="1899" data-permalink="../../../../2019/01/09/msi-laptop-icin-fis-adaptoru/msi_power_adapter_1/" data-orig-file="../../../../media/2019/01/msi_power_adapter_1.jpg" data-orig-size="1520,1520" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;2&quot;,&quot;camera&quot;:&quot;HTC One&quot;,&quot;created_timestamp&quot;:&quot;1541609754&quot;,&quot;focal_length&quot;:&quot;3.63&quot;,&quot;iso&quot;:&quot;250&quot;,&quot;shutter_speed&quot;:&quot;0.029995&quot;,&quot;orientation&quot;:&quot;1&quot;}" data-image-title="msi_power_adapter_1" data-image-description="" data-image-caption="" data-large-file="../../../../media/2019/01/msi_power_adapter_1.jpg" src="../../../../media/2019/01/msi_power_adapter_1.jpg" data-id="1899" class="wp-image-1899" /></figure></li></ul>
+
+
+
+<p class="wp-block-paragraph">Aparatın 3dsmax çizimine ve 3D print dosya formatına, yasadışı işlerde kullanmamak koşulu ile <a href="https://drive.google.com/file/d/18UpcdsEsAR0yeQVrO9hlms_3fQ5tITMA/view?usp=sharing%20https://drive.google.com/file/d/1BXYteLpAg6iDBIJtwq6bwioXgjsf_32j/view?usp=sharing">buradan</a> ulaşabilirsiniz.</p>
+
+
+
+<p class="wp-block-paragraph">İyi eğlenceler arkadaşlar.</p>
+
+
+
+<p class="wp-block-paragraph"></p>
+</div>
+<div class="tags"><span>Etiketler:</span> <a href="../../../../etiket/3d-printed/">3D printed</a>, <a href="../../../../etiket/adaptor/">adaptör</a>, <a href="../../../../etiket/adapter/">adapter</a>, <a href="../../../../etiket/fis/">fiş</a>, <a href="../../../../etiket/msi/">MSI</a>, <a href="../../../../etiket/plug/">plug</a></div>
+<p class="orig">İlk yayın: <a href="https://pointpointblog.wordpress.com/2019/01/09/msi-laptop-icin-fis-adaptoru/">https://pointpointblog.wordpress.com/2019/01/09/msi-laptop-icin-fis-adaptoru/</a></p>
+</article>
+
+<nav class="pn"><a class="prev" href="../../../../2018/12/07/3d-printer-power-supply-on-off-switch/"><span>Önceki yazı</span>3D Printer Power Supply ON – OFF switch</a><a class="next" href="../../../../2019/03/20/3d-print-pil-kabi/"><span>Sonraki yazı</span>3D print pil kabı</a></nav>
+</main>
+<footer class="foot"><div class="wrap"><span>© Ahmet Çandöken</span><span>Bu yazılar 2017–2026 arasında <a href="https://pointpointblog.wordpress.com/">pointpointblog.wordpress.com</a> adresinde yayımlandı.</span></div></footer>
+</body>
+</html>

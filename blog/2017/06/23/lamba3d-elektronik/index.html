@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lamba3D elektronik · everything is in one place</title>
+<meta name="description" content="Burada Lamba3D projemin elektronik işlerinden bahsetmek istiyorum. Projenin bu bölümü mekanik ve yazılım bölümü gibi sürekli değişim halinde ancak bunları da en">
+<meta name="author" content="Ahmet Çandöken">
+<link rel="canonical" href="https://ahmetoff.com/blog/2017/06/23/lamba3d-elektronik/">
+<meta property="og:title" content="Lamba3D elektronik · everything is in one place">
+<meta property="og:description" content="Burada Lamba3D projemin elektronik işlerinden bahsetmek istiyorum. Projenin bu bölümü mekanik ve yazılım bölümü gibi sürekli değişim halinde ancak bunları da en">
+<meta property="og:type" content="article">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="everything is in one place" href="/blog/feed.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&display=swap">
+<style>/* Blog: ahmetoff.com ile aynı renk ailesi; okuma için serif gövde, arayüz için Onest */
+:root{--bg:#fff;--surface:#f2f5f6;--ink:#1a1d21;--soft:#5c6670;--line:#dde3e6;--accent:#0b8a8a;--accent-soft:#e2f3f2;
+ --ui:"Onest",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;--read:"Literata",Georgia,"Times New Roman",serif;color-scheme:light}
+@media (prefers-color-scheme:dark){:root{--bg:#0f1316;--surface:#171d21;--ink:#eef2f4;--soft:#9aa6ae;--line:#28323a;--accent:#3cc4bf;--accent-soft:#13302f;color-scheme:dark}}
+*{box-sizing:border-box}
+html{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.65 var(--ui);-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-underline-offset:3px}
+img{max-width:100%;height:auto}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+/* üst çubuk */
+.bar{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 85%,transparent);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.bar-in{max-width:1080px;margin:0 auto;display:flex;align-items:center;gap:16px;padding:10px max(20px,env(safe-area-inset-right,0px)) 10px max(20px,env(safe-area-inset-left,0px))}
+.home{display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--ink);font-weight:600;font-size:15px}
+.blogname{color:var(--soft);text-decoration:none;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.blogname:hover{color:var(--accent)}
+.bar nav{margin-left:auto;display:flex;gap:14px;font-size:15px}
+.bar nav a{color:var(--ink);text-decoration:none}
+.bar nav a:hover{color:var(--accent)}
+/* ana liste */
+.hero{padding:56px 0 20px;max-width:760px}
+.hero h1{font-size:clamp(38px,6vw,64px);line-height:1.02;letter-spacing:-.03em;margin:0;font-weight:700;text-wrap:balance}
+.hero .desc{margin:8px 0 0;color:var(--soft);font-size:18px}
+.hero.small .desc{margin:0 0 6px;font-size:15px}
+.hero .intro{margin:16px 0 0;color:var(--soft)}
+.cats{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:999px;background:var(--surface);color:var(--ink);text-decoration:none;font-size:14px}
+.chip small{color:var(--soft)}
+.chip:hover{background:var(--accent-soft);color:var(--accent)}
+.yr{font-size:15px;color:var(--soft);font-weight:600;margin:40px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.card{display:flex;flex-direction:column;border-radius:16px;background:var(--surface);overflow:hidden;text-decoration:none;color:var(--ink);min-width:0}
+.card img,.card .noimg{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;background:var(--line)}
+.card .ct{display:flex;flex-direction:column;gap:6px;padding:14px 16px 18px}
+.card .meta{font-size:13px;color:var(--soft)}
+.card b{font-size:19px;line-height:1.3;letter-spacing:-.01em}
+.card .ex{font-size:15px;color:var(--soft);line-height:1.5}
+.card:hover b{color:var(--accent)}
+/* yazı */
+.post{max-width:740px;margin:0 auto;padding:40px 0 8px}
+.ph .meta{display:flex;flex-wrap:wrap;align-items:center;gap:8px;color:var(--soft);font-size:15px}
+.ph h1{font-size:clamp(32px,5vw,48px);line-height:1.1;letter-spacing:-.025em;margin:12px 0 28px;text-wrap:balance}
+.entry{font-family:var(--read);font-size:19px;line-height:1.75;overflow-wrap:break-word}
+.entry p{margin:0 0 1.1em}
+.entry h1,.entry h2,.entry h3,.entry h4,.entry h5,.entry h6{font-family:var(--ui);line-height:1.25;margin:1.8em 0 .6em;letter-spacing:-.01em}
+.entry h5{font-size:18px}.entry h6{font-size:16px}
+.entry ul,.entry ol{padding-left:1.3em;margin:0 0 1.1em}
+.entry figure{margin:1.6em 0}
+.entry img{border-radius:6px}
+.entry .wp-caption{max-width:100%!important;width:auto!important;margin:1.6em 0}
+.entry .wp-caption-text,.entry figcaption{font-family:var(--ui);font-size:14px;color:var(--soft);margin-top:6px;text-align:center}
+.entry .aligncenter{display:block;margin-left:auto;margin-right:auto}
+.entry .alignleft{float:left;margin:0 1.2em 1em 0;max-width:50%}
+.entry .alignright{float:right;margin:0 0 1em 1.2em;max-width:50%}
+.entry .has-text-align-center{text-align:center}
+.entry hr{border:0;border-top:1px solid var(--line);margin:2em 0}
+.entry iframe{max-width:100%;border:0;border-radius:8px}
+.entry::after{content:"";display:block;clear:both}
+/* galeriler (WordPress/Jetpack) */
+.entry .wp-block-gallery,.entry .blocks-gallery-grid{display:flex;flex-wrap:wrap;gap:8px;padding:0;list-style:none;margin:1.6em 0}
+.entry .wp-block-gallery>figure,.entry .blocks-gallery-item{flex:1 1 calc(33.33% - 8px);margin:0;position:relative}
+.entry .wp-block-gallery.columns-2>figure,.entry .columns-2 .blocks-gallery-item{flex-basis:calc(50% - 8px)}
+.entry .wp-block-gallery img,.entry .blocks-gallery-item img{width:100%;height:100%;object-fit:cover;display:block}
+.entry .tiled-gallery__gallery{margin:1.6em 0}
+.entry .tiled-gallery__row{display:flex;gap:6px;margin-bottom:6px}
+.entry .tiled-gallery__col{display:flex;flex-direction:column;gap:6px}
+.entry .tiled-gallery__item{margin:0}
+.entry .tiled-gallery__item img{display:block;width:100%;height:auto;border-radius:4px}
+.entry .tiled-gallery{margin:1.6em 0}
+.entry .tiled-gallery .gallery-row{display:flex;gap:6px;width:100%!important;height:auto!important;margin-bottom:6px}
+.entry .tiled-gallery .gallery-group{display:flex;flex-direction:column;gap:6px;flex:1;width:auto!important;height:auto!important}
+.entry .tiled-gallery .tiled-gallery-item{margin:0;width:auto!important;height:auto!important}
+.entry .tiled-gallery .tiled-gallery-item img{display:block;width:100%!important;height:auto!important;border-radius:4px}
+.entry .tiled-gallery-caption{font-family:var(--ui);font-size:13px;color:var(--soft);padding:4px 2px}
+.entry meta{display:none}
+.tags{font-size:14px;color:var(--soft);margin:28px 0 0}
+.tags span{font-weight:600}
+.orig{font-size:13.5px;color:var(--soft);margin:18px 0 0;overflow-wrap:anywhere}
+/* yorumlar */
+.comments{max-width:740px;margin:44px auto 0;padding-top:24px;border-top:1px solid var(--line)}
+.comments h2{font-size:22px;margin:0 0 4px}
+.comments .note{color:var(--soft);font-size:14px;margin:0 0 18px}
+.comments ol{list-style:none;padding:0;margin:0;display:grid;gap:12px}
+.comments ol ol{margin:12px 0 0 20px}
+.cmt{background:var(--surface);border-radius:14px;padding:14px 16px}
+.cmt-h{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;font-size:15px}
+.cmt-h time{color:var(--soft);font-size:13px}
+.cmt-b{font-size:16px}
+.cmt-b p{margin:.4em 0}
+/* önceki / sonraki */
+.pn{max-width:740px;margin:44px auto 0;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.pn a{display:flex;flex-direction:column;gap:4px;padding:14px 16px;border-radius:14px;background:var(--surface);text-decoration:none;color:var(--ink);font-weight:600;line-height:1.3}
+.pn a span{font-weight:400;font-size:13px;color:var(--soft)}
+.pn .next{text-align:right}
+.pn a:hover{background:var(--accent-soft)}
+.foot{margin-top:64px;border-top:1px solid var(--line);padding:18px 0 28px;font-size:13.5px;color:var(--soft)}
+.foot .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+@media (max-width:640px){
+  body{font-size:16px}
+  .entry{font-size:17.5px}
+  .blogname{display:none}
+  .pn{grid-template-columns:1fr}
+  .pn .next{text-align:left}
+  .entry .tiled-gallery__row,.entry .tiled-gallery .gallery-row{flex-direction:column}
+  .entry .tiled-gallery__col{flex-basis:auto!important}
+  .entry .alignleft,.entry .alignright{float:none;max-width:100%;margin:1em 0}
+}
+</style>
+
+</head>
+<body>
+<header class="bar"><div class="bar-in">
+<a class="home" href="/" aria-label="ahmetoff.com ana sayfa"><img src="/favicon.svg" width="22" height="22" alt=""><span>ahmetoff</span></a>
+<a class="blogname" href="../../../../">everything is in one place</a>
+<nav><a href="../../../../kim/">Kim</a><a href="../../../../iletisim/">İletişim</a></nav>
+</div></header>
+<main class="wrap">
+<article class="post">
+<header class="ph"><div class="meta"><time datetime="2017-06-23">23 Haziran 2017</time><a class="chip" href="../../../../kategori/3d-projeler/">3D projeler</a></div>
+<h1>Lamba3D elektronik</h1></header>
+<div class="entry"><p>Merhaba Meraklı dostlar&#8230;</p>
+<h3>Giriş</h3>
+<p>Burada Lamba3D projemin elektronik işlerinden bahsetmek istiyorum. Projenin bu bölümü mekanik ve yazılım bölümü gibi sürekli değişim halinde ancak bunları da en başından anlatmak istiyorum.</p>
+<h5>1.Bölüm</h5>
+<p>Projemde bulunan elektronik elemanları ihtiyaç oldukça bir Çin alışveriş sitesi olan <a href="https://tr.aliexpress.com/" target="_blank" rel="noopener">aliexpress</a> ten, bir kaç seferde sipariş ettim. Şimdiye kadar kullandığım elektronik elemanların listesi şöyle;</p>
+<p>1 adet <a href="https://store.arduino.cc/usa/arduino-uno-rev3" target="_blank" rel="noopener">Arduino UnoR3</a> &#8211; İlk denemelerimi yaptığım kart</p>
+<p><img loading="lazy" data-attachment-id="328" data-permalink="../../../../2017/06/23/lamba3d-elektronik/arduinouno/" data-orig-file="../../../../media/2017/06/arduinouno1.jpg" data-orig-size="484,329" data-comments-opened="1" data-image-meta="{&quot;orientation&quot;:&quot;1&quot;}" data-image-title="arduinoUno" data-image-description="&lt;p&gt;Arduino UNO R3 geliştirme kartı&lt;/p&gt;
+" data-image-caption="" data-large-file="../../../../media/2017/06/arduinouno1.jpg" class="alignnone size-full wp-image-328" src="../../../../media/2017/06/arduinouno1.jpg" alt="arduinoUno" width="484" height="329" /></p>
+<p>1 adet <a href="https://www.arduino.cc/en/Main/ArduinoBoardProMini" target="_blank" rel="noopener">Arduino Pro Mini</a> Atmega328 5 V &#8211; Projemin son halinde bu kartı kullanıyorum</p>
+<p><img loading="lazy" data-attachment-id="329" data-permalink="../../../../2017/06/23/lamba3d-elektronik/arduinopromini/" data-orig-file="../../../../media/2017/06/arduinopromini3.jpg" data-orig-size="484,209" data-comments-opened="1" data-image-meta="{&quot;orientation&quot;:&quot;1&quot;}" data-image-title="ArduinoProMini" data-image-description="" data-image-caption="" data-large-file="../../../../media/2017/06/arduinopromini3.jpg" class="alignnone size-full wp-image-329" src="../../../../media/2017/06/arduinopromini3.jpg" alt="ArduinoProMini" width="484" height="209" /></p>
+<p>1 adet USB TTL CH340G adaptör &#8211; Arduino Pro Mini&#8217; yi PC nin USB portundan programlayabilmek için olmassa olmazı</p>
+<p><img loading="lazy" data-attachment-id="354" data-permalink="../../../../2017/06/23/lamba3d-elektronik/usb-adapter-ch340/" data-orig-file="../../../../media/2017/06/usb-adapter-ch3402.jpg" data-orig-size="484,209" data-comments-opened="1" data-image-meta="{&quot;orientation&quot;:&quot;1&quot;}" data-image-title="usb-adapter-ch340" data-image-description="" data-image-caption="" data-large-file="../../../../media/2017/06/usb-adapter-ch3402.jpg" class="alignnone size-full wp-image-354" src="../../../../media/2017/06/usb-adapter-ch3402.jpg" alt="usb-adapter-ch340" width="484" height="209" /></p>
+<p>2 adet <a href="https://servodatabase.com/servo/towerpro/sg90" target="_blank" rel="noopener">Servo Motor Sg-90</a> &#8211; Bir tanesini 360 derece (sürekli dönebilen) servo yaptım 🙂 Bu da ayrı bir proje konusu.</p>
+<p><img loading="lazy" data-attachment-id="331" data-permalink="../../../../2017/06/23/lamba3d-elektronik/sg90/" data-orig-file="../../../../media/2017/06/sg901.jpg" data-orig-size="484,329" data-comments-opened="1" data-image-meta="{&quot;orientation&quot;:&quot;1&quot;}" data-image-title="SG90" data-image-description="" data-image-caption="" data-large-file="../../../../media/2017/06/sg901.jpg" class="alignnone size-full wp-image-331" src="../../../../media/2017/06/sg901.jpg" alt="SG90" width="484" height="329" /></p>
+<p>1 adet <a href="http://www.electronica60norte.com/mwfls/pdf/newBluetooth.pdf" target="_blank" rel="noopener">Bluetooth modül HC-05</a> &#8211; Projemin son halinde uzaktan kumanda için alıcı devresi olarak kullanıyorum</p>
+<p><img loading="lazy" data-attachment-id="333" data-permalink="../../../../2017/06/23/lamba3d-elektronik/bluetooth-hc05/" data-orig-file="../../../../media/2017/06/bluetooth-hc051.jpg" data-orig-size="484,269" data-comments-opened="1" data-image-meta="{&quot;orientation&quot;:&quot;1&quot;}" data-image-title="Bluetooth-HC05" data-image-description="" data-image-caption="" data-large-file="../../../../media/2017/06/bluetooth-hc051.jpg" class="alignnone size-full wp-image-333" src="../../../../media/2017/06/bluetooth-hc051.jpg" alt="Bluetooth-HC05" width="484" height="269" /></p>
+<p>1 adet <a href="https://tr.wikipedia.org/wiki/Potansiyometre" target="_blank" rel="noopener">Potansiyometre</a> 10 K &#8211; İlk denemelerimde kullanmıştım</p>
+<p><img loading="lazy" data-attachment-id="334" data-permalink="../../../../2017/06/23/lamba3d-elektronik/potansiyometre/" data-orig-file="../../../../media/2017/06/potansiyometre.jpg" data-orig-size="484,329" data-comments-opened="1" data-image-meta="{&quot;orientation&quot;:&quot;1&quot;}" data-image-title="potansiyometre" data-image-description="" data-image-caption="" data-large-file="../../../../media/2017/06/potansiyometre.jpg" class="alignnone size-full wp-image-334" src="../../../../media/2017/06/potansiyometre.jpg" alt="potansiyometre" width="484" height="329" /></p>
+<p>1 adet <a href="https://en.wikipedia.org/wiki/Relay" target="_blank" rel="noopener">Röle</a> 5V / 220V &#8211; Projemin son halinde lambayı açıp-kapatmak için kullanıyorum</p>
+<p><img loading="lazy" data-attachment-id="336" data-permalink="../../../../2017/06/23/lamba3d-elektronik/role/" data-orig-file="../../../../media/2017/06/rc3b6le.jpg" data-orig-size="484,329" data-comments-opened="1" data-image-meta="{&quot;orientation&quot;:&quot;1&quot;}" data-image-title="röle" data-image-description="" data-image-caption="" data-large-file="../../../../media/2017/06/rc3b6le.jpg" class="alignnone size-full wp-image-336" src="../../../../media/2017/06/rc3b6le.jpg" alt="röle" width="484" height="329" /></p>
+<p>1 adet 5V / 220V 700 mA <a href="https://en.wikipedia.org/wiki/Transformer" target="_blank" rel="noopener">Trafo</a> (adaptör) &#8211; Şehir elektriğini (220V) kullanabilmemi sağlıyor</p>
+<p><img loading="lazy" data-attachment-id="571" data-permalink="../../../../2017/06/23/lamba3d-elektronik/5v_trafo/" data-orig-file="../../../../media/2017/06/5v_trafo.jpg" data-orig-size="484,329" data-comments-opened="1" data-image-meta="{&quot;orientation&quot;:&quot;1&quot;}" data-image-title="5v_trafo" data-image-description="" data-image-caption="" data-large-file="../../../../media/2017/06/5v_trafo.jpg" class="alignnone size-full wp-image-571" src="../../../../media/2017/06/5v_trafo.jpg" alt="5v_trafo" width="484" height="329" /></p>
+<p>1 adet Sarı <a href="https://en.wikipedia.org/wiki/Light-emitting_diode" target="_blank" rel="noopener">LED</a> 5mm 3V &#8211; Denemelerimde röleyi test için kullanmıştım</p>
+<p><img loading="lazy" data-attachment-id="337" data-permalink="../../../../2017/06/23/lamba3d-elektronik/led/" data-orig-file="../../../../media/2017/06/led.jpg" data-orig-size="484,230" data-comments-opened="1" data-image-meta="{&quot;orientation&quot;:&quot;1&quot;}" data-image-title="LED" data-image-description="" data-image-caption="" data-large-file="../../../../media/2017/06/led.jpg" class="alignnone size-full wp-image-337" src="../../../../media/2017/06/led.jpg" alt="LED" width="484" height="230" /></p>
+<p>1 adet <a href="https://en.wikipedia.org/wiki/Resistor" target="_blank" rel="noopener">Direnç</a> 220 ohm &#8211; LED&#8217; i kullanırken, karttan LED&#8217; e gelen 5V u düşürmek için</p>
+<p><img loading="lazy" data-attachment-id="339" data-permalink="../../../../2017/06/23/lamba3d-elektronik/220-ohm-direnc/" data-orig-file="../../../../media/2017/06/220-ohm-direnc3a7.jpg" data-orig-size="484,230" data-comments-opened="1" data-image-meta="{&quot;orientation&quot;:&quot;1&quot;}" data-image-title="220 ohm direnç" data-image-description="" data-image-caption="" data-large-file="../../../../media/2017/06/220-ohm-direnc3a7.jpg" class="alignnone size-full wp-image-339" src="../../../../media/2017/06/220-ohm-direnc3a7.jpg" alt="220 ohm direnç" width="484" height="230" /></p>
+<p>1 adet Bluetooth özelliği olan cep telefonu 🙂</p>
+<p>kabloları saymıyorum.</p>
+<h5>2.Bölüm</h5>
+<p>Bu elemanlarla sırasıyla Lamba3D projem için işe yarar yaramaz neler yaptığımı şemalarla anlatmaya çalışayım&#8230;</p>
+<h6>1. safha</h6>
+<p>Arduino UNO R3 kart ile neler yapabileceğimi ve nasıl kullanabileceğimi anlamak için, kartı PC ye bağlayıp tanıtmam gerektiğini düşünüyordum. PC ye bağladım, Arduino IDE <a href="https://youtu.be/BMN-asNMIs0" target="_blank" rel="noopener">yazılımını kurdum</a> ama ekstradan tanıtmama gerek kalmadan PC Arduino&#8217; yu tanıdı. Eğer tanıtma ile ilgili sorun yaşıyorsanız <a href="http://maker.robotistan.com/arduino-uno-suruculeri-bilgisayara-nasil-yuklenir/" target="_blank" rel="noopener">bu</a> veya <a href="http://maker.robotistan.com/arduino-uno-suruculeri-nasil-yuklenir-ch340-cipli-klon/" target="_blank" rel="noopener">şu</a> adresi bir ziyaret edin derim&#8230;</p>
+<p><div data-shortcode="caption" id="attachment_360" style="width: 1010px" class="wp-caption alignnone"><img aria-describedby="caption-attachment-360" loading="lazy" data-attachment-id="360" data-permalink="../../../../2017/06/23/lamba3d-elektronik/arduino_pc/" data-orig-file="../../../../media/2017/06/arduino_pc.jpg" data-orig-size="1000,500" data-comments-opened="1" data-image-meta="{&quot;orientation&quot;:&quot;1&quot;}" data-image-title="Arduino_PC" data-image-description="" data-image-caption="" data-large-file="../../../../media/2017/06/arduino_pc.jpg" class="alignnone size-full wp-image-360" src="../../../../media/2017/06/arduino_pc.jpg" alt="Arduino_PC" width="1000" height="500" /><p id="caption-attachment-360" class="wp-caption-text">USB kablo ile Arduino&#8217; yu  PC ye bağlandığımızda hem data alışveriş işini hem de kart için gerekli olan elektrik işini halletmiş oluyoruz.</p></div></p>
+<p><a href="https://www.arduino.cc/en/Main/Software" target="_blank" rel="noopener">Arduino</a> sitesinden güncel yazılımı indirip <a href="https://youtu.be/kw4vObNInxs" target="_blank" rel="noopener">böyle</a> kuruyoruz.</p>
+<p><div data-shortcode="caption" id="attachment_374" style="width: 1010px" class="wp-caption alignnone"><img aria-describedby="caption-attachment-374" loading="lazy" data-attachment-id="374" data-permalink="../../../../2017/06/23/lamba3d-elektronik/arduino-r3_klon-k/" data-orig-file="../../../../media/2017/06/arduino-r3_klon-k.jpg" data-orig-size="1000,563" data-comments-opened="1" data-image-meta="{&quot;orientation&quot;:&quot;1&quot;}" data-image-title="arduino r3_klon-k" data-image-description="" data-image-caption="" data-large-file="../../../../media/2017/06/arduino-r3_klon-k.jpg" class="alignnone size-full wp-image-374" src="../../../../media/2017/06/arduino-r3_klon-k.jpg" alt="arduino r3_klon-k" width="1000" height="563" /><p id="caption-attachment-374" class="wp-caption-text">Kurulumun videosu için  <a href="https://youtu.be/kw4vObNInxs" target="_blank" rel="noopener">https://youtu.be/BMN-asNMIs0</a></p></div></p>
+<p>Kurulum işlemini sorunsuzca hallettikten sonra hemen test aşamasına geçelim. Eğer sorun yaşıyorsanız lütfen bana yazın, elimden geldiğince yol göstermeye çalışayım&#8230;</p>
+<p>Kartımıza ilk programımızı yükleyip kartımızın PC ile iletişimde olup olmadığını ve ne yapabildiğimize bakmaya başlayabiliriz&#8230;</p>
+<p><div data-shortcode="caption" id="attachment_365-2" style="width: 1010px" class="wp-caption alignnone"><img aria-describedby="caption-attachment-365-2" loading="lazy" data-attachment-id="365" data-permalink="../../../../2017/06/23/lamba3d-elektronik/arduino_blink/" data-orig-file="../../../../media/2017/06/arduino_blink.jpg" data-orig-size="1000,617" data-comments-opened="1" data-image-meta="{&quot;orientation&quot;:&quot;1&quot;}" data-image-title="Arduino_Blink" data-image-description="" data-image-caption="" data-large-file="../../../../media/2017/06/arduino_blink.jpg" class="alignnone size-full wp-image-365" src="../../../../media/2017/06/arduino_blink.jpg" alt="Arduino_Blink" width="1000" height="617" /><p id="caption-attachment-365-2" class="wp-caption-text">İlk programım kart üzerindeki mevcut led&#8217;i yakıp söndürmek oldu 🙂</p></div></p>
+<h6>2. safha</h6>
+<p>Projemizde gerekli olan hareketi oluşturabilmek için, servo motor kullanmamın doğru olacağını düşünüyorum. Servo motorların 360° (sürekli dönen) ve 180° dönebilen türleri var. İçindeki devre sayesinde, dönüş açıları daha rahat kontrol edilen 180° dönebilen modeli tercih ettim. Ayrıca oldukça da küçük. Sorun yaşarsam başka motor türlerini de deneyebilirim&#8230;</p>
+<p>Şimdi istediğim açılarda servoyu nasıl kontrol edebilirim. İnternetteki araştırmalarımdan, bu kontrolün en kolay potansiyometre ile olacağını gördüm. Elimde uygun potansiyometre, servo ve arduino da var. <a href="https://youtu.be/E9lpmxE7MPI" target="_blank" rel="noopener">Şöyle</a> bir bağlantıyla servoyu kontrol etmeyi başardım.</p>
+<p><div data-shortcode="caption" id="attachment_1012" style="width: 1010px" class="wp-caption alignnone"><img aria-describedby="caption-attachment-1012" loading="lazy" data-attachment-id="1012" data-permalink="../../../../2017/06/23/lamba3d-elektronik/devre-one/" data-orig-file="../../../../media/2017/06/devre-one.jpg" data-orig-size="1000,600" data-comments-opened="1" data-image-meta="{&quot;orientation&quot;:&quot;1&quot;}" data-image-title="devre-one" data-image-description="" data-image-caption="" data-large-file="../../../../media/2017/06/devre-one.jpg" class="alignnone size-full wp-image-1012" src="../../../../media/2017/06/devre-one.jpg" alt="devre-one" width="1000" height="600" /><p id="caption-attachment-1012" class="wp-caption-text">Potansiyometre ile servoyu istediğim açıda çevirebiliyorum.</p></div></p>
+<p><div data-shortcode="caption" id="attachment_1014" style="width: 1010px" class="wp-caption alignnone"><img aria-describedby="caption-attachment-1014" loading="lazy" data-attachment-id="1014" data-permalink="../../../../2017/06/23/lamba3d-elektronik/arduino_knob/" data-orig-file="../../../../media/2017/06/arduino_knob.jpg" data-orig-size="1000,617" data-comments-opened="1" data-image-meta="{&quot;orientation&quot;:&quot;1&quot;}" data-image-title="Arduino_Knob" data-image-description="" data-image-caption="" data-large-file="../../../../media/2017/06/arduino_knob.jpg" class="alignnone size-full wp-image-1014" src="../../../../media/2017/06/arduino_knob.jpg" alt="Arduino_Knob" width="1000" height="617" /><p id="caption-attachment-1014" class="wp-caption-text">Servoyu potansiyometre ile kontrol etmek için Arduino&#8217; daki örnek programı kullandım.</p></div></p>
+<p>Bu devreyi ilk Lamba3D denememin içine yerleştirip <a href="https://youtu.be/E9lpmxE7MPI" target="_blank" rel="noopener">böyle</a> çalıştırdım.</p>
+<p><img loading="lazy" data-attachment-id="222" data-permalink="../../../../2017/06/17/lamba3d/lamba3d_kirmizi/" data-orig-file="../../../../media/2017/06/lamba3d_kc4b1rmc4b1zc4b1.jpg" data-orig-size="1000,564" data-comments-opened="1" data-image-meta="{&quot;orientation&quot;:&quot;1&quot;}" data-image-title="Lamba3D_kırmızı" data-image-description="" data-image-caption="" data-large-file="../../../../media/2017/06/lamba3d_kc4b1rmc4b1zc4b1.jpg" class="alignnone size-full wp-image-222" src="../../../../media/2017/06/lamba3d_kc4b1rmc4b1zc4b1.jpg" alt="Lamba3D_kırmızı" width="1000" height="564" /></p>
+<h6>3. safha</h6>
+<p>Kontrolü kablosuz, bluetooth ile yapmaya başlayabilirdim. Devrede biraz değişiklik yapmam gerekecek&#8230;</p>
+<p><div data-shortcode="caption" id="attachment_1228" style="width: 1010px" class="wp-caption alignnone"><img aria-describedby="caption-attachment-1228" loading="lazy" data-attachment-id="1228" data-permalink="../../../../2017/06/23/lamba3d-elektronik/devre-two/" data-orig-file="../../../../media/2017/06/devre-two1.jpg" data-orig-size="1000,600" data-comments-opened="1" data-image-meta="{&quot;orientation&quot;:&quot;1&quot;}" data-image-title="devre-two" data-image-description="" data-image-caption="" data-large-file="../../../../media/2017/06/devre-two1.jpg" class="alignnone size-full wp-image-1228" src="../../../../media/2017/06/devre-two1.jpg" alt="devre-two" width="1000" height="600" /><p id="caption-attachment-1228" class="wp-caption-text">DİKKAT, Bluetooth RXD pini, Arduino nun TX pinine. Bluetooth TXD pini, Arduino nun RX pinine bağlanacak.</p></div></p>
+<p>Bu devreyle ve yazılımla telefonumdan gelen komutları servoyu kontrol etmek için kullanabiliyordum. Artık uzaktan erişim işini çözdüm sayılır&#8230;</p>
+<h6>4. safha</h6>
+<p>Servo kontrolü ile beraber projemdeki Lambayı açıp kapatma işini halledebilir miydim acaba. Lamba yerine şimdilik bir led ve röle ile devreme ilaveler yapmalıyım. Sonuç başarılı olursa 220 V ile 5 V elde edip devremi PC den bağımsız ve gerçek bir ampül ile test etmeye başlayabilirim&#8230;</p>
+<p><div data-shortcode="caption" id="attachment_1336" style="width: 1010px" class="wp-caption alignnone"><img aria-describedby="caption-attachment-1336" loading="lazy" data-attachment-id="1336" data-permalink="../../../../2017/06/23/lamba3d-elektronik/devre-four/" data-orig-file="../../../../media/2017/06/devre-four1.jpg" data-orig-size="1000,600" data-comments-opened="1" data-image-meta="{&quot;orientation&quot;:&quot;1&quot;}" data-image-title="devre-four" data-image-description="" data-image-caption="" data-large-file="../../../../media/2017/06/devre-four1.jpg" class="alignnone size-full wp-image-1336" src="../../../../media/2017/06/devre-four1.jpg" alt="devre-four" width="1000" height="600" /><p id="caption-attachment-1336" class="wp-caption-text">Arduino&#8217; nun 12 ve 7 numaralı pinlerini de kullandım. Devre biraz karışık olmaya başladı&#8230; Röleyi dışarıdan 5 volt ile beslemek belki daha iyi olacak. Karta fazla mı yüklendim acaba 🙂 DİKKAT</p></div></p>
+<h6>5. safha</h6>
+<h3>devam edecek&#8230;</h3>
+</div>
+<div class="tags"><span>Etiketler:</span> <a href="../../../../etiket/app/">app</a>, <a href="../../../../etiket/arduino/">Arduino</a>, <a href="../../../../etiket/arduinopromini/">ArduinoProMini</a>, <a href="../../../../etiket/lamba3d-elektronik/">Lamba3D elektronik</a>, <a href="../../../../etiket/led/">Led</a>, <a href="../../../../etiket/mini-servo-motor/">mini servo motor</a>, <a href="../../../../etiket/mit/">MIT</a>, <a href="../../../../etiket/potansiyometre/">potansiyometre</a>, <a href="../../../../etiket/role/">röle</a>, <a href="../../../../etiket/reciever/">reciever</a>, <a href="../../../../etiket/relay/">relay</a>, <a href="../../../../etiket/sg90/">sg90</a>, <a href="../../../../etiket/telefon/">telefon</a>, <a href="../../../../etiket/transmitter/">transmitter</a></div>
+<p class="orig">İlk yayın: <a href="https://pointpointblog.wordpress.com/2017/06/23/lamba3d-elektronik/">https://pointpointblog.wordpress.com/2017/06/23/lamba3d-elektronik/</a></p>
+</article>
+<section class="comments"><h2>Yorumlar (1)</h2><p class="note">Yorumlar blogun ilk yayınından arşivlenmiştir; yeni yorum alınmıyor.</p><ol><li class="cmt"><div class="cmt-h"><b>Lamba3D &amp;#8211; everytıng ıs ın one place</b><time>6 Haziran 2022</time></div><div class="cmt-b"><p>[&#8230;] Projemizin elektronik ile ilgili bölümü için; [&#8230;]</p>
+</div></li></ol></section>
+<nav class="pn"><a class="prev" href="../../../../2017/06/17/lamba3d/"><span>Önceki yazı</span>Lamba3D</a><a class="next" href="../../../../2017/07/06/processing-maceram/"><span>Sonraki yazı</span>Processing Maceram…</a></nav>
+</main>
+<footer class="foot"><div class="wrap"><span>© Ahmet Çandöken</span><span>Bu yazılar 2017–2026 arasında <a href="https://pointpointblog.wordpress.com/">pointpointblog.wordpress.com</a> adresinde yayımlandı.</span></div></footer>
+</body>
+</html>

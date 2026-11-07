@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Yazılım · everything is in one place</title>
+<meta name="description" content="Yazılım kategorisindeki yazılar">
+<meta name="author" content="Ahmet Çandöken">
+<link rel="canonical" href="https://ahmetoff.com/blog/kategori/yazilim/">
+<meta property="og:title" content="Yazılım · everything is in one place">
+<meta property="og:description" content="Yazılım kategorisindeki yazılar">
+<meta property="og:type" content="article">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="everything is in one place" href="/blog/feed.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&display=swap">
+<style>/* Blog: ahmetoff.com ile aynı renk ailesi; okuma için serif gövde, arayüz için Onest */
+:root{--bg:#fff;--surface:#f2f5f6;--ink:#1a1d21;--soft:#5c6670;--line:#dde3e6;--accent:#0b8a8a;--accent-soft:#e2f3f2;
+ --ui:"Onest",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;--read:"Literata",Georgia,"Times New Roman",serif;color-scheme:light}
+@media (prefers-color-scheme:dark){:root{--bg:#0f1316;--surface:#171d21;--ink:#eef2f4;--soft:#9aa6ae;--line:#28323a;--accent:#3cc4bf;--accent-soft:#13302f;color-scheme:dark}}
+*{box-sizing:border-box}
+html{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.65 var(--ui);-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-underline-offset:3px}
+img{max-width:100%;height:auto}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+/* üst çubuk */
+.bar{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 85%,transparent);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.bar-in{max-width:1080px;margin:0 auto;display:flex;align-items:center;gap:16px;padding:10px max(20px,env(safe-area-inset-right,0px)) 10px max(20px,env(safe-area-inset-left,0px))}
+.home{display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--ink);font-weight:600;font-size:15px}
+.blogname{color:var(--soft);text-decoration:none;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.blogname:hover{color:var(--accent)}
+.bar nav{margin-left:auto;display:flex;gap:14px;font-size:15px}
+.bar nav a{color:var(--ink);text-decoration:none}
+.bar nav a:hover{color:var(--accent)}
+/* ana liste */
+.hero{padding:56px 0 20px;max-width:760px}
+.hero h1{font-size:clamp(38px,6vw,64px);line-height:1.02;letter-spacing:-.03em;margin:0;font-weight:700;text-wrap:balance}
+.hero .desc{margin:8px 0 0;color:var(--soft);font-size:18px}
+.hero.small .desc{margin:0 0 6px;font-size:15px}
+.hero .intro{margin:16px 0 0;color:var(--soft)}
+.cats{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:999px;background:var(--surface);color:var(--ink);text-decoration:none;font-size:14px}
+.chip small{color:var(--soft)}
+.chip:hover{background:var(--accent-soft);color:var(--accent)}
+.yr{font-size:15px;color:var(--soft);font-weight:600;margin:40px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.card{display:flex;flex-direction:column;border-radius:16px;background:var(--surface);overflow:hidden;text-decoration:none;color:var(--ink);min-width:0}
+.card img,.card .noimg{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;background:var(--line)}
+.card .ct{display:flex;flex-direction:column;gap:6px;padding:14px 16px 18px}
+.card .meta{font-size:13px;color:var(--soft)}
+.card b{font-size:19px;line-height:1.3;letter-spacing:-.01em}
+.card .ex{font-size:15px;color:var(--soft);line-height:1.5}
+.card:hover b{color:var(--accent)}
+/* yazı */
+.post{max-width:740px;margin:0 auto;padding:40px 0 8px}
+.ph .meta{display:flex;flex-wrap:wrap;align-items:center;gap:8px;color:var(--soft);font-size:15px}
+.ph h1{font-size:clamp(32px,5vw,48px);line-height:1.1;letter-spacing:-.025em;margin:12px 0 28px;text-wrap:balance}
+.entry{font-family:var(--read);font-size:19px;line-height:1.75;overflow-wrap:break-word}
+.entry p{margin:0 0 1.1em}
+.entry h1,.entry h2,.entry h3,.entry h4,.entry h5,.entry h6{font-family:var(--ui);line-height:1.25;margin:1.8em 0 .6em;letter-spacing:-.01em}
+.entry h5{font-size:18px}.entry h6{font-size:16px}
+.entry ul,.entry ol{padding-left:1.3em;margin:0 0 1.1em}
+.entry figure{margin:1.6em 0}
+.entry img{border-radius:6px}
+.entry .wp-caption{max-width:100%!important;width:auto!important;margin:1.6em 0}
+.entry .wp-caption-text,.entry figcaption{font-family:var(--ui);font-size:14px;color:var(--soft);margin-top:6px;text-align:center}
+.entry .aligncenter{display:block;margin-left:auto;margin-right:auto}
+.entry .alignleft{float:left;margin:0 1.2em 1em 0;max-width:50%}
+.entry .alignright{float:right;margin:0 0 1em 1.2em;max-width:50%}
+.entry .has-text-align-center{text-align:center}
+.entry hr{border:0;border-top:1px solid var(--line);margin:2em 0}
+.entry iframe{max-width:100%;border:0;border-radius:8px}
+.entry::after{content:"";display:block;clear:both}
+/* galeriler (WordPress/Jetpack) */
+.entry .wp-block-gallery,.entry .blocks-gallery-grid{display:flex;flex-wrap:wrap;gap:8px;padding:0;list-style:none;margin:1.6em 0}
+.entry .wp-block-gallery>figure,.entry .blocks-gallery-item{flex:1 1 calc(33.33% - 8px);margin:0;position:relative}
+.entry .wp-block-gallery.columns-2>figure,.entry .columns-2 .blocks-gallery-item{flex-basis:calc(50% - 8px)}
+.entry .wp-block-gallery img,.entry .blocks-gallery-item img{width:100%;height:100%;object-fit:cover;display:block}
+.entry .tiled-gallery__gallery{margin:1.6em 0}
+.entry .tiled-gallery__row{display:flex;gap:6px;margin-bottom:6px}
+.entry .tiled-gallery__col{display:flex;flex-direction:column;gap:6px}
+.entry .tiled-gallery__item{margin:0}
+.entry .tiled-gallery__item img{display:block;width:100%;height:auto;border-radius:4px}
+.entry .tiled-gallery{margin:1.6em 0}
+.entry .tiled-gallery .gallery-row{display:flex;gap:6px;width:100%!important;height:auto!important;margin-bottom:6px}
+.entry .tiled-gallery .gallery-group{display:flex;flex-direction:column;gap:6px;flex:1;width:auto!important;height:auto!important}
+.entry .tiled-gallery .tiled-gallery-item{margin:0;width:auto!important;height:auto!important}
+.entry .tiled-gallery .tiled-gallery-item img{display:block;width:100%!important;height:auto!important;border-radius:4px}
+.entry .tiled-gallery-caption{font-family:var(--ui);font-size:13px;color:var(--soft);padding:4px 2px}
+.entry meta{display:none}
+.tags{font-size:14px;color:var(--soft);margin:28px 0 0}
+.tags span{font-weight:600}
+.orig{font-size:13.5px;color:var(--soft);margin:18px 0 0;overflow-wrap:anywhere}
+/* yorumlar */
+.comments{max-width:740px;margin:44px auto 0;padding-top:24px;border-top:1px solid var(--line)}
+.comments h2{font-size:22px;margin:0 0 4px}
+.comments .note{color:var(--soft);font-size:14px;margin:0 0 18px}
+.comments ol{list-style:none;padding:0;margin:0;display:grid;gap:12px}
+.comments ol ol{margin:12px 0 0 20px}
+.cmt{background:var(--surface);border-radius:14px;padding:14px 16px}
+.cmt-h{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;font-size:15px}
+.cmt-h time{color:var(--soft);font-size:13px}
+.cmt-b{font-size:16px}
+.cmt-b p{margin:.4em 0}
+/* önceki / sonraki */
+.pn{max-width:740px;margin:44px auto 0;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.pn a{display:flex;flex-direction:column;gap:4px;padding:14px 16px;border-radius:14px;background:var(--surface);text-decoration:none;color:var(--ink);font-weight:600;line-height:1.3}
+.pn a span{font-weight:400;font-size:13px;color:var(--soft)}
+.pn .next{text-align:right}
+.pn a:hover{background:var(--accent-soft)}
+.foot{margin-top:64px;border-top:1px solid var(--line);padding:18px 0 28px;font-size:13.5px;color:var(--soft)}
+.foot .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+@media (max-width:640px){
+  body{font-size:16px}
+  .entry{font-size:17.5px}
+  .blogname{display:none}
+  .pn{grid-template-columns:1fr}
+  .pn .next{text-align:left}
+  .entry .tiled-gallery__row,.entry .tiled-gallery .gallery-row{flex-direction:column}
+  .entry .tiled-gallery__col{flex-basis:auto!important}
+  .entry .alignleft,.entry .alignright{float:none;max-width:100%;margin:1em 0}
+}
+</style>
+
+</head>
+<body>
+<header class="bar"><div class="bar-in">
+<a class="home" href="/" aria-label="ahmetoff.com ana sayfa"><img src="/favicon.svg" width="22" height="22" alt=""><span>ahmetoff</span></a>
+<a class="blogname" href="../../">everything is in one place</a>
+<nav><a href="../../kim/">Kim</a><a href="../../iletisim/">İletişim</a></nav>
+</div></header>
+<main class="wrap">
+<section class="hero small"><p class="desc">Kategori</p><h1>Yazılım</h1><p class="intro">8 yazı · <a href="../../">Tüm yazılar</a></p></section><h2 class="yr">2021</h2><div class="cards"><a class="card" href="../../2021/03/03/biraz-da-kadim-teknik-4/"><img src="../../media/2021/03/v3.jpg" alt="" loading="lazy"><span class="ct"><span class="meta"><time>3 Mart 2021</time> · Yazılım</span><b>biraz da kadim teknik 4</b><span class="ex">Merhaba meraklı dostlar, Daha önceki iki yazımızda Penci Kemerin ve Tek Merkezli Teğet Kemerin nasıl çizilebileceğinden ve 3dsMAX programında kullanabileceğimiz yardımcı bir programından (script) bahsetmiştim.…</span></span></a></div><h2 class="yr">2020</h2><div class="cards"><a class="card" href="../../2020/01/10/ezberci-zeka/"><img src="../../media/2019/12/ai-1.jpg" alt="" loading="lazy"><span class="ct"><span class="meta"><time>10 Ocak 2020</time> · Yazılım</span><b>Ezberci Zeka</b><span class="ex">Bizler lineer düşünmeyen bilinçli ya da bilinçsiz çok boyutlu düşünebilen varlıklarız. Yaptığımız makinaların ya da programların bizlerden çok daha iyi çalışıyor olması bizi onlara karşı güçsüz değil aksine çok daha…</span></span></a></div><h2 class="yr">2018</h2><div class="cards"><a class="card" href="../../2018/11/29/golden-raio-scale-1-618/"><img src="../../media/2018/11/3dsmaxscript-help2.jpg" alt="" loading="lazy"><span class="ct"><span class="meta"><time>29 Kasım 2018</time> · Yazılım</span><b>Golden Ratio scale 1.618…</b><span class="ex">Golden Ratio -3D, çalışma ekranımızda seçili olan obje ya da objeleri altın oran oranında 2D veya 3D olarak büyültür veya küçültür.</span></span></a><a class="card" href="../../2018/09/11/birazda-kadim-teknik-2/"><img src="../../media/2018/09/kemer-kapak2r-1.jpg" alt="" loading="lazy"><span class="ct"><span class="meta"><time>11 Eylül 2018</time> · Yazılım</span><b>biraz da kadim teknik 2</b><span class="ex">Merhaba meraklı dostlar, Bu yazımızda da mimari unsurlardan biri olan penci kemerin nasıl çizilebileceğinden ve 3dsMAX programında kullanabileceğimiz yardımcı bir programından (script) bahsedeceğim. Kemerin genişliği…</span></span></a><a class="card" href="../../2018/08/16/biraz-da-kadim-teknik/"><img src="../../media/2018/08/kemer-kapak.jpg" alt="" loading="lazy"><span class="ct"><span class="meta"><time>16 Ağustos 2018</time> · Yazılım</span><b>biraz da kadim teknik</b><span class="ex">Bu yazımızda mimari unsurlardan biri olan tek merkezli teğet kemerin nasıl çizilebileceğinden ve 3dsMAX programında kullanabileceğimiz yardımcı bir programından (script) bahsedeceğim.</span></span></a></div><h2 class="yr">2017</h2><div class="cards"><a class="card" href="../../2017/07/07/lamba3d-yazilim/"><img src="../../media/2017/07/lamba3d-yazc4b1lc4b1m3.jpg" alt="" loading="lazy"><span class="ct"><span class="meta"><time>7 Temmuz 2017</time> · Yazılım</span><b>Lamba3D yazılım</b><span class="ex">Ana kumandanın yapıldığı kartımız Arduino Pro Mini için yazılım Arduino yazılımı. Şu anki aşamaya gelene kadar birçok deneme yanılma ve öğrenmeden sonra programın son durumu şöyle oldu.</span></span></a><a class="card" href="../../2017/07/06/processing-maceram/"><img src="../../media/2017/07/processing2.jpg" alt="" loading="lazy"><span class="ct"><span class="meta"><time>6 Temmuz 2017</time> · Yazılım</span><b>Processing Maceram…</b><span class="ex">Bu da paylaşmanın gücünü gösteren çok güzel bir uygulama. Biz de elbette yaptıklarımızı diğer meraklı arkadaşların kullanımına sunmakla bu zincirde bir halka olabiliriz…</span></span></a><a class="card" href="../../2017/06/13/programcilik/"><img src="../../media/2017/06/programcc4b1lc4b1k.jpg" alt="" loading="lazy"><span class="ct"><span class="meta"><time>13 Haziran 2017</time> · Yazılım</span><b>Programcılık maceralarım</b><span class="ex">Fortran-Basic-AutoLisp-VisualBasic-MaxScript-Processing-Arduino</span></span></a></div>
+</main>
+<footer class="foot"><div class="wrap"><span>© Ahmet Çandöken</span><span>Bu yazılar 2017–2026 arasında <a href="https://pointpointblog.wordpress.com/">pointpointblog.wordpress.com</a> adresinde yayımlandı.</span></div></footer>
+</body>
+</html>

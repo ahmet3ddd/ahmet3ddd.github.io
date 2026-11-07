@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Biraz da Kadim teknik 3 · everything is in one place</title>
+<meta name="description" content="Merhaba meraklı dostlar, Bu yazımızda yine oldukça eski zamanlarda kullanılmaya başlanmış mimari bir formdan bahsetmeye çalışacağım. Genelde kare formdan yuvarl">
+<meta name="author" content="Ahmet Çandöken">
+<link rel="canonical" href="https://ahmetoff.com/blog/2020/08/19/biraz-da-kadim-teknik-3/">
+<meta property="og:title" content="Biraz da Kadim teknik 3 · everything is in one place">
+<meta property="og:description" content="Merhaba meraklı dostlar, Bu yazımızda yine oldukça eski zamanlarda kullanılmaya başlanmış mimari bir formdan bahsetmeye çalışacağım. Genelde kare formdan yuvarl">
+<meta property="og:type" content="article">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="everything is in one place" href="/blog/feed.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&display=swap">
+<style>/* Blog: ahmetoff.com ile aynı renk ailesi; okuma için serif gövde, arayüz için Onest */
+:root{--bg:#fff;--surface:#f2f5f6;--ink:#1a1d21;--soft:#5c6670;--line:#dde3e6;--accent:#0b8a8a;--accent-soft:#e2f3f2;
+ --ui:"Onest",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;--read:"Literata",Georgia,"Times New Roman",serif;color-scheme:light}
+@media (prefers-color-scheme:dark){:root{--bg:#0f1316;--surface:#171d21;--ink:#eef2f4;--soft:#9aa6ae;--line:#28323a;--accent:#3cc4bf;--accent-soft:#13302f;color-scheme:dark}}
+*{box-sizing:border-box}
+html{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.65 var(--ui);-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-underline-offset:3px}
+img{max-width:100%;height:auto}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+/* üst çubuk */
+.bar{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 85%,transparent);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.bar-in{max-width:1080px;margin:0 auto;display:flex;align-items:center;gap:16px;padding:10px max(20px,env(safe-area-inset-right,0px)) 10px max(20px,env(safe-area-inset-left,0px))}
+.home{display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--ink);font-weight:600;font-size:15px}
+.blogname{color:var(--soft);text-decoration:none;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.blogname:hover{color:var(--accent)}
+.bar nav{margin-left:auto;display:flex;gap:14px;font-size:15px}
+.bar nav a{color:var(--ink);text-decoration:none}
+.bar nav a:hover{color:var(--accent)}
+/* ana liste */
+.hero{padding:56px 0 20px;max-width:760px}
+.hero h1{font-size:clamp(38px,6vw,64px);line-height:1.02;letter-spacing:-.03em;margin:0;font-weight:700;text-wrap:balance}
+.hero .desc{margin:8px 0 0;color:var(--soft);font-size:18px}
+.hero.small .desc{margin:0 0 6px;font-size:15px}
+.hero .intro{margin:16px 0 0;color:var(--soft)}
+.cats{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:999px;background:var(--surface);color:var(--ink);text-decoration:none;font-size:14px}
+.chip small{color:var(--soft)}
+.chip:hover{background:var(--accent-soft);color:var(--accent)}
+.yr{font-size:15px;color:var(--soft);font-weight:600;margin:40px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.card{display:flex;flex-direction:column;border-radius:16px;background:var(--surface);overflow:hidden;text-decoration:none;color:var(--ink);min-width:0}
+.card img,.card .noimg{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;background:var(--line)}
+.card .ct{display:flex;flex-direction:column;gap:6px;padding:14px 16px 18px}
+.card .meta{font-size:13px;color:var(--soft)}
+.card b{font-size:19px;line-height:1.3;letter-spacing:-.01em}
+.card .ex{font-size:15px;color:var(--soft);line-height:1.5}
+.card:hover b{color:var(--accent)}
+/* yazı */
+.post{max-width:740px;margin:0 auto;padding:40px 0 8px}
+.ph .meta{display:flex;flex-wrap:wrap;align-items:center;gap:8px;color:var(--soft);font-size:15px}
+.ph h1{font-size:clamp(32px,5vw,48px);line-height:1.1;letter-spacing:-.025em;margin:12px 0 28px;text-wrap:balance}
+.entry{font-family:var(--read);font-size:19px;line-height:1.75;overflow-wrap:break-word}
+.entry p{margin:0 0 1.1em}
+.entry h1,.entry h2,.entry h3,.entry h4,.entry h5,.entry h6{font-family:var(--ui);line-height:1.25;margin:1.8em 0 .6em;letter-spacing:-.01em}
+.entry h5{font-size:18px}.entry h6{font-size:16px}
+.entry ul,.entry ol{padding-left:1.3em;margin:0 0 1.1em}
+.entry figure{margin:1.6em 0}
+.entry img{border-radius:6px}
+.entry .wp-caption{max-width:100%!important;width:auto!important;margin:1.6em 0}
+.entry .wp-caption-text,.entry figcaption{font-family:var(--ui);font-size:14px;color:var(--soft);margin-top:6px;text-align:center}
+.entry .aligncenter{display:block;margin-left:auto;margin-right:auto}
+.entry .alignleft{float:left;margin:0 1.2em 1em 0;max-width:50%}
+.entry .alignright{float:right;margin:0 0 1em 1.2em;max-width:50%}
+.entry .has-text-align-center{text-align:center}
+.entry hr{border:0;border-top:1px solid var(--line);margin:2em 0}
+.entry iframe{max-width:100%;border:0;border-radius:8px}
+.entry::after{content:"";display:block;clear:both}
+/* galeriler (WordPress/Jetpack) */
+.entry .wp-block-gallery,.entry .blocks-gallery-grid{display:flex;flex-wrap:wrap;gap:8px;padding:0;list-style:none;margin:1.6em 0}
+.entry .wp-block-gallery>figure,.entry .blocks-gallery-item{flex:1 1 calc(33.33% - 8px);margin:0;position:relative}
+.entry .wp-block-gallery.columns-2>figure,.entry .columns-2 .blocks-gallery-item{flex-basis:calc(50% - 8px)}
+.entry .wp-block-gallery img,.entry .blocks-gallery-item img{width:100%;height:100%;object-fit:cover;display:block}
+.entry .tiled-gallery__gallery{margin:1.6em 0}
+.entry .tiled-gallery__row{display:flex;gap:6px;margin-bottom:6px}
+.entry .tiled-gallery__col{display:flex;flex-direction:column;gap:6px}
+.entry .tiled-gallery__item{margin:0}
+.entry .tiled-gallery__item img{display:block;width:100%;height:auto;border-radius:4px}
+.entry .tiled-gallery{margin:1.6em 0}
+.entry .tiled-gallery .gallery-row{display:flex;gap:6px;width:100%!important;height:auto!important;margin-bottom:6px}
+.entry .tiled-gallery .gallery-group{display:flex;flex-direction:column;gap:6px;flex:1;width:auto!important;height:auto!important}
+.entry .tiled-gallery .tiled-gallery-item{margin:0;width:auto!important;height:auto!important}
+.entry .tiled-gallery .tiled-gallery-item img{display:block;width:100%!important;height:auto!important;border-radius:4px}
+.entry .tiled-gallery-caption{font-family:var(--ui);font-size:13px;color:var(--soft);padding:4px 2px}
+.entry meta{display:none}
+.tags{font-size:14px;color:var(--soft);margin:28px 0 0}
+.tags span{font-weight:600}
+.orig{font-size:13.5px;color:var(--soft);margin:18px 0 0;overflow-wrap:anywhere}
+/* yorumlar */
+.comments{max-width:740px;margin:44px auto 0;padding-top:24px;border-top:1px solid var(--line)}
+.comments h2{font-size:22px;margin:0 0 4px}
+.comments .note{color:var(--soft);font-size:14px;margin:0 0 18px}
+.comments ol{list-style:none;padding:0;margin:0;display:grid;gap:12px}
+.comments ol ol{margin:12px 0 0 20px}
+.cmt{background:var(--surface);border-radius:14px;padding:14px 16px}
+.cmt-h{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;font-size:15px}
+.cmt-h time{color:var(--soft);font-size:13px}
+.cmt-b{font-size:16px}
+.cmt-b p{margin:.4em 0}
+/* önceki / sonraki */
+.pn{max-width:740px;margin:44px auto 0;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.pn a{display:flex;flex-direction:column;gap:4px;padding:14px 16px;border-radius:14px;background:var(--surface);text-decoration:none;color:var(--ink);font-weight:600;line-height:1.3}
+.pn a span{font-weight:400;font-size:13px;color:var(--soft)}
+.pn .next{text-align:right}
+.pn a:hover{background:var(--accent-soft)}
+.foot{margin-top:64px;border-top:1px solid var(--line);padding:18px 0 28px;font-size:13.5px;color:var(--soft)}
+.foot .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+@media (max-width:640px){
+  body{font-size:16px}
+  .entry{font-size:17.5px}
+  .blogname{display:none}
+  .pn{grid-template-columns:1fr}
+  .pn .next{text-align:left}
+  .entry .tiled-gallery__row,.entry .tiled-gallery .gallery-row{flex-direction:column}
+  .entry .tiled-gallery__col{flex-basis:auto!important}
+  .entry .alignleft,.entry .alignright{float:none;max-width:100%;margin:1em 0}
+}
+</style>
+
+</head>
+<body>
+<header class="bar"><div class="bar-in">
+<a class="home" href="/" aria-label="ahmetoff.com ana sayfa"><img src="/favicon.svg" width="22" height="22" alt=""><span>ahmetoff</span></a>
+<a class="blogname" href="../../../../">everything is in one place</a>
+<nav><a href="../../../../kim/">Kim</a><a href="../../../../iletisim/">İletişim</a></nav>
+</div></header>
+<main class="wrap">
+<article class="post">
+<header class="ph"><div class="meta"><time datetime="2020-08-19">19 Ağustos 2020</time><a class="chip" href="../../../../kategori/genel/">Genel</a></div>
+<h1>Biraz da Kadim teknik 3</h1></header>
+<div class="entry">
+<p class="wp-block-paragraph">Merhaba meraklı dostlar,</p>
+
+
+
+<p class="wp-block-paragraph">Bu yazımızda yine oldukça eski zamanlarda kullanılmaya başlanmış mimari bir formdan bahsetmeye çalışacağım. Genelde kare formdan yuvarlak ya da çokgen formlara geçişlerde kullanılan bu geçiş şekli günümüzde pandandif (aslan göğsü) ya da tromp olarak bilinir. Her ikisi arasında görsel olarak fark olduğu kadar, statik olarak da önemli farklar bulunmaktadır.</p>
+
+
+
+<div class="wp-block-image"><figure class="aligncenter size-large"><img loading="lazy" width="1024" height="454" data-attachment-id="2125" data-permalink="https://pointpointblog.wordpress.com/turk-ucgeni/" data-orig-file="../../../../media/2020/08/turk-ucgeni.jpg" data-orig-size="1138,505" data-comments-opened="1" data-image-title="turk-ucgeni" data-image-description="" data-image-caption="" data-large-file="../../../../media/2020/08/turk-ucgeni.jpg" src="../../../../media/2020/08/turk-ucgeni.jpg" alt="Pandandif , Tromp , Türk üçgeni formları ve yük altındaki davranışları" class="wp-image-2125" /><figcaption>Formların yükleri nasıl ilettiklerini görebiliriz</figcaption></figure></div>
+
+
+
+<p class="wp-block-paragraph">Bizdeki pandandif ve tromp uygulamaları 15.yy dan sonra sıklıkla &#8220;Türk üçgeni&#8221; olarak, bazen de &#8220;Yedi Sekiz&#8221; (arapça V ve ters V ) olarak anılan forma dönüşmüştür. </p>
+
+
+
+<figure class="wp-block-gallery columns-2 is-cropped wp-block-gallery-4 is-layout-flex wp-block-gallery-is-layout-flex"><ul class="blocks-gallery-grid"><li class="blocks-gallery-item"><figure><img loading="lazy" width="1024" height="675" data-attachment-id="2143" data-permalink="https://pointpointblog.wordpress.com/havuz/" data-orig-file="../../../../media/2020/08/havuz.jpg" data-orig-size="2000,1319" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;1.7&quot;,&quot;camera&quot;:&quot;SM-A505F&quot;,&quot;created_timestamp&quot;:&quot;1571910362&quot;,&quot;focal_length&quot;:&quot;3.93&quot;,&quot;iso&quot;:&quot;40&quot;,&quot;shutter_speed&quot;:&quot;0.0031055900621118&quot;,&quot;orientation&quot;:&quot;1&quot;,&quot;latitude&quot;:&quot;41.0412729&quot;,&quot;longitude&quot;:&quot;29.0443721&quot;}" data-image-title="havuz" data-image-description="" data-image-caption="" data-large-file="../../../../media/2020/08/havuz.jpg" src="../../../../m/2020/08/havuz.jpg" alt="" data-id="2143" data-link="https://pointpointblog.wordpress.com/havuz/" class="wp-image-2143" /><figcaption class="blocks-gallery-item__caption">Hassa Mimarlık</figcaption></figure></li><li class="blocks-gallery-item"><figure><img loading="lazy" width="1024" height="711" data-attachment-id="2144" data-permalink="https://pointpointblog.wordpress.com/sutun-basligi/" data-orig-file="../../../../media/2020/08/sutun-basligi.jpg" data-orig-size="1200,834" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;1.7&quot;,&quot;camera&quot;:&quot;SM-A505F&quot;,&quot;created_timestamp&quot;:&quot;1597740616&quot;,&quot;focal_length&quot;:&quot;3.93&quot;,&quot;iso&quot;:&quot;40&quot;,&quot;shutter_speed&quot;:&quot;0.008130081300813&quot;,&quot;orientation&quot;:&quot;1&quot;,&quot;latitude&quot;:&quot;41.026607499722&quot;,&quot;longitude&quot;:&quot;29.015629499722&quot;}" data-image-title="sutun-basligi" data-image-description="" data-image-caption="" data-large-file="../../../../media/2020/08/sutun-basligi.jpg" src="../../../../media/2020/08/sutun-basligi.jpg" alt="" data-id="2144" data-link="https://pointpointblog.wordpress.com/sutun-basligi/" class="wp-image-2144" /><figcaption class="blocks-gallery-item__caption">Mihrimah Sultan Camii _ Üsküdar_İstanbul</figcaption></figure></li></ul></figure>
+
+
+
+<p class="wp-block-paragraph">Zamanla form iyice zenginlik kazanmaya başlamıştır. Son dönemlere doğru  o kadar benimsenmiştir ki bir çok ölçekte ve malzemeden uygulanmaya başlamıştır. Bu konuda başlangıç olarak detaylı bilgi için <a href="http://auzefkitap.istanbul.edu.tr/kitap/kulturelmiras_ao/omsanati.pdf">bu adrese</a> bakmanızı tavsiye ederim&#8230;</p>
+
+
+
+<div class="wp-block-image"><figure class="aligncenter size-large"><img loading="lazy" width="1024" height="360" data-attachment-id="2129" data-permalink="https://pointpointblog.wordpress.com/tromp_pandandif_turk-ucgeni/" data-orig-file="../../../../media/2020/08/tromp_pandandif_turk-ucgeni.jpg" data-orig-size="1651,581" data-comments-opened="1" data-image-meta="{&quot;orientation&quot;:&quot;1&quot;}" data-image-title="tromp_pandandif_turk-ucgeni" data-image-description="" data-image-caption="" data-large-file="../../../../media/2020/08/tromp_pandandif_turk-ucgeni.jpg" src="../../../../m/2020/08/tromp_pandandif_turk-ucgeni.jpg" alt="" class="wp-image-2129" /></figure></div>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" width="991" height="585" data-attachment-id="2131" data-permalink="https://pointpointblog.wordpress.com/edirne_eski-camii/" data-orig-file="../../../../media/2020/08/edirne_eski-camii.jpg" data-orig-size="991,585" data-comments-opened="1" data-image-meta="{&quot;orientation&quot;:&quot;1&quot;}" data-image-title="edirne_eski-camii" data-image-description="" data-image-caption="" data-large-file="../../../../media/2020/08/edirne_eski-camii.jpg" src="../../../../media/2020/08/edirne_eski-camii.jpg" alt="" class="wp-image-2131" /><figcaption>Edirne_Eski Camii (1403-1414 yılları arasında yapılmıştır)</figcaption></figure>
+
+
+
+<p class="wp-block-paragraph">Şimdi de 3dsMax programında bu formumuzu kolayca oluşturmak için yazdığım script ten bahsetmek istiyorum. Yazımızın bundan sonraki bölümünde &#8220;Türk üçgeni&#8221; tabiri yerine 7_8 i yazım kolaylığından tercih edeceğim.  3dsMax te script <a href="../../../../2018/08/16/biraz-da-kadim-teknik/">nasıl çalıştırılır</a> ve kullanılır daha önce bahsetmiştim&#8230;</p>
+
+
+
+<p class="wp-block-paragraph">3dsMax Front çalışma ekranımızda 7_8 hattımızın uzunluğunu gösteren yatay bir çizgi çizerek işlemlerimize başlıyoruz. &#8220;7_8_1.ms&#8221; isimli script çalıştırıldığında karşımıza çıkan pencereden iki temel 7_8 formundan birini seçiyoruz. Yaptığımız seçime göre ilerleme şeklimizde de değişiklik olacaktır.</p>
+
+
+
+<div class="wp-block-image is-style-default"><figure class="aligncenter size-large"><img loading="lazy" width="446" height="234" data-attachment-id="2116" data-permalink="https://pointpointblog.wordpress.com/1/" data-orig-file="../../../../media/2020/08/1.jpg" data-orig-size="446,234" data-comments-opened="1" data-image-meta="{&quot;orientation&quot;:&quot;1&quot;}" data-image-title="1" data-image-description="" data-image-caption="" data-large-file="../../../../media/2020/08/1.jpg" src="../../../../media/2020/08/1.jpg" alt="Türk üçgeni, Pandandif çözümü, Kenar " class="wp-image-2116" /><figcaption>Script çalıştırıldığında 1.Tip seçili olarak açılır</figcaption></figure></div>
+
+
+
+<div class="wp-block-image is-style-default"><figure class="aligncenter size-large"><img loading="lazy" width="446" height="234" data-attachment-id="2121" data-permalink="https://pointpointblog.wordpress.com/2-2/" data-orig-file="../../../../media/2020/08/2-2.jpg" data-orig-size="446,234" data-comments-opened="1" data-image-meta="{&quot;orientation&quot;:&quot;1&quot;}" data-image-title="2-2" data-image-description="" data-image-caption="" data-large-file="../../../../media/2020/08/2-2.jpg" src="../../../../media/2020/08/2-2.jpg" alt="" class="wp-image-2121" /><figcaption>2.Tip ekranı</figcaption></figure></div>
+
+
+
+<p class="has-text-align-left wp-block-paragraph">1. tipi seçtiğimizde önce sağ taraftaki değerler doldurulup daha sonra çalışma ekranımızdan 7_8 modüllerinin oluşacağı uzunluğu belirleyen çizgimiz seçilmelidir. Seçim işleminden sonra script tarafından çizgimizin boyu ölçülür ve bizim istediğimiz genişlik ölçüsüne en uygun olarak tam modül genişliği olacak şekilde tekrar hesaplanıp genişlik hanesinde verilir. Eğer istediğimiz ölçüler uygunsa &#8220;Çiz&#8221; butonuna basarak çizimi yaptırabiliriz.</p>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" width="1024" height="560" data-attachment-id="2113" data-permalink="https://pointpointblog.wordpress.com/yedisekiz_1/" data-orig-file="../../../../media/2020/08/yedisekiz_1.jpg" data-orig-size="2560,1402" data-comments-opened="1" data-image-meta="{&quot;orientation&quot;:&quot;1&quot;}" data-image-title="yedisekiz_1" data-image-description="" data-image-caption="" data-large-file="../../../../media/2020/08/yedisekiz_1.jpg" src="../../../../m/2020/08/yedisekiz_1.jpg" alt="Türk üçgeni temel yapısı
+" class="wp-image-2113" /><figcaption>Türk üçgeni temel yapısı 1.Tip</figcaption></figure>
+
+
+
+<p class="wp-block-paragraph">2. tipi seçtiğimizde önce çalışma ekranımızdan 7_8 modüllerinin oluşacağı uzunluğu belirleyen çizgimiz seçilmelidir. Sonra sağ taraftaki değerler doldurulmaya başlanır. Genişlik değeri girilip &#8220;enter&#8221; a basıldığında seçilen çizgimizin uzunluğuna göre en uygun tam genişlik tekrar hesaplanıp genişlik hanesine aktarılır. Aynı zamanda yükseklik değeri de otomatik olarak hesaplanıp hanesine yazılır. Bu 7_8 modülümüz eşkenar üçgenlerden oluşmaktadır. Genişliğe göre üçgenin yüksekliği veya yüksekliğine göre genişliği otomatik olarak tekrar hesaplanır. Eğer ilk olarak yükseklik belitilirse ekrandaki çizgimiz tekrar seçilerek uygun genişlik hesabı yapılmasını sağlamamız gerekmektedir.</p>
+
+
+
+<figure class="wp-block-image size-large is-style-default"><img loading="lazy" width="1024" height="560" data-attachment-id="2114" data-permalink="https://pointpointblog.wordpress.com/yedisekiz_2/" data-orig-file="../../../../media/2020/08/yedisekiz_2.jpg" data-orig-size="2560,1402" data-comments-opened="1" data-image-meta="{&quot;orientation&quot;:&quot;1&quot;}" data-image-title="yedisekiz_2" data-image-description="" data-image-caption="" data-large-file="../../../../media/2020/08/yedisekiz_2.jpg" src="../../../../m/2020/08/yedisekiz_2.jpg" alt="Türk üçgeni gelişmiş yapısı" class="wp-image-2114" /><figcaption>Türk üçgeni gelişmiş yapısı 2. Tip</figcaption></figure>
+
+
+
+<p class="wp-block-paragraph">Programın çalışabilir kodlarına&nbsp;<a href="https://drive.google.com/file/d/1HLBIssrKNqu19RbyfsW2nVXyoNASjL57/view?usp=sharing">buradan</a>&nbsp;ulaşabilirsiniz. Programı ve kodları yasa dışı herhangi bir işte kullanmamak koşulu ile istediğiniz gibi kullanabilirsiniz.</p>
+
+
+
+<p class="wp-block-paragraph">iyi eğlenceler arkadaşlar …</p>
+
+
+
+<p class="wp-block-paragraph">Devam edecek &#8230;</p>
+</div>
+<div class="tags"><span>Etiketler:</span> <a href="../../../../etiket/3dsmax/">3dsmax</a>, <a href="../../../../etiket/kadim-teknik/">Kadim teknik</a>, <a href="../../../../etiket/pandandif/">Pandandif</a>, <a href="../../../../etiket/pandantif/">Pandantif</a>, <a href="../../../../etiket/script/">script</a>, <a href="../../../../etiket/yedisekiz/">Yedisekiz</a></div>
+<p class="orig">İlk yayın: <a href="https://pointpointblog.wordpress.com/2020/08/19/biraz-da-kadim-teknik-3/">https://pointpointblog.wordpress.com/2020/08/19/biraz-da-kadim-teknik-3/</a></p>
+</article>
+
+<nav class="pn"><a class="prev" href="../../../../2020/06/29/degisen-kabuk/"><span>Önceki yazı</span>Değişen Kabuk</a><a class="next" href="../../../../2020/09/22/frekans/"><span>Sonraki yazı</span>Frekans</a></nav>
+</main>
+<footer class="foot"><div class="wrap"><span>© Ahmet Çandöken</span><span>Bu yazılar 2017–2026 arasında <a href="https://pointpointblog.wordpress.com/">pointpointblog.wordpress.com</a> adresinde yayımlandı.</span></div></footer>
+</body>
+</html>

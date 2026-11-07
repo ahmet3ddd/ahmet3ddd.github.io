@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Değişen Kabuk · everything is in one place</title>
+<meta name="description" content="Merhaba meraklı dostlar, İnsanlık, geçmişimizde değişimin bu kadar yoğun, hızlı ve global olduğu bir zaman görmedi. Muhakkak her değişim ve dönüşüm kendi içeris">
+<meta name="author" content="Ahmet Çandöken">
+<link rel="canonical" href="https://ahmetoff.com/blog/2020/06/29/degisen-kabuk/">
+<meta property="og:title" content="Değişen Kabuk · everything is in one place">
+<meta property="og:description" content="Merhaba meraklı dostlar, İnsanlık, geçmişimizde değişimin bu kadar yoğun, hızlı ve global olduğu bir zaman görmedi. Muhakkak her değişim ve dönüşüm kendi içeris">
+<meta property="og:type" content="article">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="everything is in one place" href="/blog/feed.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&display=swap">
+<style>/* Blog: ahmetoff.com ile aynı renk ailesi; okuma için serif gövde, arayüz için Onest */
+:root{--bg:#fff;--surface:#f2f5f6;--ink:#1a1d21;--soft:#5c6670;--line:#dde3e6;--accent:#0b8a8a;--accent-soft:#e2f3f2;
+ --ui:"Onest",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;--read:"Literata",Georgia,"Times New Roman",serif;color-scheme:light}
+@media (prefers-color-scheme:dark){:root{--bg:#0f1316;--surface:#171d21;--ink:#eef2f4;--soft:#9aa6ae;--line:#28323a;--accent:#3cc4bf;--accent-soft:#13302f;color-scheme:dark}}
+*{box-sizing:border-box}
+html{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.65 var(--ui);-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-underline-offset:3px}
+img{max-width:100%;height:auto}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+/* üst çubuk */
+.bar{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 85%,transparent);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.bar-in{max-width:1080px;margin:0 auto;display:flex;align-items:center;gap:16px;padding:10px max(20px,env(safe-area-inset-right,0px)) 10px max(20px,env(safe-area-inset-left,0px))}
+.home{display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--ink);font-weight:600;font-size:15px}
+.blogname{color:var(--soft);text-decoration:none;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.blogname:hover{color:var(--accent)}
+.bar nav{margin-left:auto;display:flex;gap:14px;font-size:15px}
+.bar nav a{color:var(--ink);text-decoration:none}
+.bar nav a:hover{color:var(--accent)}
+/* ana liste */
+.hero{padding:56px 0 20px;max-width:760px}
+.hero h1{font-size:clamp(38px,6vw,64px);line-height:1.02;letter-spacing:-.03em;margin:0;font-weight:700;text-wrap:balance}
+.hero .desc{margin:8px 0 0;color:var(--soft);font-size:18px}
+.hero.small .desc{margin:0 0 6px;font-size:15px}
+.hero .intro{margin:16px 0 0;color:var(--soft)}
+.cats{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:999px;background:var(--surface);color:var(--ink);text-decoration:none;font-size:14px}
+.chip small{color:var(--soft)}
+.chip:hover{background:var(--accent-soft);color:var(--accent)}
+.yr{font-size:15px;color:var(--soft);font-weight:600;margin:40px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.card{display:flex;flex-direction:column;border-radius:16px;background:var(--surface);overflow:hidden;text-decoration:none;color:var(--ink);min-width:0}
+.card img,.card .noimg{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;background:var(--line)}
+.card .ct{display:flex;flex-direction:column;gap:6px;padding:14px 16px 18px}
+.card .meta{font-size:13px;color:var(--soft)}
+.card b{font-size:19px;line-height:1.3;letter-spacing:-.01em}
+.card .ex{font-size:15px;color:var(--soft);line-height:1.5}
+.card:hover b{color:var(--accent)}
+/* yazı */
+.post{max-width:740px;margin:0 auto;padding:40px 0 8px}
+.ph .meta{display:flex;flex-wrap:wrap;align-items:center;gap:8px;color:var(--soft);font-size:15px}
+.ph h1{font-size:clamp(32px,5vw,48px);line-height:1.1;letter-spacing:-.025em;margin:12px 0 28px;text-wrap:balance}
+.entry{font-family:var(--read);font-size:19px;line-height:1.75;overflow-wrap:break-word}
+.entry p{margin:0 0 1.1em}
+.entry h1,.entry h2,.entry h3,.entry h4,.entry h5,.entry h6{font-family:var(--ui);line-height:1.25;margin:1.8em 0 .6em;letter-spacing:-.01em}
+.entry h5{font-size:18px}.entry h6{font-size:16px}
+.entry ul,.entry ol{padding-left:1.3em;margin:0 0 1.1em}
+.entry figure{margin:1.6em 0}
+.entry img{border-radius:6px}
+.entry .wp-caption{max-width:100%!important;width:auto!important;margin:1.6em 0}
+.entry .wp-caption-text,.entry figcaption{font-family:var(--ui);font-size:14px;color:var(--soft);margin-top:6px;text-align:center}
+.entry .aligncenter{display:block;margin-left:auto;margin-right:auto}
+.entry .alignleft{float:left;margin:0 1.2em 1em 0;max-width:50%}
+.entry .alignright{float:right;margin:0 0 1em 1.2em;max-width:50%}
+.entry .has-text-align-center{text-align:center}
+.entry hr{border:0;border-top:1px solid var(--line);margin:2em 0}
+.entry iframe{max-width:100%;border:0;border-radius:8px}
+.entry::after{content:"";display:block;clear:both}
+/* galeriler (WordPress/Jetpack) */
+.entry .wp-block-gallery,.entry .blocks-gallery-grid{display:flex;flex-wrap:wrap;gap:8px;padding:0;list-style:none;margin:1.6em 0}
+.entry .wp-block-gallery>figure,.entry .blocks-gallery-item{flex:1 1 calc(33.33% - 8px);margin:0;position:relative}
+.entry .wp-block-gallery.columns-2>figure,.entry .columns-2 .blocks-gallery-item{flex-basis:calc(50% - 8px)}
+.entry .wp-block-gallery img,.entry .blocks-gallery-item img{width:100%;height:100%;object-fit:cover;display:block}
+.entry .tiled-gallery__gallery{margin:1.6em 0}
+.entry .tiled-gallery__row{display:flex;gap:6px;margin-bottom:6px}
+.entry .tiled-gallery__col{display:flex;flex-direction:column;gap:6px}
+.entry .tiled-gallery__item{margin:0}
+.entry .tiled-gallery__item img{display:block;width:100%;height:auto;border-radius:4px}
+.entry .tiled-gallery{margin:1.6em 0}
+.entry .tiled-gallery .gallery-row{display:flex;gap:6px;width:100%!important;height:auto!important;margin-bottom:6px}
+.entry .tiled-gallery .gallery-group{display:flex;flex-direction:column;gap:6px;flex:1;width:auto!important;height:auto!important}
+.entry .tiled-gallery .tiled-gallery-item{margin:0;width:auto!important;height:auto!important}
+.entry .tiled-gallery .tiled-gallery-item img{display:block;width:100%!important;height:auto!important;border-radius:4px}
+.entry .tiled-gallery-caption{font-family:var(--ui);font-size:13px;color:var(--soft);padding:4px 2px}
+.entry meta{display:none}
+.tags{font-size:14px;color:var(--soft);margin:28px 0 0}
+.tags span{font-weight:600}
+.orig{font-size:13.5px;color:var(--soft);margin:18px 0 0;overflow-wrap:anywhere}
+/* yorumlar */
+.comments{max-width:740px;margin:44px auto 0;padding-top:24px;border-top:1px solid var(--line)}
+.comments h2{font-size:22px;margin:0 0 4px}
+.comments .note{color:var(--soft);font-size:14px;margin:0 0 18px}
+.comments ol{list-style:none;padding:0;margin:0;display:grid;gap:12px}
+.comments ol ol{margin:12px 0 0 20px}
+.cmt{background:var(--surface);border-radius:14px;padding:14px 16px}
+.cmt-h{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;font-size:15px}
+.cmt-h time{color:var(--soft);font-size:13px}
+.cmt-b{font-size:16px}
+.cmt-b p{margin:.4em 0}
+/* önceki / sonraki */
+.pn{max-width:740px;margin:44px auto 0;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.pn a{display:flex;flex-direction:column;gap:4px;padding:14px 16px;border-radius:14px;background:var(--surface);text-decoration:none;color:var(--ink);font-weight:600;line-height:1.3}
+.pn a span{font-weight:400;font-size:13px;color:var(--soft)}
+.pn .next{text-align:right}
+.pn a:hover{background:var(--accent-soft)}
+.foot{margin-top:64px;border-top:1px solid var(--line);padding:18px 0 28px;font-size:13.5px;color:var(--soft)}
+.foot .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+@media (max-width:640px){
+  body{font-size:16px}
+  .entry{font-size:17.5px}
+  .blogname{display:none}
+  .pn{grid-template-columns:1fr}
+  .pn .next{text-align:left}
+  .entry .tiled-gallery__row,.entry .tiled-gallery .gallery-row{flex-direction:column}
+  .entry .tiled-gallery__col{flex-basis:auto!important}
+  .entry .alignleft,.entry .alignright{float:none;max-width:100%;margin:1em 0}
+}
+</style>
+
+</head>
+<body>
+<header class="bar"><div class="bar-in">
+<a class="home" href="/" aria-label="ahmetoff.com ana sayfa"><img src="/favicon.svg" width="22" height="22" alt=""><span>ahmetoff</span></a>
+<a class="blogname" href="../../../../">everything is in one place</a>
+<nav><a href="../../../../kim/">Kim</a><a href="../../../../iletisim/">İletişim</a></nav>
+</div></header>
+<main class="wrap">
+<article class="post">
+<header class="ph"><div class="meta"><time datetime="2020-06-29">29 Haziran 2020</time><a class="chip" href="../../../../kategori/genel/">Genel</a></div>
+<h1>Değişen Kabuk</h1></header>
+<div class="entry">
+<p class="wp-block-paragraph">Merhaba meraklı dostlar,</p>
+
+
+
+<p class="wp-block-paragraph">İnsanlık, geçmişimizde değişimin bu kadar yoğun, hızlı ve global olduğu bir zaman görmedi. </p>
+
+
+
+<p class="wp-block-paragraph">Muhakkak her değişim ve dönüşüm kendi içerisinde az ya da çok zorluklarla olmuştur. Ancak hiç biri insanı bedeninden bu derece ayrıştırmaya yönelik olmamıştır&#8230;</p>
+
+
+
+<p class="wp-block-paragraph">. <strong>Eğitim ;</strong>  <strong>a ;</strong> Doğduğumuz andan itibaren hem öğrenci hem öğretmen olan davranış modelimiz sayesinde, bilmediklerimizi öğreniyor bildiklerimizi de aktarıyoruz. Okul çağına geldiğimizde okul denilen kurumlar ve sistem sayesinde öğrenme hızımız ve şeklimiz değişmeye başlıyor. Bir nevi programlanmaya çalışılan robotlar gibi eğitiliyoruz. Sistem her ne kadar özgürlüğü savunsa da aslında tamamen irademiz dışında gönüllü köleliğe rağzı olup sistemin devamlılığını sağlıyoruz. Bir süre sonra da sistem içerisindeki doğal olduğunu sanmaya başladığımız puanlamalar sayesinde (ismini siz koyun) statüler edinip yaşama devam ediyoruz ! </p>
+
+
+
+<p class="wp-block-paragraph">. <strong>Eğitim ;</strong> <strong>b ;</strong>  Eğitilmemiz için almamız gereken bilgi (ezber) son 20 yıldır bir insanın eğitim hayatına sığmayacak büyüklükte veri içermeye başlamıştır. Sonuçta branşlar artmış, meslekler ve hatta sadece bilgi bile alt başlıklar halinde ayrılmak zorunda kalmıştır. Bu durum hızlanarak ve artarak devam emektedir&#8230;</p>
+
+
+
+<p class="wp-block-paragraph">. <strong>Eğitim ;</strong> <strong>c ;</strong>  İnternetin gelişmesi ve sosyal medyanın hayatımızın içine girmesiyle beraber, insan uzuvlarının fiziki sınırlarını neredeyse sınırsız mesafelere taşımıştır. Bu durum birçoğumuza devasa görünmez vücutlar kazandırmıştır&#8230; </p>
+
+
+
+<p class="wp-block-paragraph">. <strong>Eğitim ;</strong> <strong>a+b+c ;</strong> Artık yeni doğan bebeklerimiz fiziki bedenlerini ve dünyayı tanırken aynı zamanda görünmez vücutlarını ve dünyayı da tanımaya başlıyorlar. Eğitim dediğimiz süreç tahmin edilemeyecek hal almaya başlamıştır&#8230; </p>
+
+
+
+<div class="wp-block-image"><figure class="aligncenter size-large"><img loading="lazy" width="768" height="512" data-attachment-id="2083" data-permalink="../../../../2020/06/29/degisen-kabuk/puzzle-03/" data-orig-file="../../../../media/2020/06/puzzle-03.jpg" data-orig-size="850,567" data-comments-opened="1" data-image-meta="{&quot;orientation&quot;:&quot;1&quot;}" data-image-title="puzzle-03" data-image-description="" data-image-caption="&lt;p&gt;Somut mu Soyut mu&lt;/p&gt;
+" data-large-file="../../../../media/2020/06/puzzle-03.jpg" src="../../../../media/2020/06/puzzle-03.jpg" alt="Eğitim " class="wp-image-2083" /><figcaption>Somut mu Soyut mu</figcaption></figure></div>
+
+
+
+<p class="wp-block-paragraph">. . <strong>İnsan olmak ; a ;</strong> İnsanı diğer canlılardan ayıran temel özellik, soru sorma ve tatmin edici cevaplar arama becerisinin gelişmesidir. Bu özelliği o kadar gelişmiştir ki, edindiği cevaplar sayesinde algıladığı yaşamın formüllerini tanımlaya başlamıştır. Hatta <em>&#8220;düşünüyorum o halde varım&#8221;</em> diyebilmiştir.</p>
+
+
+
+<p class="wp-block-paragraph">. . <strong>İnsan olmak ; b ;</strong>  Düşünce üretmek. Çok basit bir eylem gibi dursa da insanım diyen için hiç de kolay olmamıştır. &#8216; <em>Bu ne renk</em> &#8216; sorusunun cevabı renkleri bilen birisi için çok kolay olabilirken renk bilgisi yetersiz birisi için düşündürücü bir sorudur&#8230; </p>
+
+
+
+<p class="wp-block-paragraph">. . <strong>İnsan olmak ; c ;</strong>  Bilme isteği içimizdeki bitmez tükenmez bir arzudur. Yaşamın kaynağı bile demek mümkün. Bilme durumu bir boşluğun doldurulma arzusundan başka bir şey değildir. Boş bardağın dolmasına, aç karnımızın doymasına, görmemize, duymamıza, v.s. bunlar gibi bir çok şeye, hatta yaşamın kendisine bile eş tutabilir. Bilmek ihtiyaç duyulan, arzulanan elde edilince tatmin yaratan yeni bilmelere yol açan durum diyebilirim. Bilme sonlandığında canlılar için ölüm, cansızlar için değişim, fikirler için sonuçlar oluşur diyebiliriz. Varlık devam ettiği sürece de bilme eylemi devam edecektir&#8230;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>. . .</strong>  Günümüzde <strong><a href="https://tr.wikipedia.org/wiki/B%C3%BCy%C3%BCk_veri">big data</a></strong> denilen bilgi yığını, bilme eylemini yönetenler için hazine haline gelmiştir. Biliyorlar ki bununla her türlü eylemi hayata geçirmek çok kolaylaşmıştır. Reklam sektörü için muazzam bir kaynak. Çoğumuz konuşmalarımız arasında şunu ya da benzerlerini söyleriz &#8220;<strong><em>aklıma geldi</em></strong> &#8221; . Gerçekten aklınıza mı geldi. Ben hiç sanmıyorum. O aklınıza gelen şey tam zamanında aklınızda beliriverdi demek çok daha doğru olacaktır.</p>
+
+
+
+<p class="wp-block-paragraph">Aklımıza geldiğini sandığımız şeylerin hemen hepsi (çoğunlukla) bizlere sunulan &#8221; puzzle &#8221; &#8216;ın parçalarını yavaş ve emin adımlarla bizlere çözdüren o &#8221; üst akıl &#8221; dediğimiz <strong>big data</strong> verisini ziyadesiyle kullananların yaptıklarından başka bir şey olmadığını sanıyorum.</p>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" width="768" height="778" data-attachment-id="2079" data-permalink="../../../../2020/06/29/degisen-kabuk/puzzle-01/" data-orig-file="../../../../media/2020/06/puzzle-01.jpg" data-orig-size="1409,1429" data-comments-opened="1" data-image-meta="{&quot;orientation&quot;:&quot;1&quot;}" data-image-title="puzzle-01" data-image-description="" data-image-caption="&lt;p&gt;Büyük resimdeki rolümüz ne&lt;/p&gt;
+" data-large-file="../../../../media/2020/06/puzzle-01.jpg" src="../../../../media/2020/06/puzzle-01.jpg" alt="5N1K + Neyim" class="wp-image-2079" /><figcaption>Büyük resimdeki rolümüz ne</figcaption></figure>
+
+
+
+<p class="wp-block-paragraph">Bu sarmaldan kendimizi kurtarabilmek için her yöne bakabilme becerisine sahip olmamız ya da kendimizi bu konuda geliştirmemiz gerekmektedir. Çok zor olmasa da çaba gerektiren bir yaşam biçimi. Her zaman her sunulanı almayın, almasanız bile almış kadar inceleyin derim. Doğrulara biraz daha yaklaşabilmek için alternatif bakış açılarıyla olan biteni bilmeye çalışın.</p>
+
+
+
+<p class="wp-block-paragraph">Hem bilmeye çalışıp hem de alternatifleriyle hayata bakmaya çalışmak insanı bugüne kadar eşi benzeri görülmemiş bir çabanın içine sokuyor. Bu çabanın içinde bedenimiz çok hantal kalmaya başladı. </p>
+
+
+
+<div class="wp-block-image"><figure class="aligncenter size-large"><img loading="lazy" data-attachment-id="2089" data-permalink="../../../../2020/06/29/degisen-kabuk/puzzle-04-2/" data-orig-file="../../../../media/2020/06/puzzle-04-1.jpg" data-orig-size="224,424" data-comments-opened="1" data-image-meta="{&quot;orientation&quot;:&quot;1&quot;}" data-image-title="puzzle-04" data-image-description="" data-image-caption="&lt;p&gt;Gidişad böyle görünüyor&lt;/p&gt;
+" data-large-file="../../../../media/2020/06/puzzle-04-1.jpg" src="../../../../media/2020/06/puzzle-04-1.jpg" alt="Yeni vücudumuz" class="wp-image-2089" /><figcaption>Gidişad böyle görünüyor</figcaption></figure></div>
+
+
+
+<p class="wp-block-paragraph">Yerimizden bile kalkmadan bir tık ile dünyanın öbür ucuyla iletişime geçerken parmaklarımız haricinde neredeyse kıpırdamadan yani bedenimizin en gelişmiş kas yığınlarına mesela bacaklarımıza hiç ihtiyacımız olmuyor. Kollarımızın da bu kadar uzun olmasına ihtiyacımız yok. Hatta <strong>büyükçe bir kafa cılız bir beden</strong> ihtiyacımızı görür sanki. Bu düşündürücü bir durum. Düşündürücü olmasının yanı sıra bedenlerimiz artık alarm veriyor. Doktorlar sağlığımız için hareketli yaşamı öneriyor. Önerinin sebebi hareketsizliğimizin tescilinden başka bir şey değil. Bir de sağlıklı beslenmeliyiz diye öneriler var. Sebep yine aynı. (dünyanın bazı coğrafyaları hariç) </p>
+
+
+
+<p class="wp-block-paragraph">Beynimizin arzuladığı yaşam biçimini artık bedenimiz kaldıramıyor, sanal alemlerin içinde kendisine yer bulmaya çalışıyor. İnsan, kabuk değişimine doğru hızlıca ilerliyor. Bedeni hiç umursamadan. Sanki olağan bir durum gibi. Bunu biraz sigara, alkol v.s. olan bağımlılığa benzetiyorum. Beynimiz, bağlı olduğu vücudunu bile bile tehlikeye atıyor. Yaptığının kendi sonunu da getireceğini bile bile durmuyor, duramıyor ve çoğunlukla da sonu iyi bitmiyor.</p>
+
+
+
+<p class="wp-block-paragraph">Şimdiki gidişatımızın sonucu da acaba böyle mi olacak. Yoksa bu farklı bir durum mu &#8230;?</p>
+
+
+
+<div class="wp-block-image"><figure class="aligncenter size-large"><img loading="lazy" data-attachment-id="2081" data-permalink="../../../../2020/06/29/degisen-kabuk/puzzle-02/" data-orig-file="../../../../media/2020/06/puzzle-02-1.jpg" data-orig-size="360,529" data-comments-opened="1" data-image-meta="{&quot;orientation&quot;:&quot;1&quot;}" data-image-title="puzzle-02" data-image-description="" data-image-caption="&lt;p&gt;Hala bir kalbimiz olacak mı ?&lt;/p&gt;
+" data-large-file="../../../../media/2020/06/puzzle-02-1.jpg" src="../../../../media/2020/06/puzzle-02-1.jpg" alt="Farkı kabullenmek" class="wp-image-2081" /><figcaption>Hala bir kalbimiz olacak mı ?</figcaption></figure></div>
+
+
+
+<p class="wp-block-paragraph">Olan bitene biraz daha dikkatle baktığımızda, yapay zeka, nanoteknoloji ve benzerleri sayesinde yaşamın sadece beş duyumuzla algıladığımız dünya olmadığını anlayıp, daha farklı &#8220;<strong>kabuklarla</strong>&#8221; yeni maceralara atılacağımızı  ön görebiliriz&#8230;</p>
+
+
+
+<p class="wp-block-paragraph">teşekkür ederim,</p>
+
+
+
+<p class="wp-block-paragraph">Devam edecek&#8230;</p>
+
+
+
+<p class="wp-block-paragraph">Not: 2018 yılında <a href="https://www.bbc.com/turkce/haberler-dunya-44765464">bbc.com</a> haberine göre gelecekteki mükemmel insana dair haber</p>
+
+
+
+<p class="wp-block-paragraph"></p>
+</div>
+<div class="tags"><span>Etiketler:</span> <a href="../../../../etiket/alien/">alien</a>, <a href="../../../../etiket/beden/">beden</a>, <a href="../../../../etiket/degisim/">değişim</a>, <a href="../../../../etiket/egitim/">eğitim</a>, <a href="../../../../etiket/insan/">insan</a>, <a href="../../../../etiket/kabuk/">kabuk</a>, <a href="../../../../etiket/olmak/">olmak</a>, <a href="../../../../etiket/pazil/">pazıl</a>, <a href="../../../../etiket/puzzle/">puzzle</a>, <a href="../../../../etiket/vucut/">vücut</a>, <a href="../../../../etiket/yeni/">yeni</a></div>
+<p class="orig">İlk yayın: <a href="https://pointpointblog.wordpress.com/2020/06/29/degisen-kabuk/">https://pointpointblog.wordpress.com/2020/06/29/degisen-kabuk/</a></p>
+</article>
+
+<nav class="pn"><a class="prev" href="../../../../2020/03/03/3d-print_mini-cicek-askisi/"><span>Önceki yazı</span>3D print_mini çiçek askısı</a><a class="next" href="../../../../2020/08/19/biraz-da-kadim-teknik-3/"><span>Sonraki yazı</span>Biraz da Kadim teknik 3</a></nav>
+</main>
+<footer class="foot"><div class="wrap"><span>© Ahmet Çandöken</span><span>Bu yazılar 2017–2026 arasında <a href="https://pointpointblog.wordpress.com/">pointpointblog.wordpress.com</a> adresinde yayımlandı.</span></div></footer>
+</body>
+</html>
