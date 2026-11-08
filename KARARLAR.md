@@ -36,5 +36,7 @@ Patch dosyası ya da push edilmemiş commit bırakılmaz.
   (Üretim değil: modeller 3ds Max/V-Ray görselleştirme işi, 3D baskı modeli yok). `ayrintili.html`'de 3D Dizayn listesinde.
 - Adres JSON-LD `sameAs` listesinde.
 - Vefa notu her zaman kalır: "Modellerin bir kısmı, 3D Dizayn'daki ortağı Mim. Şenay Gök Ataman'ın çalışmasıdır."
-- Sırada: 6–8 modellik vitrin (görseller `img/cgtrader/`, her biri kendi CGTrader sayfasına). CGTrader model listesi
-  bot korumalı; seçim için tarayıcıdan (Claude in Chrome) bakılacak.
+- Vitrin (8 model): hamam kurnası, oryantal pano, yuvarlak bank, fener, şişe avize, masaj yatağı, deri berjer,
+  ahşap sandalye. Görseller `img/cgtrader/` (560×350), kaynağı `H:GB_ahmet_USB\...medya\Cgtrader\..........yayında`
+  önizlemeleri. Marka/telifli tasarımlar (Eames, Meridiani, Maxalto, Darth Vader) vitrine konmaz. Ayrı CGTrader adresi
+  bilinmeyen kartlar profile bağlanır.
