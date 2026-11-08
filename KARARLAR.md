@@ -16,6 +16,14 @@ Patch dosyası ya da push edilmemiş commit bırakılmaz.
   sahnedeki yatay çizgilerden birinin üstüne oturur.
 - Sahne ipucu yazısı küçük (12px) ve ince.
 
+## Telefon görünümü (8 Kasım 2026)
+- Sahne telefonda kısa: `height:min(46svh,420px)`, viewBox `0 70 440 520`. İsim, dört bölüm ve alt bağlantılar ilk ekrana sığar;
+  cisim tutulunca ipler bölümlere görünür biçimde ulaşır.
+- Cisimlerde `touchstart` engellenir (sayfa kaymasın, sürükleme kesilmesin); gölgeler (`.shd`) telefonda tutulmaz.
+- İki kez dokununca cisimler yerine döner (dblclick yerine dokunma sayacı).
+- İpucu yazısı dokunmatik ekranda: "Cisimleri parmağınla sürükle; iki kez dokununca yerlerine döner."
+- ≤440px'te dört bölüm tek satır (16px, iki yana yaslı).
+
 ## İçerik
 - Ana sayfada dört bölüm var: Tasarım, Yazılım, Üretim, Araştırma. Üretim ve Yazılım'daki
   "Önceki çalışmalar" ile Araştırma'daki "Yazılar" blog yazılarına bağlanır; kart görselleri `img/blog/`.
