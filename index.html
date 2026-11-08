@@ -53,6 +53,7 @@ svg.chev{width:20px;height:20px;flex:none}
 .home h1{font-size:clamp(48px,7.4vw,92px);font-weight:700;line-height:.96;letter-spacing:-.035em;margin:10px 0 22px}
 .line{font-size:clamp(21px,2.4vw,26px);font-weight:600;letter-spacing:-.01em;margin:0;line-height:1.3}
 .sub{color:var(--soft);margin:6px 0 0;font-size:16px}
+.sub.beside{position:absolute;margin:0;line-height:1.35}
 
 .scene{overflow:visible;display:block;width:100%;height:auto;aspect-ratio:440/630;max-height:76vh}
 
@@ -749,6 +750,16 @@ label();
     items.forEach(it=>{if(it.ox||it.oy) it.rx={x:it.ox,y:it.oy,t0};});
     kick();
   });
+})();
+/* Alt yazıyı "Ahmet"in sağına, "Çandöken"in sağ kenarına kadar yerleştir */
+(()=>{const h=document.querySelector(".home h1"),s=document.querySelector(".home .sub");if(!h||!s)return;
+ function place(){const ch=h.querySelectorAll(".ch"),br=h.querySelector("br");if(!ch.length||!br){s.classList.remove("beside");s.style.cssText="";return;}
+  let t=null,n=ch[ch.length-1];for(const c of ch){if(c.compareDocumentPosition(br)&Node.DOCUMENT_POSITION_FOLLOWING)t=c;}
+  if(!t)return; const gap=Math.round(t.offsetHeight*.14), L=t.offsetLeft+t.offsetWidth+gap, W=n.offsetLeft+n.offsetWidth-L;
+  if(W<100){s.classList.remove("beside");s.style.cssText="";return;}
+  s.classList.add("beside");s.style.left=L+"px";s.style.width=W+"px";
+  const base=t.offsetTop+t.offsetHeight*.84; s.style.top=Math.round(base-s.offsetHeight+4)+"px";}
+ place(); if(document.fonts&&document.fonts.ready)document.fonts.ready.then(place); addEventListener("resize",place); addEventListener("load",place);
 })();
 </script>
 
