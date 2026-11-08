@@ -40,3 +40,4 @@ Patch dosyası ya da push edilmemiş commit bırakılmaz.
   ahşap sandalye. Görseller `img/cgtrader/` (560×350), kaynağı `H:GB_ahmet_USB\...medya\Cgtrader\..........yayında`
   önizlemeleri. Marka/telifli tasarımlar (Eames, Meridiani, Maxalto, Darth Vader) vitrine konmaz. Ayrı CGTrader adresi
   bilinmeyen kartlar profile bağlanır.
+- Hamam kurnası kartında model sahibi olarak "Mim. Şenay Gök Ataman" yazar (Ahmet'in isteği).
