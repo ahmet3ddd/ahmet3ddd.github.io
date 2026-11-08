@@ -49,9 +49,9 @@ svg.chev{width:20px;height:20px;flex:none}
 
 /* —— Ön yüz —— */
 .home{display:grid;grid-template-columns:1fr 1.05fr;gap:48px;align-items:center;min-height:min(80vh,720px)}
-.handle{font-size:15px;color:var(--soft);font-weight:500}
+.handle{font-size:15px;color:var(--soft);font-weight:200}
 #v-home>.handle{display:flex;align-items:center;height:34px;margin:-16px 0 0}
-.home h1{font-size:clamp(46px,4.6vw,56px);font-weight:200;line-height:.96;letter-spacing:-.035em;margin:10px 0 8px}
+.home h1{font-size:clamp(46px,4.6vw,56px);font-weight:200;line-height:.96;letter-spacing:-.035em;margin:10px 0 3px}
 .line{font-size:clamp(21px,2.4vw,26px);font-weight:600;letter-spacing:-.01em;margin:0;line-height:1.3}
 .sub{color:var(--soft);margin:6px 0 0;font-size:16px}
 .home .sub{white-space:nowrap;display:inline-block;line-height:1.3}
@@ -62,19 +62,20 @@ svg.chev{width:20px;height:20px;flex:none}
 .scene{pointer-events:none}
 .scene .drag{pointer-events:auto}
 .home>div{position:relative;z-index:1}
-.home>div:first-child{align-self:start;padding-top:8px}
+.home>div:first-child{align-self:start;padding-top:192px}
 body{overflow-x:clip}
-.doors{display:grid;gap:10px;margin-top:34px}
-.door{display:flex;align-items:center;gap:16px;padding:16px 18px;border-radius:var(--r-md);background:var(--surface);text-decoration:none;color:var(--ink);transition:background .2s,transform .2s}
+.doors{display:inline-flex;flex-wrap:wrap;gap:22px;margin-top:75px}
+.door{display:flex;align-items:center;gap:4px;padding:0;text-decoration:none;color:var(--ink);transition:color .2s,transform .2s}
 .door .t{display:flex;flex-direction:column;min-width:0;flex:1}
-.door b{font-size:20px;font-weight:600;letter-spacing:-.01em}
-.door span{color:var(--soft);font-size:15px}
+.door b{font-size:20px;font-weight:500;letter-spacing:-.01em}
+.door .t>span{display:none}
+.door svg.chev{width:14px;height:14px}
 .door svg{color:var(--soft);transition:color .2s,transform .2s}
-.door:hover{background:var(--accent-soft)}
+.door:hover{color:var(--accent)}
 .door:hover svg{color:var(--accent);transform:translateX(3px)}
 .door:active{transform:scale(.99)}
-.foot{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:20px}
-.foot .pill{text-align:center;border:0;border-radius:0;background:none;padding:0 4px 3px;line-height:1.2}
+.foot{display:flex;justify-content:space-between;gap:8px;margin-top:66px}
+.foot .pill{border:0;border-radius:0;background:none;padding:0 0 3px;line-height:1.2}
 .foot{will-change:transform}
 .pill{font-size:15px;padding:8px 14px;border-radius:999px;border:1px solid var(--line);color:var(--ink);text-decoration:none;background:var(--bg)}
 .pill:hover{border-color:var(--accent);color:var(--accent)}
@@ -173,7 +174,8 @@ h4{font-size:15px;font-weight:600;color:var(--soft);margin:0 0 10px}
 .drag .obj{transition:filter .2s}
 .drag.held .obj{filter:drop-shadow(0 10px 14px rgba(0,0,0,.18))}
 #ropes{position:fixed;inset:0;width:100vw;height:100vh;pointer-events:none;z-index:4}
-.door.linked,.pill.linked{background:var(--accent-soft);color:var(--accent)}
+.door.linked{color:var(--accent)}
+.pill.linked{background:var(--accent-soft);color:var(--accent)}
 .pill.linked{border-color:var(--accent)}
 .door.linked svg{color:var(--accent)}
 .hint{font-size:13.5px;color:var(--soft);margin:10px 0 0;text-align:center}
@@ -194,6 +196,8 @@ footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);display
 footer .mono{font-size:12px}
 
 @media (max-width:820px){
+  .home>div:first-child{padding-top:0}
+  .foot{margin-top:20px}
   .home{grid-template-columns:1fr;gap:22px;min-height:0}
   .hero-img{order:-1}
   .hero-img img{aspect-ratio:16/11}
@@ -765,7 +769,8 @@ label();
 /* Alt bağlantıları sahnenin yatay çizgilerinden birinin üstüne oturt */
 (()=>{const f=document.querySelector(".home .foot"),sv=document.querySelector(".scene");if(!f||!sv)return;
  const ys=[410,430,458,500,562];
- function seat(){f.style.transform="";if(innerWidth<=820){return;}const m=sv.getScreenCTM();if(!m)return;
+ const dr=document.querySelector(".home .doors");
+ function seat(){f.style.transform="";f.style.width=dr?Math.ceil(dr.getBoundingClientRect().width)+"px":"";if(innerWidth<=820){return;}const m=sv.getScreenCTM();if(!m)return;
   const fb=f.getBoundingClientRect().bottom;let best=null;
   for(const y of ys){const ly=m.f+m.d*y,d=ly-fb;if(best===null||Math.abs(d)<Math.abs(best))best=d;}
   if(best!==null&&Math.abs(best)<60)f.style.transform="translateY("+best.toFixed(1)+"px)";}
