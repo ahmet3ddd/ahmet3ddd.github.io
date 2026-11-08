@@ -17,11 +17,13 @@ Patch dosyası ya da push edilmemiş commit bırakılmaz.
 - Sahne ipucu yazısı küçük (12px) ve ince.
 
 ## Telefon görünümü (8 Kasım 2026)
-- Sahne telefonda kısa: `height:min(46svh,420px)`, viewBox `0 70 440 520`. İsim, dört bölüm ve alt bağlantılar ilk ekrana sığar;
+- Sahne telefonda kalan yüksekliğe göre: `clamp(220px,calc(100svh - 370px),420px)`, viewBox `0 70 440 520`. İsim (40px), dört bölüm,
+  alt bağlantılar ve en alttaki "© 2026 … Son güncelleme" satırı ilk ekrana sığar (640 px yüksek telefonda da);
   cisim tutulunca ipler bölümlere görünür biçimde ulaşır.
 - Cisimlerde `touchstart` engellenir (sayfa kaymasın, sürükleme kesilmesin); gölgeler (`.shd`) telefonda tutulmaz.
 - İki kez dokununca cisimler yerine döner (dblclick yerine dokunma sayacı).
 - İpucu yazısı dokunmatik ekranda: "Cisimleri parmağınla sürükle; iki kez dokununca yerlerine döner."
+- İp tuvali (`#ropes`) CSS boyutu JS ile innerWidth/innerHeight'e eşitlenir; 100vh kullanılmaz (telefonda adres çubuğu yüzünden ipler yanlış yeri gösteriyordu).
 - ≤440px'te dört bölüm tek satır (16px, iki yana yaslı).
 
 ## İçerik

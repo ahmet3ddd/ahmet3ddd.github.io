@@ -232,9 +232,18 @@ a.row.link:hover h3{color:var(--accent)}
 .hint .h-t{display:none}
 @media (hover:none){.hint .h-m{display:none}.hint .h-t{display:inline}}
 @media (max-width:820px){
-  .scene{display:block;width:100%;height:min(46svh,420px)}
+  .scene{display:block;width:100%;height:clamp(220px,calc(100svh - 370px),420px)}
   .drag .shd{pointer-events:none}
-  .hint{margin-top:22px}
+  .hint{margin-top:14px;font-size:11px}
+}
+/* Telefon: ilk ekrana alt satır (© ve güncelleme) dahil her şey sığsın */
+@media (max-width:820px){
+  .home{gap:14px}
+  .home h1{font-size:40px}
+  .doors{margin-top:16px}
+  .home .foot{margin-top:14px}
+  footer{margin-top:22px;padding-top:12px}
+  footer .mono{font-size:11px}
 }
 @media (max-width:440px){
   .doors{display:flex;flex-wrap:nowrap;justify-content:space-between;gap:6px;width:100%}
@@ -519,7 +528,7 @@ label();
   let drift=false;
   if(h1) h1.addEventListener("click",()=>{if(reduce)return;if(letters[0]&&letters[0].g0===undefined){letters.forEach(L=>L.el.style.transform="none");for(let i=0;i<letters.length-1;i++)letters[i].g0=letters[i+1].el.getBoundingClientRect().left-letters[i].el.getBoundingClientRect().right;}drift=true;letters.forEach(L=>{L.vx+=(Math.random()*2-1)*1.6;});kick();});
 
-  function size(){const d=window.devicePixelRatio||1;cv.width=innerWidth*d;cv.height=innerHeight*d;ctx.setTransform(d,0,0,d,0,0);}
+  function size(){const d=window.devicePixelRatio||1;cv.width=innerWidth*d;cv.height=innerHeight*d;cv.style.width=innerWidth+"px";cv.style.height=innerHeight+"px";ctx.setTransform(d,0,0,d,0,0);}
   size(); addEventListener("resize",size);
   const center=el=>{const r=el.getBoundingClientRect();return {x:r.left+r.width/2,y:r.top+r.height/2};};
   const anchor=el=>{const r=el.getBoundingClientRect();return el.classList.contains("pill")?{x:r.left+r.width/2,y:r.bottom}:{x:r.right-8,y:r.top+r.height/2};};
