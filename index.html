@@ -751,7 +751,7 @@ label();
     }
     function tick(){
       const lvx=lad.ox-plx, lvy=lad.oy-ply; plx=lad.ox; ply=lad.oy; svx=svx*0.55+lvx*0.45; svy=svy*0.55+lvy*0.45;
-      const bx=268+lad.ox, by=408+lad.oy, grounded=by>=G0-6, heldL=lad.g.classList.contains("held");
+      const bx=268+lad.ox, by=408+lad.oy, grounded=by>=G0-24, heldL=lad.g.classList.contains("held");
       if(reduce){M.state="wait";draw();return requestAnimationFrame(tick);}
       M.t+=0.22; const st=M.state;
       const idle=performance.now()-lastAct>30000;
@@ -773,7 +773,7 @@ label();
         if(heldL&&Math.hypot(svx,svy)>6){const c=Math.min(1,36/Math.hypot(svx,svy));M.state="fall";M.vx=svx*1.15*c;M.vy=svy*1.15*c-1.5;M.spin=(svx>=0?1:-1)*(4+Math.hypot(svx,svy)*0.6);}
         else{
           if(st==="climb"){M.p+=0.32; if(M.p>H-16){ if(H<CAP){H=Math.min(CAP,H+0.32);drawLadder();} else {M.p=H-16;M.state="top";} }}
-          M.x=bx+LEAN*Math.max(0,M.p); M.y=by-M.p; if(M.y>G0&&grounded){M.p=by-G0;M.y=G0;} M.face=1; M.rot=0;
+          M.x=bx+LEAN*Math.max(0,M.p); M.y=by-M.p; M.face=1; M.rot=0;
           const nl=nearLetter(); if(nl){const b=LB(nl.i); if(nl.under){M.state="axeUp";M.axeTo=nl.i;} else startHop(Math.min(Math.max(M.x,b.l+3),b.r-3),b.t,{type:"walk",i:nl.i},30);}
         }
       } else if(st==="hop"){
@@ -847,6 +847,15 @@ label();
     items.forEach(it=>{if(it.ox||it.oy) it.rx={x:it.ox,y:it.oy,t0};});
     kick();
   });
+})();
+/* Telefon: sahne, ekranda kalan yükseklik kadar olsun (alt satır ekranın dibine otursun) */
+(()=>{const sc=document.querySelector(".scene"),ft=document.querySelector("footer"),hm=document.getElementById("v-home");if(!sc||!ft||!hm)return;let lw=-1;
+ function fit(force){if(hm.hidden)return;if(!force&&innerWidth===lw)return;lw=innerWidth;
+  if(innerWidth>820){sc.style.height="";return;}
+  const cur=sc.getBoundingClientRect().height, rest=ft.getBoundingClientRect().bottom+scrollY-cur+16;
+  sc.style.height=Math.max(220,Math.min(620,innerHeight-rest)).toFixed(0)+"px";}
+ fit(true);addEventListener("load",()=>fit(true));if(document.fonts&&document.fonts.ready)document.fonts.ready.then(()=>fit(true));
+ addEventListener("resize",()=>fit(false));addEventListener("hashchange",()=>setTimeout(()=>fit(true),0));addEventListener("orientationchange",()=>setTimeout(()=>fit(true),300));
 })();
 /* Alt yazıyı tek satır, "Çandöken" genişliğinde tut */
 (()=>{const h=document.querySelector(".home h1"),s=document.querySelector(".home .sub");if(!h||!s)return;

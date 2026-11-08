@@ -31,6 +31,10 @@ Patch dosyası ya da push edilmemiş commit bırakılmaz.
   önündeyse önde çizilir. Kemer taşınınca diğer gölgeler yeniden sıralanır.
 - Alt yazı ("Merak ettiği şeyleri…") soyada yakın ama yapışık değil: `display:block;width:max-content;margin-top:6px` (~7px boşluk).
   Telefonda altındaki bölüm grubu `margin-top:28px`.
+- Telefonda sahne yüksekliğini JS belirler: ekran yüksekliği − (sahne dışındaki içerik) − 16px, 220–620px arası.
+  Yalnız genişlik değişince yeniden hesaplanır (adres çubuğu açılıp kapanınca zıplamasın). CSS clamp yedek olarak durur.
+- Zemin ufkun önünde de devam eder: merdiven öndeyken (y > 410) adam ufuk çizgisine ışınlanmaz, merdivenin dibinden tırmanır.
+  Merdiven zeminden 24 birime kadar yukarıdaysa "yerde" sayılır (harflere çarpıp hafif havada kalınca adam takılmasın).
 - Çizgi adam derinliğe göre katmanlanır: zemindeki konumu (merdivendeyken merdivenin dibi) hangi cismin önündeyse
   o cisim onu örter, arkasındakilerin önünde görünür. Bir cismin üstünde dinlenirken o cismin hemen önünde çizilir; harflerin üstündeyken hep önde.
 
