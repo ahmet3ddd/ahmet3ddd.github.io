@@ -4,13 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Ahmet Çandöken · Ayrıntılı</title>
-<meta name="description" content="Ahmet Çandöken (ahmetoff): bütün projeler, eğitim, 3D Dizayn referansları ve Aktarım Zinciri tek sayfada.">
+<meta name="description" content="Ahmet Çandöken (ahmetoff): bütün projeler, tarayıcı araçları, atölye işleri, eğitim, 3D Dizayn referansları ve Aktarım Zinciri tek sayfada.">
 <meta name="author" content="Ahmet Çandöken">
 <link rel="canonical" href="https://ahmetoff.com/ayrintili.html">
 <meta property="og:url" content="https://ahmetoff.com/ayrintili.html">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Ahmet Çandöken · Ayrıntılı">
-<meta property="og:description" content="Ahmet Çandöken (ahmetoff): bütün projeler, eğitim, 3D Dizayn referansları ve Aktarım Zinciri tek sayfada.">
+<meta property="og:description" content="Ahmet Çandöken (ahmetoff): bütün projeler, tarayıcı araçları, atölye işleri, eğitim, 3D Dizayn referansları ve Aktarım Zinciri tek sayfada.">
 <meta property="og:locale" content="tr_TR">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -128,6 +128,24 @@ html{scroll-behavior:smooth}
 .note h3{margin:0 0 4px;font-size:18px;font-weight:600}
 .note p{margin:0;color:var(--ink-soft);max-width:64ch}
 
+/* Blogdan kartlar */
+.lead-note{color:var(--ink-soft);max-width:64ch;margin:-10px 0 18px}
+.grp{font-family:var(--f-mono);font-weight:500;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);margin:28px 0 10px}
+.gnote{color:var(--ink-soft);font-size:14px;margin:10px 0 0}
+.plates{display:grid;grid-template-columns:repeat(4,1fr);border-top:1.5px solid var(--ink);border-left:1.5px solid var(--ink)}
+.plate{border-right:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink);background:var(--paper);text-decoration:none;color:var(--ink);display:flex;flex-direction:column;min-width:0}
+.plate img,.plate .noimg{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;border-bottom:1px solid var(--line);background:var(--paper-2)}
+.plate .noimg{display:grid;place-items:center;font-family:var(--f-display);font-size:28px;color:var(--ink-soft)}
+.plate .pt{padding:12px 14px 14px;display:flex;flex-direction:column;gap:2px}
+.plate b{font-weight:600;font-size:16px;line-height:1.3}
+.plate .d{color:var(--ink-soft);font-size:14px;line-height:1.45}
+.plate:hover{background:var(--paper-2)}
+.plate:hover b{color:var(--accent)}
+.note h3 a{color:inherit;text-decoration:none}
+.note h3 a:hover{color:var(--accent)}
+@media (max-width:820px){.plates{grid-template-columns:1fr 1fr}}
+@media (max-width:420px){.plates{grid-template-columns:1fr}}
+
 /* İletişim */
 .contact{display:grid;grid-template-columns:repeat(4,1fr);border:1.5px solid var(--ink)}
 .contact>div{padding:20px;min-width:0}
@@ -159,7 +177,7 @@ footer{margin-top:72px;display:flex;justify-content:space-between;gap:16px;flex-
       <div class="mono">Ölçek 1:1</div>
     </div>
     <div class="hero">
-      <div class="mono">ahmetoff · tasarım, yazılım, araştırma</div>
+      <div class="mono">ahmetoff · tasarım, yazılım, üretim, araştırma</div>
       <h1>Ahmet<br>Çandöken</h1>
       <p class="lede">Mekân tasarlar, o mekânlarda kullanılacak araçları da kendisi yazar. <em>İç mimarlık, hesaplamalı geometri ve yerel çalışan yazılım</em> arasında gidip gelen bağımsız bir pratik.</p>
     </div>
@@ -244,6 +262,8 @@ footer{margin-top:72px;display:flex;justify-content:space-between;gap:16px;flex-
         <p style="font-size:15px;color:var(--ink-soft);margin:6px 0 0">MIT lisanslı, tek dosyalık açık kaynak. Software Heritage'da arşivli, OpenAIRE'de dizinli. Çalışmadaki değerlendirmeler yapay zekâ modelleriyle yapılmıştır; hakemli insan incelemesi değildir. Hukuka aykırı amaçlarla kullanılamaz.</p>
       </div>
     </div>
+    <h4 class="grp">Yazılar · Aktarım Zinciri'ne giden yolda blogdaki denemeler</h4>
+    <div class="notes"><div class="note"><span class="mono">2017</span><div><h3><a href="/blog/2017/09/13/varlik-gerceklik-mi/">Varlık, gerçeklik mi? →</a></h3><p>Dille anlatılamayanı ve gerçekliğin sınırlarını sorgulayan bir deneme.</p></div></div><div class="note"><span class="mono">2018</span><div><h3><a href="/blog/2018/05/08/beyin-depo-mu-alici-mi/">Beyin depo mu, alıcı mı? →</a></h3><p>Hafızanın nerede durduğuna dair bir teori.</p></div></div><div class="note"><span class="mono">2020</span><div><h3><a href="/blog/2020/06/29/degisen-kabuk/">Değişen kabuk →</a></h3><p>Eğitim, ezber ve hızlanan değişimin insana etkisi.</p></div></div><div class="note"><span class="mono">2020</span><div><h3><a href="/blog/2020/09/22/frekans/">Frekans →</a></h3><p>Ölçebildiğimizi var, ölçemediğimizi yok saymak üzerine.</p></div></div><div class="note"><span class="mono">2023</span><div><h3><a href="/blog/2023/08/02/gelisen-insan-mi/">Gelişen insan mı? →</a></h3><p>Aynı bedenle doğup koşullarla bambaşka insanlara dönüşmek.</p></div></div><div class="note"><span class="mono">2026</span><div><h3><a href="/blog/2026/08/23/2779/">Kuşaktan kuşağa ne geçer? →</a></h3><p>Aktarım Zinciri'nin çıkış yazısı: bir bilgi aktarılırken ne kaybolur?</p></div></div></div>
   </section>
 
   <section id="projeler">
@@ -255,6 +275,24 @@ footer{margin-top:72px;display:flex;justify-content:space-between;gap:16px;flex-
       <button id="f-donanim" data-f="donanim" aria-pressed="false">Donanım</button>
     </div>
     <div class="projects" id="projects"></div>
+  </section>
+
+  <section id="araclar">
+    <div class="sec-head"><h2>Tarayıcı araçları</h2><span class="mono">Pafta 03b</span></div>
+    <p class="lead-note">Kurulum istemeyen, dosyaları hiçbir sunucuya göndermeyen tek dosyalık araçlar. <a href="https://ahmet3ddd.github.io/ahmetoff/" target="_blank" rel="noopener">Hepsi bir arada →</a></p>
+    <div class="notes"><div class="note"><span class="mono">Mimari ve geometri</span><div><h3><a href="https://ahmet3ddd.github.io/ahmetoff/projects/AI_muk3d_V3/index.html" target="_blank" rel="noopener">Mukarnas 3D →</a></h3><p>Mukarnas hücrelerinin parametrik 3B modelleri</p></div></div><div class="note"><span class="mono">Mimari ve geometri</span><div><h3><a href="https://ahmet3ddd.github.io/ahmetoff/projects/AI_K_muk3d/index.html" target="_blank" rel="noopener">Köşe Mukarnas →</a></h3><p>Üçgen plan üzerinde köşe mukarnası</p></div></div><div class="note"><span class="mono">Mimari ve geometri</span><div><h3><a href="https://ahmet3ddd.github.io/ahmetoff/projects/AI_N_muk3d/index.html" target="_blank" rel="noopener">Niş Mukarnas →</a></h3><p>Açıklık, asaba ve sıra ile niş mukarnası</p></div></div><div class="note"><span class="mono">Mimari ve geometri</span><div><h3><a href="https://ahmet3ddd.github.io/ahmetoff/projects/AI_Puskul/index.html" target="_blank" rel="noopener">Püskül 3D →</a></h3><p>Çok katlı sarkıt yapılar</p></div></div><div class="note"><span class="mono">Mimari ve geometri</span><div><h3><a href="https://ahmet3ddd.github.io/ahmetoff/projects/AI_Revzen/index.html" target="_blank" rel="noopener">Revzen 3D →</a></h3><p>Renkli camlı Osmanlı revzen pencereleri</p></div></div><div class="note"><span class="mono">Mimari ve geometri</span><div><h3><a href="https://ahmet3ddd.github.io/ahmetoff/projects/AI_Kemer/index.html" target="_blank" rel="noopener">Kemerler 3D →</a></h3><p>Teğet ve sivri kemer modelleri</p></div></div><div class="note"><span class="mono">Mimari ve geometri</span><div><h3><a href="https://ahmet3ddd.github.io/ahmetoff/projects/AI_7-8/index.html" target="_blank" rel="noopener">Yedi-Sekiz →</a></h3><p>Geleneksel 7-8 geçme deseni</p></div></div><div class="note"><span class="mono">Üretim ve analiz</span><div><h3><a href="https://ahmet3ddd.github.io/ahmetoff/projects/AI_light/index.html" target="_blank" rel="noopener">AI Light →</a></h3><p>Işın izlemeli geometrik optik benzetimi</p></div></div><div class="note"><span class="mono">Üretim ve analiz</span><div><h3><a href="https://ahmet3ddd.github.io/ahmetoff/projects/AI_3Dprint_model_kontrol/index.html" target="_blank" rel="noopener">3D Print Model Kontrol →</a></h3><p>STL duvar kalınlığı ve onarım</p></div></div><div class="note"><span class="mono">Öğrenme</span><div><h3><a href="https://ahmet3ddd.github.io/ahmetoff/projects/AI_osmanlica/index.html" target="_blank" rel="noopener">Elifbâ →</a></h3><p>Sıfırdan Osmanlıca, 17 ünite 73 ders</p></div></div></div>
+  </section>
+
+  <section id="uretim">
+    <div class="sec-head"><h2>Üretim</h2><span class="mono">Pafta 03c · Atölye</span></div>
+    <p class="lead-note">Kendi yaptığı makineler ve nesneler: CNC ve lazer kesiciler, Arduino devreleri, 3D baskı parçalar. Her birinin yapım hikâyesi blogda.</p>
+    <h4 class="grp">Makineler</h4><div class="plates"><a class="plate" href="/blog/2017/03/19/ahsaptan-celige/"><span class="noimg">CNC</span><span class="pt"><span class="mono">2006</span><b>CNC</b><span class="d">Önce MDF ve çekmece raylarıyla, sonra alüminyum ve çelikle yapılan CNC</span></span></a><a class="plate" href="/blog/2020/11/18/dvd-suruculerden-mini-lazer-kesici-cizici/"><img src="img/blog/dvd-lazer.jpg" alt="Mini lazer kesici" width="560" height="350" loading="lazy"><span class="pt"><span class="mono">2020</span><b>Mini lazer kesici</b><span class="d">Eski DVD sürücülerinden minyatür lazer kesici ve çizici</span></span></a><a class="plate" href="/blog/2021/01/06/20-w-lazer-neje-kesici/"><img src="img/blog/lazer-20w.jpg" alt="20W lazer kesici" width="560" height="350" loading="lazy"><span class="pt"><span class="mono">2021</span><b>20W lazer kesici</b><span class="d">Sigma profil şase, 60×80 cm işleme alanı</span></span></a><a class="plate" href="/blog/2023/11/24/80w-lazer-neje-kesici/"><img src="img/blog/lazer-80w.jpg" alt="80W lazer kesici" width="560" height="350" loading="lazy"><span class="pt"><span class="mono">2023</span><b>80W lazer kesici</b><span class="d">Aynı şasede daha güçlü lazer ve yeni güç devresi</span></span></a></div><h4 class="grp">Elektronik ve nesneler</h4><div class="plates"><a class="plate" href="/blog/2017/06/17/lamba3d/"><img src="img/blog/lamba3d.jpg" alt="Lamba3D" width="560" height="350" loading="lazy"><span class="pt"><span class="mono">2017</span><b>Lamba3D</b><span class="d">Esnetilmiş bir küreden doğan lamba: maket, Arduino ve yazılım</span></span></a><a class="plate" href="/blog/2017/07/12/arduino-zaman-ayarli-asprator/"><img src="img/blog/aspirator.jpg" alt="Zaman ayarlı aspiratör" width="560" height="350" loading="lazy"><span class="pt"><span class="mono">2017</span><b>Zaman ayarlı aspiratör</b><span class="d">Aspiratörü belirli aralıklarla çalıştıran Arduino devresi</span></span></a><a class="plate" href="/blog/2022/02/07/kitap-okuma-lambasi/"><img src="img/blog/kitap-lambasi.jpg" alt="Kitap okuma lambası" width="560" height="350" loading="lazy"><span class="pt"><span class="mono">2022</span><b>Kitap okuma lambası</b><span class="d">3ds Max'te tasarlanıp 3D yazıcıda basılan LED'li lamba</span></span></a><a class="plate" href="/blog/2023/04/29/zaman-ayarli-kutu-priz/"><img src="img/blog/priz.jpg" alt="Zaman ayarlı priz" width="560" height="350" loading="lazy"><span class="pt"><span class="mono">2023</span><b>Zaman ayarlı priz</b><span class="d">Arduino Pro Mini ve röleyle, 3D baskı kutulu zamanlayıcı</span></span></a></div><h4 class="grp">3D yazıcı ve baskılar</h4><div class="plates"><a class="plate" href="/blog/2018/04/02/3d-printer-maceralarim/"><img src="img/blog/3d-yazici.jpg" alt="3D yazıcı" width="560" height="350" loading="lazy"><span class="pt"><span class="mono">2018</span><b>3D yazıcı</b><span class="d">Kutudan çıkan bir i3 yazıcıyı adım adım çalışır hale getirmek</span></span></a><a class="plate" href="/blog/2018/12/07/3d-printer-power-supply-on-off-switch/"><img src="img/blog/guc-anahtari.jpg" alt="Yazıcı güç anahtarı" width="560" height="350" loading="lazy"><span class="pt"><span class="mono">2018</span><b>Yazıcı güç anahtarı</b><span class="d">Anahtarı olmayan 3D yazıcıya basılı anahtar kutusu</span></span></a><a class="plate" href="/blog/2019/03/20/3d-print-pil-kabi/"><img src="img/blog/pil-kabi.jpg" alt="Pil kabı" width="560" height="350" loading="lazy"><span class="pt"><span class="mono">2019</span><b>Pil kabı</b><span class="d">Üç pili seri bağlayan baskı kap</span></span></a><a class="plate" href="/blog/2020/03/03/3d-print_mini-cicek-askisi/"><img src="img/blog/cicek-askisi.jpg" alt="Mini çiçek askısı" width="560" height="350" loading="lazy"><span class="pt"><span class="mono">2020</span><b>Mini çiçek askısı</b><span class="d">Sukulentleri ışığa göre dizen askı</span></span></a></div>
+  </section>
+
+  <section id="onceki">
+    <div class="sec-head"><h2>Önceki yazılım çalışmaları</h2><span class="mono">Pafta 03d · 2017–2024</span></div>
+    <p class="lead-note">Blogda paylaşılan betikler ve küçük programlar. Hikâyenin başı: <a href="/blog/2017/06/13/programcilik/">Programcılık maceralarım</a>, delikli kartlarla Fortran'dan başlayan yol.</p>
+    <h4 class="grp">3ds Max betikleri: kemer ve geometri</h4><div class="plates"><a class="plate" href="/blog/2018/08/16/biraz-da-kadim-teknik/"><img src="img/blog/kemer-teget.jpg" alt="Teğet kemer" width="560" height="350" loading="lazy"><span class="pt"><span class="mono">2018</span><b>Teğet kemer</b><span class="d">Tek merkezli teğet kemeri çizen 3ds Max betiği</span></span></a><a class="plate" href="/blog/2018/09/11/birazda-kadim-teknik-2/"><img src="img/blog/kemer-penci.jpg" alt="Penci kemer" width="560" height="350" loading="lazy"><span class="pt"><span class="mono">2018</span><b>Penci kemer</b><span class="d">Penci kemeri çizen betik ve kemer tablosu</span></span></a><a class="plate" href="/blog/2020/08/19/biraz-da-kadim-teknik-3/"><img src="img/blog/turk-ucgeni.jpg" alt="Türk üçgeni" width="560" height="350" loading="lazy"><span class="pt"><span class="mono">2020</span><b>Türk üçgeni</b><span class="d">Pandantif ve Türk üçgeni geçişlerini kuran betik</span></span></a><a class="plate" href="/blog/2021/03/03/biraz-da-kadim-teknik-4/"><img src="img/blog/kemer-v3.jpg" alt="Kemer betiği v3" width="560" height="350" loading="lazy"><span class="pt"><span class="mono">2021</span><b>Kemer betiği v3</b><span class="d">Kemer betiklerinin geliştirilmiş sürümü</span></span></a></div><p class="gnote">Bugünkü Kemerler 3D ve Yedi-Sekiz araçlarıyla aynı konunun ilk adımları.</p><h4 class="grp">Diğer betikler ve programlar</h4><div class="plates"><a class="plate" href="/blog/2018/11/29/golden-raio-scale-1-618/"><img src="img/blog/altin-oran.jpg" alt="Altın oran" width="560" height="350" loading="lazy"><span class="pt"><span class="mono">2018</span><b>Altın oran</b><span class="d">Seçili nesneleri altın oranla ölçekleyen betik</span></span></a><a class="plate" href="/blog/2017/07/06/processing-maceram/"><img src="img/blog/processing.jpg" alt="Processing maceram" width="560" height="350" loading="lazy"><span class="pt"><span class="mono">2017</span><b>Processing maceram</b><span class="d">Processing ile ilk denemeler</span></span></a><a class="plate" href="/blog/2019/08/09/dijital-imajlarda-istenilen-renkleri-nasil-buluruz/"><img src="img/blog/renk-bulma.jpg" alt="Renk bulucu" width="560" height="350" loading="lazy"><span class="pt"><span class="mono">2019</span><b>Renk bulucu</b><span class="d">Görüntüde istenen rengi piksel piksel bulan program</span></span></a><a class="plate" href="/blog/2020/01/10/ezberci-zeka/"><img src="img/blog/ezberci-zeka.jpg" alt="Ezberci zekâ" width="560" height="350" loading="lazy"><span class="pt"><span class="mono">2020</span><b>Ezberci zekâ</b><span class="d">Harfleri renklerle gösteren program ve ezber üzerine</span></span></a><a class="plate" href="/blog/2021/03/29/bir-yazinin-icerigini-anlamak-1/"><img src="img/blog/kelime-dallanma.jpg" alt="Kelimelerin biçimi" width="560" height="350" loading="lazy"><span class="pt"><span class="mono">2021</span><b>Kelimelerin biçimi</b><span class="d">Sayfadaki kelime uzunluklarından desen çizen program</span></span></a><a class="plate" href="/blog/2021/07/05/yazilarin-icerigi-hakkinda/"><img src="img/blog/yazi-tasnif.jpg" alt="Yazıları tasnif" width="560" height="350" loading="lazy"><span class="pt"><span class="mono">2021</span><b>Yazıları tasnif</b><span class="d">Yazıları okumadan konusuna göre ayırmayı deneyen kod</span></span></a><a class="plate" href="/blog/2022/01/02/scratch-ile-piyano-yapalim/"><img src="img/blog/scratch-piyano.jpg" alt="Scratch ile piyano" width="560" height="350" loading="lazy"><span class="pt"><span class="mono">2022</span><b>Scratch ile piyano</b><span class="d">Çocuklar için Scratch'te piyano</span></span></a><a class="plate" href="/blog/2024/04/14/kutuphaneci-ai/"><img src="img/blog/kutuphaneci.jpg" alt="Kütüphaneci AI" width="560" height="350" loading="lazy"><span class="pt"><span class="mono">2024</span><b>Kütüphaneci AI</b><span class="d">Kitabı sırt fotoğrafından raftaki yerinde bulan Python programı</span></span></a></div>
   </section>
 
   <section id="notlar">
@@ -280,7 +318,7 @@ footer{margin-top:72px;display:flex;justify-content:space-between;gap:16px;flex-
 
 <script>
 // İÇERİK — yeni proje veya not eklemek için yalnızca bu iki listeyi düzenlemek yeterli.
-const UPDATED = "7 Kasım 2026";
+const UPDATED = "8 Kasım 2026";
 
 const PROJECTS = [
   {name:"Yerleşim Studio", kind:"mimari", state:"dev",
@@ -313,6 +351,8 @@ const PROJECTS = [
 ];
 
 const NOTES = [
+  {date:"8 Kasım 2026", title:"Üretim ve blogdan çalışmalar eklendi",
+   text:"Tarayıcı araçları, atölyede yapılan makineler ve nesneler, blogdaki eski yazılım çalışmaları ve Aktarım Zinciri'ne giden düşünce yazıları bu sayfaya da eklendi."},
   {date:"Kasım 2026", title:"Sayfa yayında",
    text:"Projeler ve araştırmalar bu sayfada tek yerde toplandı. Yeni çalışmalar eklendikçe burada duyurulacak."}
 ];
