@@ -41,3 +41,9 @@ Patch dosyası ya da push edilmemiş commit bırakılmaz.
   önizlemeleri. Marka/telifli tasarımlar (Eames, Meridiani, Maxalto, Darth Vader) vitrine konmaz. Ayrı CGTrader adresi
   bilinmeyen kartlar profile bağlanır.
 - Hamam kurnası Ahmet'in işi (Şenay'ın değil). Kartlarda tek tek isim yazılmaz; yalnızca koleksiyon altındaki genel not kalır.
+
+## Teknik (8 Kasım 2026)
+- Sayfa içine base64 görsel gömülmez; görseller ayrı dosya (`img/ana/` vb.). index.html 1,16 MB → 79 KB oldu.
+- Paylaşım önizlemesi: `img/og.png` (1200×630, ana sayfa görüntüsü); index ve ayrintili'de og:image + twitter:card.
+- Cloudflare Web Analytics: her HTML'in `</body>` öncesinde beacon (cloudflareinsights). Yeni sayfaya da eklenir.
+  Ziyaret verisi sitede gösterilmez; yalnız Ahmet sorduğunda söylenir.
