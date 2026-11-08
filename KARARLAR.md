@@ -46,6 +46,10 @@ Patch dosyası ya da push edilmemiş commit bırakılmaz.
 - `ayrintili.html` ana sayfadaki her şeyi içermeli ("her şey tek sayfada").
 - Sosyal medya (Instagram, YouTube) şimdilik eklenmiyor.
 
+## Lamba3D (8 Kasım 2026)
+- Ahmet'in en önemli tasarım ve imalat projesi. Üretim bölümünün en üstünde öne çıkan blok (feature) olarak durur,
+  Hakkımda'da da (ana sayfa ve ayrıntılı) "en önemli tasarım ve imalat işi" diye anılır. Görsel: `img/blog/lamba3d-kapak.jpg`.
+
 ## Blog
 - Blog statik HTML, üretici betik yok. Kategori satırı her sayfada kopya olduğundan
   kategori değişikliği bütün `blog/**/*.html` dosyalarına uygulanmalı.
