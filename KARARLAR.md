@@ -26,6 +26,11 @@ Patch dosyası ya da push edilmemiş commit bırakılmaz.
 - İp tuvali (`#ropes`) CSS boyutu JS ile innerWidth/innerHeight'e eşitlenir; 100vh kullanılmaz (telefonda adres çubuğu yüzünden ipler yanlış yeri gösteriyordu).
 - ≤440px'te dört bölüm tek satır (16px, iki yana yaslı).
 
+## Sahne ve başlık (8 Kasım 2026)
+- Cisim gölgeleri kemerin üstüne düşmez: gölge kemerin arkasındaysa (zemin y < 515) kemerin altında çizilir ve kemer onu örter,
+  önündeyse önde çizilir. Kemer taşınınca diğer gölgeler yeniden sıralanır.
+- Alt yazı ("Merak ettiği şeyleri…") soyada yakın: `display:block;width:max-content;margin-top:2px` (aradaki boşluk ~3px).
+
 ## İçerik
 - Ana sayfada dört bölüm var: Tasarım, Yazılım, Üretim, Araştırma. Üretim ve Yazılım'daki
   "Önceki çalışmalar" ile Araştırma'daki "Yazılar" blog yazılarına bağlanır; kart görselleri `img/blog/`.
