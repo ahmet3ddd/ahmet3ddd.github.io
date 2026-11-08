@@ -21,7 +21,7 @@
 </head>
 <body>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@200;300;400;500;600;700&display=swap">
 <style>
 /* Layout: aydınlık, sol hizalı tek ekran; büyük yuvarlatılmış görsel tek güçlü öğe, çevresi sakin. Vurgu rengi hamam çinisinin turkuazı. */
 :root{
@@ -49,10 +49,12 @@ svg.chev{width:20px;height:20px;flex:none}
 
 /* —— Ön yüz —— */
 .home{display:grid;grid-template-columns:1fr 1.05fr;gap:48px;align-items:center;min-height:min(80vh,720px)}
-.handle{font-size:15px;color:var(--soft);font-weight:500}
-.home h1{font-size:clamp(48px,7.4vw,92px);font-weight:300;line-height:.96;letter-spacing:-.035em;margin:10px 0 22px}
+.handle{font-size:15px;color:var(--soft);font-weight:300}
+#v-home>.handle{display:flex;align-items:center;height:34px;margin:-16px 0 0}
+.home h1{font-size:clamp(46px,4.6vw,56px);font-weight:200;line-height:.96;letter-spacing:-.035em;margin:10px 0 3px}
 .line{font-size:clamp(21px,2.4vw,26px);font-weight:600;letter-spacing:-.01em;margin:0;line-height:1.3}
-.sub{color:var(--soft);margin:6px 0 0;font-size:18px}
+.sub{color:var(--soft);margin:6px 0 0;font-size:16px}
+.home .sub{white-space:nowrap;display:inline-block;line-height:1.3;opacity:.65}
 
 .scene{overflow:visible;display:block;width:100%;height:auto;aspect-ratio:440/630;max-height:76vh}
 
@@ -60,17 +62,21 @@ svg.chev{width:20px;height:20px;flex:none}
 .scene{pointer-events:none}
 .scene .drag{pointer-events:auto}
 .home>div{position:relative;z-index:1}
+.home>div:first-child{align-self:start;padding-top:192px}
 body{overflow-x:clip}
-.doors{display:grid;gap:10px;margin-top:34px}
-.door{display:flex;align-items:center;gap:16px;padding:16px 18px;border-radius:var(--r-md);background:var(--surface);text-decoration:none;color:var(--ink);transition:background .2s,transform .2s}
+.doors{display:inline-flex;flex-wrap:wrap;gap:22px;margin-top:75px}
+.door{display:flex;align-items:center;gap:4px;padding:0;text-decoration:none;color:var(--ink);transition:color .2s,transform .2s}
 .door .t{display:flex;flex-direction:column;min-width:0;flex:1}
-.door b{font-size:20px;font-weight:600;letter-spacing:-.01em}
-.door span{color:var(--soft);font-size:15px}
+.door b{font-size:20px;font-weight:500;letter-spacing:-.01em}
+.door .t>span{display:none}
+.door svg.chev{width:14px;height:14px}
 .door svg{color:var(--soft);transition:color .2s,transform .2s}
-.door:hover{background:var(--accent-soft)}
+.door:hover{color:var(--accent)}
 .door:hover svg{color:var(--accent);transform:translateX(3px)}
 .door:active{transform:scale(.99)}
-.foot{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.foot{display:flex;justify-content:space-between;gap:8px;margin-top:28px}
+.foot .pill{border:0;border-radius:0;background:none;padding:0 0 3px;line-height:1.2}
+.foot{will-change:transform}
 .pill{font-size:15px;padding:8px 14px;border-radius:999px;border:1px solid var(--line);color:var(--ink);text-decoration:none;background:var(--bg)}
 .pill:hover{border-color:var(--accent);color:var(--accent)}
 
@@ -168,10 +174,11 @@ h4{font-size:15px;font-weight:600;color:var(--soft);margin:0 0 10px}
 .drag .obj{transition:filter .2s}
 .drag.held .obj{filter:drop-shadow(0 10px 14px rgba(0,0,0,.18))}
 #ropes{position:fixed;inset:0;width:100vw;height:100vh;pointer-events:none;z-index:4}
-.door.linked,.pill.linked{background:var(--accent-soft);color:var(--accent)}
+.door.linked{color:var(--accent)}
+.pill.linked{background:var(--accent-soft);color:var(--accent)}
 .pill.linked{border-color:var(--accent)}
 .door.linked svg{color:var(--accent)}
-.hint{font-size:13.5px;color:var(--soft);margin:10px 0 0;text-align:center}
+.hint{font-size:12px;letter-spacing:.01em;font-weight:300;color:var(--soft);margin:10px 0 0;text-align:center}
 .home h1{cursor:pointer;user-select:none}
 .home h1 .ch{display:inline-block;will-change:transform}
 #v-home,#v-home *{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
@@ -186,6 +193,7 @@ h4{font-size:15px;font-weight:600;color:var(--soft);margin:0 0 10px}
 section[data-view]{padding-top:52px}
 .theme{z-index:7}
 footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer .mono{font-size:12px}
 
 .tool .yr{font-style:normal;font-size:13px;color:var(--soft);margin-bottom:2px}
 .gnote{color:var(--soft);font-size:14.5px;margin:10px 0 0}
@@ -194,6 +202,12 @@ a.row.link{text-decoration:none;color:var(--ink);transition:background .2s}
 a.row.link:hover{background:var(--accent-soft)}
 a.row.link:hover h3{color:var(--accent)}
 @media (max-width:820px){
+  .home>div:first-child{padding-top:0}
+  .home{grid-template-columns:minmax(0,1fr)}
+  .doors{gap:8px 14px}
+  .door b{font-size:17px}
+  .door svg.chev{width:12px;height:12px}
+  .foot{margin-top:20px}
   .home{grid-template-columns:1fr;gap:22px;min-height:0}
   .hero-img{order:-1}
   .hero-img img{aspect-ratio:16/11}
@@ -216,9 +230,9 @@ a.row.link:hover h3{color:var(--accent)}
 <div class="wrap">
 
 <main id="v-home" data-view="">
+  <span class="handle">ahmetoff, İstanbul</span>
   <div class="home">
     <div>
-      <span class="handle">ahmetoff, İstanbul</span>
       <h1>Ahmet<br>Çandöken</h1>
       <p class="sub">Merak ettiği şeyleri yaparak öğrenir.</p>
       <nav class="doors" aria-label="Bölümler">
@@ -770,6 +784,24 @@ label();
     items.forEach(it=>{if(it.ox||it.oy) it.rx={x:it.ox,y:it.oy,t0};});
     kick();
   });
+})();
+/* Alt yazıyı tek satır, "Çandöken" genişliğinde tut */
+(()=>{const h=document.querySelector(".home h1"),s=document.querySelector(".home .sub");if(!h||!s)return;
+ function fit(){const ch=h.querySelectorAll(".ch");if(!ch.length)return;const br=h.querySelector("br");
+  let a=ch[0];for(const c of ch){if(br&&(br.compareDocumentPosition(c)&Node.DOCUMENT_POSITION_FOLLOWING)){a=c;break;}}
+  const n=ch[ch.length-1],W=n.offsetLeft+n.offsetWidth-a.offsetLeft;
+  s.style.fontSize="16px";const k=W/s.scrollWidth;s.style.fontSize=(16*k).toFixed(2)+"px";s.style.marginLeft=(a.offsetLeft-h.offsetLeft)+"px";}
+ fit(); if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit); addEventListener("resize",fit); addEventListener("load",fit);
+})();
+/* Alt bağlantıları sahnenin yatay çizgilerinden birinin üstüne oturt */
+(()=>{const f=document.querySelector(".home .foot"),sv=document.querySelector(".scene");if(!f||!sv)return;
+ const ys=[410,430,458,500,562];
+ const dr=document.querySelector(".home .doors");
+ function seat(){f.style.transform="";f.style.width=dr?Math.ceil(dr.getBoundingClientRect().width)+"px":"";if(innerWidth<=820){return;}const m=sv.getScreenCTM();if(!m)return;
+  const fb=f.getBoundingClientRect().bottom;let best=null;
+  for(const y of ys){const ly=m.f+m.d*y,d=ly-fb;if(best===null||Math.abs(d)<Math.abs(best))best=d;}
+  if(best!==null&&Math.abs(best)<60)f.style.transform="translateY("+best.toFixed(1)+"px)";}
+ seat();addEventListener("resize",seat);addEventListener("load",seat);if(document.fonts&&document.fonts.ready)document.fonts.ready.then(seat);
 })();
 </script>
 
