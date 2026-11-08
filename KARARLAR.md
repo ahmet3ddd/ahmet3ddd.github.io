@@ -29,7 +29,10 @@ Patch dosyası ya da push edilmemiş commit bırakılmaz.
 ## Sahne ve başlık (8 Kasım 2026)
 - Cisim gölgeleri kemerin üstüne düşmez: gölge kemerin arkasındaysa (zemin y < 515) kemerin altında çizilir ve kemer onu örter,
   önündeyse önde çizilir. Kemer taşınınca diğer gölgeler yeniden sıralanır.
-- Alt yazı ("Merak ettiği şeyleri…") soyada yakın: `display:block;width:max-content;margin-top:2px` (aradaki boşluk ~3px).
+- Alt yazı ("Merak ettiği şeyleri…") soyada yakın ama yapışık değil: `display:block;width:max-content;margin-top:6px` (~7px boşluk).
+  Telefonda altındaki bölüm grubu `margin-top:28px`.
+- Çizgi adam derinliğe göre katmanlanır: zemindeki konumu (merdivendeyken merdivenin dibi) hangi cismin önündeyse
+  o cisim onu örter, arkasındakilerin önünde görünür. Bir cismin üstünde dinlenirken o cismin hemen önünde çizilir; harflerin üstündeyken hep önde.
 
 ## İçerik
 - Ana sayfada dört bölüm var: Tasarım, Yazılım, Üretim, Araştırma. Üretim ve Yazılım'daki
