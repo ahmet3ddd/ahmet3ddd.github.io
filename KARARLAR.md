@@ -30,3 +30,11 @@ Patch dosyası ya da push edilmemiş commit bırakılmaz.
 - Kategoriler: Üretim, Yazılım, Düşünce, Resim ve fotoğraf, Genel. Genel kalacak.
 - Eski kategori adresleri (3d-printer, 3d-projeler, foto, resim) yenilerine yönlenir.
 - Blogun adı "everything is in one place" olarak kalır.
+
+## CGTrader (8 Kasım 2026)
+- CGTrader profili (cgtrader.com/designers/ahmetoff, 62 model) Tasarım bölümünde "3D modeller" başlığıyla yer alır
+  (Üretim değil: modeller 3ds Max/V-Ray görselleştirme işi, 3D baskı modeli yok). `ayrintili.html`'de 3D Dizayn listesinde.
+- Adres JSON-LD `sameAs` listesinde.
+- Vefa notu her zaman kalır: "Modellerin bir kısmı, 3D Dizayn'daki ortağı Mim. Şenay Gök Ataman'ın çalışmasıdır."
+- Sırada: 6–8 modellik vitrin (görseller `img/cgtrader/`, her biri kendi CGTrader sayfasına). CGTrader model listesi
+  bot korumalı; seçim için tarayıcıdan (Claude in Chrome) bakılacak.
