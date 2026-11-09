@@ -79,3 +79,6 @@ Patch dosyası ya da push edilmemiş commit bırakılmaz.
 - Medya `blog/media/2019/06/robot-kol-*` (13 foto 1200px, 5 video ≤720p). Videolar Instagram'a bağlı değil, sitede barınır.
 - Ana sayfa Üretim > Elektronik ve nesneler'de 2019 kartı (`img/blog/robot-kol.jpg`), ayrintili.html'de de var.
 - Yazıya Ahmet'in kendi çizimleri eklendi: devre şeması (`Robot kol şema-2.jpg`) ve AutoCAD tork hesabı (`Robot kol tork hesabı.dwg` + altlık foto IMAG3902, ODA + ezdxf ile görüntüye çevrildi). Adaptör görseli küçük (190px).
+
+## Ev tipi klima (9 Kasım 2026)
+- Blog yazısı `/blog/2026/11/09/ev-tipi-klima/` (Üretim). Metin Ahmet'in (yalnız yazım düzeltmesi: buzluğa, serinliyordum). Medya `blog/media/2021/08/klima-*` (orijinaller `H:\PRJ\PRJ_klima`). Ana sayfa ve ayrintili'de 2021 kartı.
