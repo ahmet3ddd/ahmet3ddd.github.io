@@ -73,3 +73,8 @@ Patch dosyası ya da push edilmemiş commit bırakılmaz.
 - Paylaşım önizlemesi: `img/og.png` (1200×630, ana sayfa görüntüsü); index ve ayrintili'de og:image + twitter:card.
 - Cloudflare Web Analytics: her HTML'in `</body>` öncesinde beacon (cloudflareinsights). Yeni sayfaya da eklenir.
   Ziyaret verisi sitede gösterilmez; yalnız Ahmet sorduğunda söylenir.
+
+## Robot kol (9 Kasım 2026)
+- Blog yazısı `/blog/2026/11/09/robot-kol/` (Üretim). Metin Ahmet'in kendi sözleri (yalnız yazım düzeltmesi); altına tarih/teknik özet ve fotoğraf/video bölümleri.
+- Medya `blog/media/2019/06/robot-kol-*` (13 foto 1200px, 5 video ≤720p). Videolar Instagram'a bağlı değil, sitede barınır.
+- Ana sayfa Üretim > Elektronik ve nesneler'de 2019 kartı (`img/blog/robot-kol.jpg`), ayrintili.html'de de var.
