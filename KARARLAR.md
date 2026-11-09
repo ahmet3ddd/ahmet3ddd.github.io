@@ -48,7 +48,7 @@ Patch dosyası ya da push edilmemiş commit bırakılmaz.
 
 ## Lamba3D (8 Kasım 2026)
 - Ahmet'in en önemli tasarım ve imalat projesi. Üretim bölümünün en üstünde öne çıkan blok (feature) olarak durur,
-  Hakkımda'da da (ana sayfa ve ayrıntılı) "en önemli tasarım ve imalat işi" diye anılır. Görsel: `img/blog/lamba3d-kapak.jpg`.
+  Hakkımda'da da (ana sayfa ve ayrıntılı) "en önemli tasarım ve imalat işi" diye anılır. Görsel yerine bitmiş lambanın videosu (9 Kasım 2026, Ahmet isteği: "bitmiş videoya ulaşmak kolay olsun"): `img/blog/lamba3d-final.mp4` (kaynak `H:\PRJ\PRJ-www\Youtube\Lamba\Lamba3D-final.mp4`, 37 sn, 720p), kapak görseli `img/blog/lamba3d-kapak.jpg` poster olarak.
 
 ## Blog
 - Blog statik HTML, üretici betik yok. Kategori satırı her sayfada kopya olduğundan
