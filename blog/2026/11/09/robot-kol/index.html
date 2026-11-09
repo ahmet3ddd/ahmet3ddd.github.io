@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Robot kol · everything is in one place</title>
-<meta name="description" content="Bu projemi çok zaman önce yapmıştım. Bu proje yeni zihin dünyamın bir nevi dışa vurumunu simgeliyor gibi. 3D printerda baskı yapmak, tasarladığın şeylerin…">
+<meta name="description" content="Bu projemi çok zaman önce yapmıştım. Proje yeni zihin dünyamın bir nevi dışa vurumunu simgeliyor gibi. 3D printerda baskı yapmak, tasarladığın şeylerin…">
 <meta name="author" content="Ahmet Çandöken">
 <link rel="canonical" href="https://ahmetoff.com/blog/2026/11/09/robot-kol/">
 <meta property="og:title" content="Robot kol · everything is in one place">
-<meta property="og:description" content="Bu projemi çok zaman önce yapmıştım. Bu proje yeni zihin dünyamın bir nevi dışa vurumunu simgeliyor gibi. 3D printerda baskı yapmak, tasarladığın şeylerin…">
+<meta property="og:description" content="Bu projemi çok zaman önce yapmıştım. Proje yeni zihin dünyamın bir nevi dışa vurumunu simgeliyor gibi. 3D printerda baskı yapmak, tasarladığın şeylerin…">
 <meta property="og:type" content="article">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -146,6 +146,7 @@ main>.cats:first-child{margin-top:0}
 .entry .ikili{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:1.6em 0}
 .entry .ikili figure{margin:0}
 .entry .ikili img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.entry figure.kucuk{max-width:190px;margin-left:auto;margin-right:auto}
 @media (max-width:640px){.entry .ikili{grid-template-columns:1fr}}
 </style>
 </head>
@@ -160,7 +161,7 @@ main>.cats:first-child{margin-top:0}
 <header class="ph"><div class="meta"><time datetime="2026-11-09">9 Kasım 2026</time><a class="chip" href="../../../../kategori/uretim/">Üretim</a></div>
 <h1>Robot kol</h1></header>
 <div class="entry">
-<p>Bu projemi çok zaman önce yapmıştım. Bu proje yeni zihin dünyamın bir nevi dışa vurumunu simgeliyor gibi.</p>
+<p>Bu projemi çok zaman önce yapmıştım. Proje yeni zihin dünyamın bir nevi dışa vurumunu simgeliyor gibi.</p>
 <p>3D printerda baskı yapmak, tasarladığın şeylerin gerçek dünyada eline alabileceğin bir yolculuk. O tarihlere kadar neredeyse her yaptığım şey ya kâğıt, tuval üzerinde kaldı ya da sonraki yıllarda dijital âlemde kaldı ama hiçbiri 3D olarak fiziki âlemde oluşamadı; hep 2D, 2,5D âleminde kaldılar. İlk büyük ve çalışan projem sanıyorum bu oldu.</p>
 <p>Bunun sayesinde Arduino ile neler yapılabileceğini, servolarla nasıl çalışılacağını, PLA baskının ne demek olduğunu, tolerans ne olmalı arayışlarımı hep bu proje üzerinde daha iyi öğrendim desem yanlış olmaz. Telefona uygulama yazmak, servoları kontrol etmek… Bu sırada çok fazla internet araştırması yapıp çok fazla şey öğrendim.</p>
 <p>Ortaya çıkan ürün hâlâ beni tam tatmin edememiş olsa da yenisini yapmaya çalışırsam artık neleri yapmayacağımı sanırım daha iyi biliyorum. Çok tecrübe kazandığım bir projem oldu.</p>
@@ -170,18 +171,20 @@ main>.cats:first-child{margin-top:0}
 <li><strong>Tarih:</strong> Kasım 2018 – Haziran 2019</li>
 <li><strong>Tasarım:</strong> 3ds Max</li>
 <li><strong>Gövde:</strong> 3D yazıcıda PLA baskı parçalar</li>
-<li><strong>Kontrol:</strong> ESP32 (ilk denemeler Arduino UNO ile), MG996R servolar</li>
+<li><strong>Kontrol:</strong> ESP32 (ilk denemeler Arduino UNO ile), üç MG996R ve iki SG90 servo</li>
 <li><strong>Kumanda:</strong> potansiyometreli panel ve telefon uygulaması</li>
 </ul>
 <h2>Tasarım</h2>
 <div class="ikili"><figure><img src="../../../../media/2019/06/robot-kol-tasarim-1.jpg" alt="3ds Max&#x27;te kolun ilk modeli" loading="lazy"><figcaption>3ds Max'te kolun ilk modeli</figcaption></figure><figure><img src="../../../../media/2019/06/robot-kol-tasarim-2.jpg" alt="Eklemler ve dişliler" loading="lazy"><figcaption>Eklemler ve dişliler</figcaption></figure></div>
+<figure><img src="../../../../media/2019/06/robot-kol-tork-hesabi.jpg" alt="Tork hesabı çizimi" loading="lazy"><figcaption>Tork hesabı (AutoCAD): kolun ucundaki yaklaşık 240 g yükün omuz eklemine etkisi</figcaption></figure>
 <h2>Baskı ve montaj</h2>
 <div class="ikili"><figure><img src="../../../../media/2019/06/robot-kol-baski-taban.jpg" alt="Taban parçası yazıcıda" loading="lazy"><figcaption>Taban parçası yazıcıda</figcaption></figure><figure><img src="../../../../media/2019/06/robot-kol-kol-parcasi.jpg" alt="Servo yuvalı kol parçası" loading="lazy"><figcaption>Servo yuvalı kol parçası</figcaption></figure></div>
 <div class="ikili"><figure><img src="../../../../media/2019/06/robot-kol-ilk-montaj.jpg" alt="İlk montaj" loading="lazy"><figcaption>İlk montaj</figcaption></figure><figure><img src="../../../../media/2019/06/robot-kol-govde.jpg" alt="Gövde ve kumanda paneli bir arada" loading="lazy"><figcaption>Gövde ve kumanda paneli bir arada</figcaption></figure></div>
 <h2>Elektronik</h2>
+<figure><img src="../../../../media/2019/06/robot-kol-devre-semasi.jpg" alt="Devre şeması" loading="lazy"><figcaption>Devre şeması: ESP32, beş servo, potansiyometreler, kayıt düğmesi ve LED'ler</figcaption></figure>
 <div class="ikili"><figure><img src="../../../../media/2019/06/robot-kol-esp32.jpg" alt="ESP32 kartı" loading="lazy"><figcaption>ESP32 kartı</figcaption></figure><figure><img src="../../../../media/2019/06/robot-kol-kumanda-paneli.jpg" alt="Kumanda paneli" loading="lazy"><figcaption>Kumanda paneli</figcaption></figure></div>
 <div class="ikili"><figure><img src="../../../../media/2019/06/robot-kol-potansiyometreler.jpg" alt="Panelin içi: potansiyometreler" loading="lazy"><figcaption>Panelin içi: potansiyometreler</figcaption></figure><figure><img src="../../../../media/2019/06/robot-kol-kablolama.jpg" alt="Kablolama" loading="lazy"><figcaption>Kablolama</figcaption></figure></div>
-<figure><img src="../../../../media/2019/06/robot-kol-guc-kaynagi.jpg" alt="Ayarlı güç kaynağıyla servo denemeleri" loading="lazy"><figcaption>Ayarlı güç kaynağıyla servo denemeleri</figcaption></figure>
+<figure class="kucuk"><img src="../../../../media/2019/06/robot-kol-guc-kaynagi.jpg" alt="Ayarlı güç kaynağıyla servo denemeleri" loading="lazy"><figcaption>Ayarlı güç kaynağıyla servo denemeleri</figcaption></figure>
 <h2>Pençe</h2>
 <div class="ikili"><figure><img src="../../../../media/2019/06/robot-kol-pence-parcalari.jpg" alt="Pençenin basılmış parçaları" loading="lazy"><figcaption>Pençenin basılmış parçaları</figcaption></figure><figure><img src="../../../../media/2019/06/robot-kol-pence.jpg" alt="Toplanmış pençe" loading="lazy"><figcaption>Toplanmış pençe</figcaption></figure></div>
 <div class="ikili"><figure><video controls playsinline preload="none" poster="../../../../media/2019/06/robot-kol-test-pence-1.jpg"><source src="../../../../media/2019/06/robot-kol-test-pence-1.mp4" type="video/mp4"></video><figcaption>Pençe denemesi</figcaption></figure><figure><video controls playsinline preload="none" poster="../../../../media/2019/06/robot-kol-test-pence-2.jpg"><source src="../../../../media/2019/06/robot-kol-test-pence-2.mp4" type="video/mp4"></video><figcaption>Pençe denemesi</figcaption></figure></div>

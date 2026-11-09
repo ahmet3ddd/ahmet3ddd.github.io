@@ -78,3 +78,4 @@ Patch dosyası ya da push edilmemiş commit bırakılmaz.
 - Blog yazısı `/blog/2026/11/09/robot-kol/` (Üretim). Metin Ahmet'in kendi sözleri (yalnız yazım düzeltmesi); altına tarih/teknik özet ve fotoğraf/video bölümleri.
 - Medya `blog/media/2019/06/robot-kol-*` (13 foto 1200px, 5 video ≤720p). Videolar Instagram'a bağlı değil, sitede barınır.
 - Ana sayfa Üretim > Elektronik ve nesneler'de 2019 kartı (`img/blog/robot-kol.jpg`), ayrintili.html'de de var.
+- Yazıya Ahmet'in kendi çizimleri eklendi: devre şeması (`Robot kol şema-2.jpg`) ve AutoCAD tork hesabı (`Robot kol tork hesabı.dwg` + altlık foto IMAG3902, ODA + ezdxf ile görüntüye çevrildi). Adaptör görseli küçük (190px).
