@@ -115,3 +115,9 @@ Patch dosyası ya da push edilmemiş commit bırakılmaz.
 - (10 Kasım 2026) İngilizce bağlantısı sağ üstte: tema düğmesinin solunda aynı boyda "EN" düğmesi (`.langsw`, sabit konum),
   ana sayfada ve ayrıntılı sayfada. Konum satırındaki "· English" ve ayrıntılı'daki üst "English" bağlantısı kaldırıldı.
   Alt bölümlerin üst çubuğunda sağ boşluk 88 px (iki düğme sığsın).
+
+## Google'da "ahmetoff" araması (10 Kasım 2026)
+- Google "ahmetoff"u "Ahmet Off" diye de okuyor ve Nemlizade dizisindeki "Ahmet Off'a bas gardaşım" repliğinin (meme, şarkılar, videolar)
+  sonuçlarını ahmetoff.com'un altına diziyor. Ahmet'le ilgisi yok; kaldırtılamaz, ancak kendi sonuçlarıyla aşağı itilebilir.
+- Site tarafı: ana sayfaya WebSite işaretlemesi (site adı "ahmetoff") ve og:site_name eklendi. Search Console zaten kurulu (alan adı mülkü).
+- Asıl etki: "ahmetoff" adını taşıyan başka güçlü profiller (YouTube, LinkedIn, Instagram, GitHub vb.). Ahmet'in kararı bekleniyor.
