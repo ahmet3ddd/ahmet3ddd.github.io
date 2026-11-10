@@ -112,3 +112,6 @@ Patch dosyası ya da push edilmemiş commit bırakılmaz.
   Yalnız ahmetoff.com kökenli istekleri kabul eder; görünmez alan ve 3 sn tuzağı var. Konu sabit "ahmetoff.com iletişim formu".
   Kod değişirse: dosyayı güncelle, Cloudflare'da Worker'ın "Edit code" ekranına yapıştırıp Deploy.
 - form.ahmetoff.com özel alan adı denendi; DNS değişikliği izni gerektirdiği için yapılmadı. Workers.dev adresi kullanılıyor.
+- (10 Kasım 2026) İngilizce bağlantısı sağ üstte: tema düğmesinin solunda aynı boyda "EN" düğmesi (`.langsw`, sabit konum),
+  ana sayfada ve ayrıntılı sayfada. Konum satırındaki "· English" ve ayrıntılı'daki üst "English" bağlantısı kaldırıldı.
+  Alt bölümlerin üst çubuğunda sağ boşluk 88 px (iki düğme sığsın).

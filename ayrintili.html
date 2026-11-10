@@ -22,7 +22,7 @@
 <link rel="icon" href="/favicon-48.png" type="image/png" sizes="48x48">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px system-ui,-apple-system,"Segoe UI",sans-serif}img{max-width:100%}[hidden]{display:none!important}.theme{position:fixed;top:calc(12px + env(safe-area-inset-top,0px));right:calc(12px + env(safe-area-inset-right,0px));z-index:7;width:34px;height:34px;padding:0;display:grid;place-items:center;border-radius:50%;border:1px solid var(--line);background:var(--paper);color:var(--ink-soft);cursor:pointer}.theme:hover{color:var(--accent);border-color:var(--accent)}.theme svg{width:17px;height:17px}
-</style>
+.langsw{position:fixed;top:calc(12px + env(safe-area-inset-top,0px));right:calc(54px + env(safe-area-inset-right,0px));z-index:7;height:34px;min-width:34px;padding:0 10px;display:grid;place-items:center;border-radius:999px;border:1px solid var(--line);background:var(--bg);color:var(--soft);font:500 12.5px/1 system-ui,-apple-system,"Segoe UI",sans-serif;letter-spacing:.04em;text-decoration:none;box-sizing:border-box}.langsw:hover{color:var(--accent);border-color:var(--accent)}@media print{.langsw{display:none}}</style>
 </head>
 <body>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -174,7 +174,7 @@ footer{margin-top:72px;display:flex;justify-content:space-between;gap:16px;flex-
 @media (prefers-reduced-motion:no-preference){.proj{transition:background .15s}.proj:hover{background:var(--paper-2)}}
 </style>
 
-<div class="wrap"><p style="margin:0 0 16px;display:flex;gap:18px"><a href="./">← Ana sayfa</a><a href="/en/" hreflang="en" lang="en">English</a></p>
+<div class="wrap"><p style="margin:0 0 16px"><a href="./">← Ana sayfa</a></p>
 
   <header class="sheet">
     <div class="sheet-top">
@@ -400,6 +400,7 @@ NOTES.forEach(n => {
 });
 document.getElementById("updated").textContent = "Son güncelleme: " + UPDATED;
 </script>
+<a class="langsw" href="/en/" hreflang="en" lang="en" title="English" aria-label="English version">EN</a>
 <button class="theme" id="theme-btn" type="button" aria-label="Aydınlık ya da karanlık görünüm"></button>
 <script>
 (function(){var root=document.documentElement,tb=document.getElementById("theme-btn");
