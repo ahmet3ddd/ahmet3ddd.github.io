@@ -120,11 +120,13 @@ footer{margin-top:64px;padding-top:16px;border-top:1px solid var(--line);font-si
       <a href="/blog/" hreflang="tr">Blog: everything is in one place</a>
       <a href="https://github.com/ahmet3ddd">GitHub</a>
       <a href="https://orcid.org/0009-0001-5197-7888">ORCID</a>
+      <a class="mail" data-show href="#links">iletisim (at) ahmetoff.com</a>
     </div>
   </section>
 
   <footer>© 2026 Ahmet Çandöken · ahmetoff · ahmet3ddd</footer>
 </div>
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "6a2c181c56424464a34fa868cb600a85"}'></script>
+<script>document.querySelectorAll("a.mail").forEach(function(a){var m=["iletisim","ahmetoff.com"].join("@");a.href="mailto:"+m;if(a.dataset.show!==undefined)a.textContent=m;});</script>
 </body>
 </html>

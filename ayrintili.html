@@ -313,6 +313,7 @@ footer{margin-top:72px;display:flex;justify-content:space-between;gap:16px;flex-
   <section id="iletisim">
     <div class="sec-head"><h2>İletişim</h2><span class="mono">Pafta 05</span></div>
     <div class="contact">
+      <div><span class="mono">E-posta</span><b><a class="mail" data-show href="#iletisim">iletisim (at) ahmetoff.com</a></b></div>
       <div><span class="mono">GitHub</span><b><a href="https://github.com/ahmet3ddd" target="_blank" rel="noopener">github.com/ahmet3ddd</a></b></div>
       <div><span class="mono">ORCID</span><b><a href="https://orcid.org/0009-0001-5197-7888" target="_blank" rel="noopener">0009-0001-5197-7888</a></b></div>
       <div><span class="mono">Blog</span><b><a href="/blog/">everything is in one place</a></b></div>
@@ -411,5 +412,6 @@ tb.addEventListener("click",function(){var n=dark()?"light":"dark";root.setAttri
 
 
 <!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "6a2c181c56424464a34fa868cb600a85"}'></script><!-- End Cloudflare Web Analytics -->
+<script>document.querySelectorAll("a.mail").forEach(function(a){var m=["iletisim","ahmetoff.com"].join("@");a.href="mailto:"+m;if(a.dataset.show!==undefined)a.textContent=m;});</script>
 </body>
 </html>

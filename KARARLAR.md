@@ -95,3 +95,9 @@ Patch dosyası ya da push edilmemiş commit bırakılmaz.
   ahmet3ddd/ahmetoff reposundaki 10 araca sol altta "← ahmetoff.com" düğmesi eklendi; 5 sn sonra küçük oka döner.
 - Girişteki ince alt yazı ve 12 px ipucu yazısına dokunulmadı (8 Kasım kararı).
 - İletişim: sitede yayınlanmış e-posta yok. Hangi adresin yazılacağı Ahmet'e soruldu; karar gelene kadar eklenmez.
+
+## İletişim (10 Kasım 2026)
+- Sitedeki iletişim adresi: iletisim@ahmetoff.com (Cloudflare Email Routing ile Ahmet'in Gmail'ine yönlenir). Gmail adresi sitede yayınlanmaz:
+  beyin notlarının işlendiği kutu o, açıkta durursa dışarıdan "[beyin-not]" sokulabilir.
+- Adres sayfa kaynağında düz yazılmaz; küçük bir betik `a.mail` bağlantılarını açılışta doldurur (betik yoksa "iletisim (at) ahmetoff.com").
+- Yerleri: ana sayfa alt bağlantılar (5. kelime "İletişim") ve Hakkımda'daki E-posta satırı; ayrintili Pafta 05; /en/ Elsewhere.
