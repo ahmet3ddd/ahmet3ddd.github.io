@@ -100,4 +100,6 @@ Patch dosyası ya da push edilmemiş commit bırakılmaz.
 - Sitedeki iletişim adresi: iletisim@ahmetoff.com (Cloudflare Email Routing ile Ahmet'in Gmail'ine yönlenir). Gmail adresi sitede yayınlanmaz:
   beyin notlarının işlendiği kutu o, açıkta durursa dışarıdan "[beyin-not]" sokulabilir.
 - Adres sayfa kaynağında düz yazılmaz; küçük bir betik `a.mail` bağlantılarını açılışta doldurur (betik yoksa "iletisim (at) ahmetoff.com").
-- Yerleri: ana sayfa alt bağlantılar (5. kelime "İletişim") ve Hakkımda'daki E-posta satırı; ayrintili Pafta 05; /en/ Elsewhere.
+- Ana sayfada "İletişim" e-posta programını açmaz, kendi panelini açar (`#iletisim`, diğer bölümler gibi): büyük adres,
+  "E-posta yaz" ve "Adresi kopyala" düğmeleri, altında GitHub, Blog, ORCID, CGTrader. Hakkımda'daki E-posta satırı bu panele gider.
+  Panel düğmeleri `.mbtn` (eski `.btn` başka yerde kullanılıyor). Ayrintili Pafta 05 ve /en/ Elsewhere'da adres doğrudan yazılı.
