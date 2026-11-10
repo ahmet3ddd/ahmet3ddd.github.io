@@ -26,22 +26,22 @@
 </head>
 <body>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=Onest:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
 <style>
 /* Layout: bir çizim paftası — başlık bloğu, ızgara kağıdı, bölümler pafta numaralarıyla */
 :root{
   --paper:#eef0ec; --paper-2:#e4e7e1; --ink:#1b2320; --ink-soft:#56615b;
-  --line:#c9cfc8; --accent:#2f6f62; --accent-soft:#d6e4df;
+  --line:#c9cfc8; --accent:#0b7d7d; --accent-soft:#d6e4df;
   --f-display:"Gloock", Georgia, "Times New Roman", serif;
-  --f-body:"Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-body:"Onest", system-ui, -apple-system, "Segoe UI", sans-serif;
   --f-mono:"JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   --paper:#141917; --paper-2:#1b211e; --ink:#e3e8e4; --ink-soft:#9aa59f;
-  --line:#2c3531; --accent:#7cc0ae; --accent-soft:#1f322c; color-scheme:dark}}
+  --line:#2c3531; --accent:#3cc4bf; --accent-soft:#1f322c; color-scheme:dark}}
 :root[data-theme="dark"]{
   --paper:#141917; --paper-2:#1b211e; --ink:#e3e8e4; --ink-soft:#9aa59f;
-  --line:#2c3531; --accent:#7cc0ae; --accent-soft:#1f322c; color-scheme:dark}
+  --line:#2c3531; --accent:#3cc4bf; --accent-soft:#1f322c; color-scheme:dark}
 
 *{box-sizing:border-box}
 body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.6;
@@ -174,7 +174,7 @@ footer{margin-top:72px;display:flex;justify-content:space-between;gap:16px;flex-
 @media (prefers-reduced-motion:no-preference){.proj{transition:background .15s}.proj:hover{background:var(--paper-2)}}
 </style>
 
-<div class="wrap"><p style="margin:0 0 16px"><a href="./">← Ana sayfa</a></p>
+<div class="wrap"><p style="margin:0 0 16px;display:flex;gap:18px"><a href="./">← Ana sayfa</a><a href="/en/" hreflang="en" lang="en">English</a></p>
 
   <header class="sheet">
     <div class="sheet-top">
@@ -184,11 +184,11 @@ footer{margin-top:72px;display:flex;justify-content:space-between;gap:16px;flex-
     <div class="hero">
       <div class="mono">ahmetoff · tasarım, yazılım, üretim, araştırma</div>
       <h1>Ahmet<br>Çandöken</h1>
-      <p class="lede">Mekân tasarlar, o mekânlarda kullanılacak araçları da kendisi yazar. <em>İç mimarlık, hesaplamalı geometri ve yerel çalışan yazılım</em> arasında gidip gelen bağımsız bir pratik.</p>
+      <p class="lede">Tasarlar, kodlar, üretir. Merak ettiği şeyleri yaparak öğrenir: <em>mekân ve görselleştirme, tarayıcıda çalışan araçlar, atölye üretimi</em> ve bilginin kuşaklar arasında nasıl taşındığı üzerine bir araştırma.</p>
     </div>
     <div class="meta">
       <div><span class="mono">Konum</span><b>İstanbul</b></div>
-      <div><span class="mono">Disiplin</span><b><a href="#egitim" style="color:inherit">İç Mimarlık · Fotoğrafçılık ve Kameramanlık · Medya ve İletişim</a></b></div>
+      <div><span class="mono">Alanlar</span><b>Tasarım · Yazılım · Üretim · Araştırma</b></div>
       <div><span class="mono">Yığın</span><b>Rust · TS · Python</b></div>
       <div><span class="mono">ORCID</span><b>0009-0001-5197-7888</b></div>
     </div>
@@ -289,8 +289,8 @@ footer{margin-top:72px;display:flex;justify-content:space-between;gap:16px;flex-
 
   <section id="araclar">
     <div class="sec-head"><h2>Tarayıcı araçları</h2><span class="mono">Pafta 03b</span></div>
-    <p class="lead-note">Kurulum istemeyen, dosyaları hiçbir sunucuya göndermeyen tek dosyalık araçlar. <a href="https://ahmet3ddd.github.io/ahmetoff/" target="_blank" rel="noopener">Hepsi bir arada →</a></p>
-    <div class="notes"><div class="note"><span class="mono">Mimari ve geometri</span><div><h3><a href="https://ahmet3ddd.github.io/ahmetoff/projects/AI_muk3d_V3/index.html" target="_blank" rel="noopener">Mukarnas 3D →</a></h3><p>Mukarnas hücrelerinin parametrik 3B modelleri</p></div></div><div class="note"><span class="mono">Mimari ve geometri</span><div><h3><a href="https://ahmet3ddd.github.io/ahmetoff/projects/AI_K_muk3d/index.html" target="_blank" rel="noopener">Köşe Mukarnas →</a></h3><p>Üçgen plan üzerinde köşe mukarnası</p></div></div><div class="note"><span class="mono">Mimari ve geometri</span><div><h3><a href="https://ahmet3ddd.github.io/ahmetoff/projects/AI_N_muk3d/index.html" target="_blank" rel="noopener">Niş Mukarnas →</a></h3><p>Açıklık, asaba ve sıra ile niş mukarnası</p></div></div><div class="note"><span class="mono">Mimari ve geometri</span><div><h3><a href="https://ahmet3ddd.github.io/ahmetoff/projects/AI_Puskul/index.html" target="_blank" rel="noopener">Püskül 3D →</a></h3><p>Çok katlı sarkıt yapılar</p></div></div><div class="note"><span class="mono">Mimari ve geometri</span><div><h3><a href="https://ahmet3ddd.github.io/ahmetoff/projects/AI_Revzen/index.html" target="_blank" rel="noopener">Revzen 3D →</a></h3><p>Renkli camlı Osmanlı revzen pencereleri</p></div></div><div class="note"><span class="mono">Mimari ve geometri</span><div><h3><a href="https://ahmet3ddd.github.io/ahmetoff/projects/AI_Kemer/index.html" target="_blank" rel="noopener">Kemerler 3D →</a></h3><p>Teğet ve sivri kemer modelleri</p></div></div><div class="note"><span class="mono">Mimari ve geometri</span><div><h3><a href="https://ahmet3ddd.github.io/ahmetoff/projects/AI_7-8/index.html" target="_blank" rel="noopener">Yedi-Sekiz →</a></h3><p>Geleneksel 7-8 geçme deseni</p></div></div><div class="note"><span class="mono">Üretim ve analiz</span><div><h3><a href="https://ahmet3ddd.github.io/ahmetoff/projects/AI_light/index.html" target="_blank" rel="noopener">AI Light →</a></h3><p>Işın izlemeli geometrik optik benzetimi</p></div></div><div class="note"><span class="mono">Üretim ve analiz</span><div><h3><a href="https://ahmet3ddd.github.io/ahmetoff/projects/AI_3Dprint_model_kontrol/index.html" target="_blank" rel="noopener">3D Print Model Kontrol →</a></h3><p>STL duvar kalınlığı ve onarım</p></div></div><div class="note"><span class="mono">Öğrenme</span><div><h3><a href="https://ahmet3ddd.github.io/ahmetoff/projects/AI_osmanlica/index.html" target="_blank" rel="noopener">Elifbâ →</a></h3><p>Sıfırdan Osmanlıca, 17 ünite 73 ders</p></div></div></div>
+    <p class="lead-note">Kurulum istemeyen, dosyaları hiçbir sunucuya göndermeyen tek dosyalık araçlar. <a href="https://ahmetoff.com/ahmetoff/" target="_blank" rel="noopener">Hepsi bir arada →</a></p>
+    <div class="notes"><div class="note"><span class="mono">Mimari ve geometri</span><div><h3><a href="https://ahmetoff.com/ahmetoff/projects/AI_muk3d_V3/index.html" target="_blank" rel="noopener">Mukarnas 3D →</a></h3><p>Mukarnas hücrelerinin parametrik 3B modelleri</p></div></div><div class="note"><span class="mono">Mimari ve geometri</span><div><h3><a href="https://ahmetoff.com/ahmetoff/projects/AI_K_muk3d/index.html" target="_blank" rel="noopener">Köşe Mukarnas →</a></h3><p>Üçgen plan üzerinde köşe mukarnası</p></div></div><div class="note"><span class="mono">Mimari ve geometri</span><div><h3><a href="https://ahmetoff.com/ahmetoff/projects/AI_N_muk3d/index.html" target="_blank" rel="noopener">Niş Mukarnas →</a></h3><p>Açıklık, asaba ve sıra ile niş mukarnası</p></div></div><div class="note"><span class="mono">Mimari ve geometri</span><div><h3><a href="https://ahmetoff.com/ahmetoff/projects/AI_Puskul/index.html" target="_blank" rel="noopener">Püskül 3D →</a></h3><p>Çok katlı sarkıt yapılar</p></div></div><div class="note"><span class="mono">Mimari ve geometri</span><div><h3><a href="https://ahmetoff.com/ahmetoff/projects/AI_Revzen/index.html" target="_blank" rel="noopener">Revzen 3D →</a></h3><p>Renkli camlı Osmanlı revzen pencereleri</p></div></div><div class="note"><span class="mono">Mimari ve geometri</span><div><h3><a href="https://ahmetoff.com/ahmetoff/projects/AI_Kemer/index.html" target="_blank" rel="noopener">Kemerler 3D →</a></h3><p>Teğet ve sivri kemer modelleri</p></div></div><div class="note"><span class="mono">Mimari ve geometri</span><div><h3><a href="https://ahmetoff.com/ahmetoff/projects/AI_7-8/index.html" target="_blank" rel="noopener">Yedi-Sekiz →</a></h3><p>Geleneksel 7-8 geçme deseni</p></div></div><div class="note"><span class="mono">Üretim ve analiz</span><div><h3><a href="https://ahmetoff.com/ahmetoff/projects/AI_light/index.html" target="_blank" rel="noopener">AI Light →</a></h3><p>Işın izlemeli geometrik optik benzetimi</p></div></div><div class="note"><span class="mono">Üretim ve analiz</span><div><h3><a href="https://ahmetoff.com/ahmetoff/projects/AI_3Dprint_model_kontrol/index.html" target="_blank" rel="noopener">3D Print Model Kontrol →</a></h3><p>STL duvar kalınlığı ve onarım</p></div></div><div class="note"><span class="mono">Öğrenme</span><div><h3><a href="https://ahmetoff.com/ahmetoff/projects/AI_osmanlica/index.html" target="_blank" rel="noopener">Elifbâ →</a></h3><p>Sıfırdan Osmanlıca, 17 ünite 73 ders</p></div></div></div>
   </section>
 
   <section id="uretim">

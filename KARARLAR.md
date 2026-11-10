@@ -82,3 +82,16 @@ Patch dosyası ya da push edilmemiş commit bırakılmaz.
 
 ## Ev tipi klima (9 Kasım 2026)
 - Blog yazısı `/blog/2026/11/09/ev-tipi-klima/` (Üretim). Metin Ahmet'in (yalnız yazım düzeltmesi: buzluğa, serinliyordum). Medya `blog/media/2021/08/klima-*` (orijinaller `H:\PRJ\PRJ_klima`). Ana sayfa ve ayrintili'de 2021 kartı.
+
+## Bakım turu (10 Kasım 2026)
+- Blog görselleri en fazla 2000 px'e indirildi ve yeniden sıkıştırıldı (309 MB → 62 MB, 263 dosya). Asıllar git geçmişinde duruyor;
+  geçmiş yeniden yazılmadı (diğer makinelerdeki kopyalar bozulmasın). Yeni görseller de aynı sınırla eklenir.
+- Ayrıntılı sayfanın açılışı ana sayfanın diline çekildi: "Tasarlar, kodlar, üretir…". "Disiplin" kutusu "Alanlar: Tasarım · Yazılım · Üretim · Araştırma"
+  oldu; iç mimarlık yalnızca Eğitim bölümünde. Ahmet iç mimar diye öne çıkarılmak istemiyor.
+- Ayrıntılı sayfanın gövde yazı tipi Instrument Sans → Onest, vurgu rengi ana sayfanın turkuazı. Pafta düzeni, Gloock başlıklar ve mono etiketler kalır.
+- İngilizce tek sayfa: `/en/` (tam çeviri değil, siteye kısa rehber). Ana sayfada konum satırının yanında "English", ayrıntılı'da "← Ana sayfa" yanında.
+  index ve en'de hreflang. Site içeriği değişince /en/ de güncellenir.
+- Araç bağlantıları doğrudan `https://ahmetoff.com/ahmetoff/...` (github.io adresi zaten buraya yönleniyordu).
+  ahmet3ddd/ahmetoff reposundaki 10 araca sol altta "← ahmetoff.com" düğmesi eklendi; 5 sn sonra küçük oka döner.
+- Girişteki ince alt yazı ve 12 px ipucu yazısına dokunulmadı (8 Kasım kararı).
+- İletişim: sitede yayınlanmış e-posta yok. Hangi adresin yazılacağı Ahmet'e soruldu; karar gelene kadar eklenmez.
