@@ -471,11 +471,13 @@ a.row.link:hover h3{color:var(--accent)}
     <span class="mono">E-posta</span>
     <a class="mail big" data-show href="#iletisim">iletisim (at) ahmetoff.com</a>
     <div class="mail-acts">
-      <a class="mbtn primary mail" href="#iletisim">E-posta yaz</a>
+      <a class="mbtn primary" id="mail-gmail" href="#iletisim" target="_blank" rel="noopener">Gmail ile yaz</a>
+      <a class="mbtn" id="mail-outlook" href="#iletisim" target="_blank" rel="noopener">Outlook ile yaz</a>
+      <a class="mbtn mail" href="#iletisim">E-posta uygulaması</a>
       <button class="mbtn" type="button" id="copy-mail">Adresi kopyala</button>
       <span class="copied" id="copied" aria-live="polite"></span>
     </div>
-    <p class="note">E-postalar kendisi tarafından okunur ve yanıtlanır. Türkçe ya da İngilizce yazabilirsiniz.</p>
+    <p class="note">Gmail ya da Outlook kullanıyorsanız ilgili düğme yeni sekmede yazma penceresini açar. Diğer durumlarda adresi kopyalayıp kendi e-postanızdan yazabilirsiniz. Türkçe ya da İngilizce yazabilirsiniz.</p>
   </div>
   <h4 style="margin-top:32px">Diğer yerler</h4>
   <div class="rows">
@@ -929,6 +931,7 @@ label();
 
 <!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "6a2c181c56424464a34fa868cb600a85"}'></script><!-- End Cloudflare Web Analytics -->
 <script>document.querySelectorAll("a.mail").forEach(function(a){var m=["iletisim","ahmetoff.com"].join("@");a.href="mailto:"+m;if(a.dataset.show!==undefined)a.textContent=m;});
+(function(){var m=["iletisim","ahmetoff.com"].join("@"),g=document.getElementById("mail-gmail"),o=document.getElementById("mail-outlook");if(g)g.href="https://mail.google.com/mail/?view=cm&fs=1&to="+encodeURIComponent(m);if(o)o.href="https://outlook.live.com/mail/0/deeplink/compose?to="+encodeURIComponent(m);})();
 (function(){var b=document.getElementById("copy-mail"),c=document.getElementById("copied");if(!b)return;b.addEventListener("click",function(){var m=["iletisim","ahmetoff.com"].join("@");function ok(){c.textContent="Kopyalandı";setTimeout(function(){c.textContent=""},2500);}try{navigator.clipboard.writeText(m).then(ok,function(){c.textContent=m;});}catch(e){c.textContent=m;}});})();</script>
 </body>
 </html>

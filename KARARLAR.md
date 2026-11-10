@@ -103,3 +103,7 @@ Patch dosyası ya da push edilmemiş commit bırakılmaz.
 - Ana sayfada "İletişim" e-posta programını açmaz, kendi panelini açar (`#iletisim`, diğer bölümler gibi): büyük adres,
   "E-posta yaz" ve "Adresi kopyala" düğmeleri, altında GitHub, Blog, ORCID, CGTrader. Hakkımda'daki E-posta satırı bu panele gider.
   Panel düğmeleri `.mbtn` (eski `.btn` başka yerde kullanılıyor). Ayrintili Pafta 05 ve /en/ Elsewhere'da adres doğrudan yazılı.
+- (10 Kasım 2026, sonra) Panelde "E-posta yaz" (mailto) Windows'ta varsayılan e-posta programı yoksa hiçbir şey açmıyordu.
+  Düğmeler: "Gmail ile yaz" ve "Outlook ile yaz" (web yazma penceresi, yeni sekme), "E-posta uygulaması" (mailto), "Adresi kopyala".
+- Form taslağı: `worker/iletisim-worker.js` (Cloudflare Worker "ahmetoff-iletisim", Email Service bağlaması SEB, TO değişkeni = Gmail).
+  Worker Hello World olarak oluşturuldu; e-posta bağlaması ve kod henüz yüklenmedi. Konu sabit, ziyaretçi metni konuya girmez.
