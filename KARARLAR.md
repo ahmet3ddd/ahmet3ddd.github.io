@@ -105,5 +105,10 @@ Patch dosyası ya da push edilmemiş commit bırakılmaz.
   Panel düğmeleri `.mbtn` (eski `.btn` başka yerde kullanılıyor). Ayrintili Pafta 05 ve /en/ Elsewhere'da adres doğrudan yazılı.
 - (10 Kasım 2026, sonra) Panelde "E-posta yaz" (mailto) Windows'ta varsayılan e-posta programı yoksa hiçbir şey açmıyordu.
   Düğmeler: "Gmail ile yaz" ve "Outlook ile yaz" (web yazma penceresi, yeni sekme), "E-posta uygulaması" (mailto), "Adresi kopyala".
-- Form taslağı: `worker/iletisim-worker.js` (Cloudflare Worker "ahmetoff-iletisim", Email Service bağlaması SEB, TO değişkeni = Gmail).
-  Worker Hello World olarak oluşturuldu; e-posta bağlaması ve kod henüz yüklenmedi. Konu sabit, ziyaretçi metni konuya girmez.
+- İletişim formu (10 Kasım 2026): panelde Ad / E-posta / Mesaj formu, "Gönder" mesajı doğrudan Gmail'e iletir. Altında "Ya da kendi
+  e-postanızdan": adres, Gmail ile yaz, Outlook ile yaz, kopyala.
+- Gönderici: Cloudflare Worker "ahmetoff-iletisim" (https://ahmetoff-iletisim.3ddizayn-proje.workers.dev/), kaynağı `worker/iletisim-worker.js`.
+  Email Service bağlaması SEB, ortam değişkeni TO = Gmail adresi (kaynakta yazmaz). Gönderen iletisim@ahmetoff.com, ziyaretçi Reply-To'da.
+  Yalnız ahmetoff.com kökenli istekleri kabul eder; görünmez alan ve 3 sn tuzağı var. Konu sabit "ahmetoff.com iletişim formu".
+  Kod değişirse: dosyayı güncelle, Cloudflare'da Worker'ın "Edit code" ekranına yapıştırıp Deploy.
+- form.ahmetoff.com özel alan adı denendi; DNS değişikliği izni gerektirdiği için yapılmadı. Workers.dev adresi kullanılıyor.
