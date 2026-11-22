@@ -121,3 +121,9 @@ Patch dosyası ya da push edilmemiş commit bırakılmaz.
   sonuçlarını ahmetoff.com'un altına diziyor. Ahmet'le ilgisi yok; kaldırtılamaz, ancak kendi sonuçlarıyla aşağı itilebilir.
 - Site tarafı: ana sayfaya WebSite işaretlemesi (site adı "ahmetoff") ve og:site_name eklendi. Search Console zaten kurulu (alan adı mülkü).
 - Asıl etki: "ahmetoff" adını taşıyan başka güçlü profiller (YouTube, LinkedIn, Instagram, GitHub vb.). Ahmet'in kararı bekleniyor.
+
+## Kelime uzunluğu çalışması (22 Kasım 2026)
+- 2021 yazısı "Bir yazının içeriğini anlamak 1"deki fikir sınandı; devamı `/blog/2026/11/22/kelimelerin-anlamina-2/` (Yazılım). 2021 yazısına devam notu eklendi.
+- Makale ve kod paketi Zenodo'da: DOI 10.5281/zenodo.24440619 (Ahmet'in GitHub ile bağlı Zenodo hesabı). PDF ve zip ayrıca `blog/media/2026/11/`.
+- Ana sayfa ve ayrıntılı sayfada Araştırma'ya "Küçük çalışmalar" başlığıyla, /en/ Research'e kartla eklendi. Blog sayısı 41.
+- Analiz Claude ile yapıldı; yazıda ve makalede yapay zekâ beyanı var.

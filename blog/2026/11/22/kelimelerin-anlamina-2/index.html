@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kelimelerin Anlamına Bir de Böyle Bakalım – 2: Fikri Test Ettim · everything is in one place</title>
+<meta name="description" content="2021’deki fikrimi sınadım: kelime uzunlukları okumadan da metnin konusu hakkında ipucu veriyor. Üç dilde, 564 Wikipedia makalesiyle yapılan test ve sonuçları.">
+<meta name="author" content="Ahmet Çandöken">
+<link rel="canonical" href="https://ahmetoff.com/blog/2026/11/22/kelimelerin-anlamina-2/">
+<meta property="og:title" content="Kelimelerin Anlamına Bir de Böyle Bakalım – 2: Fikri Test Ettim · everything is in one place">
+<meta property="og:description" content="2021’deki fikrimi sınadım: kelime uzunlukları okumadan da metnin konusu hakkında ipucu veriyor. Üç dilde, 564 Wikipedia makalesiyle yapılan test ve sonuçları.">
+<meta property="og:image" content="https://ahmetoff.com/blog/media/2026/11/kelime-uzunlugu-dogruluk.png">
+<meta property="og:type" content="article">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="everything is in one place" href="/blog/feed.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&display=swap">
+<script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t);}catch(e){}</script>
+<style>/* Blog: ahmetoff.com ile aynı renk ailesi; okuma için serif gövde, arayüz için Onest */
+:root{--bg:#fff;--surface:#f2f5f6;--ink:#1a1d21;--soft:#5c6670;--line:#dde3e6;--accent:#0b8a8a;--accent-soft:#e2f3f2;
+ --ui:"Onest",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;--read:"Literata",Georgia,"Times New Roman",serif;color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1316;--surface:#171d21;--ink:#eef2f4;--soft:#9aa6ae;--line:#28323a;--accent:#3cc4bf;--accent-soft:#13302f;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0f1316;--surface:#171d21;--ink:#eef2f4;--soft:#9aa6ae;--line:#28323a;--accent:#3cc4bf;--accent-soft:#13302f;color-scheme:dark}
+*{box-sizing:border-box}
+html{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.65 var(--ui);-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-underline-offset:3px}
+img{max-width:100%;height:auto}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+/* üst çubuk: sabit */
+body{padding-top:calc(56px + env(safe-area-inset-top,0px))}
+.bar{position:fixed;top:0;left:0;right:0;z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);-webkit-backdrop-filter:saturate(1.6) blur(14px);backdrop-filter:saturate(1.6) blur(14px);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px)}
+@supports not (background:color-mix(in srgb,red 50%,blue)){.bar{background:var(--bg)}}
+.bar-in{max-width:1080px;height:56px;margin:0 auto;display:flex;align-items:center;gap:14px;padding:0 max(20px,env(safe-area-inset-right,0px)) 0 max(20px,env(safe-area-inset-left,0px))}
+.back{display:inline-flex;align-items:center;gap:4px;padding:7px 14px 7px 9px;border-radius:999px;background:var(--surface);color:var(--ink);text-decoration:none;font-size:15px;font-weight:500;white-space:nowrap}
+.back:hover{background:var(--accent-soft);color:var(--accent)}
+.bt{flex:1;min-width:0;text-align:center;font-weight:600;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:opacity .12s}
+.bt.swap{opacity:0}
+.bar nav{display:flex;align-items:center;gap:14px;font-size:15px}
+.bar nav a{color:var(--ink);text-decoration:none}
+.bar nav a:hover{color:var(--accent)}
+.home{display:flex;align-items:center}
+/* ana liste */
+.hero{padding:56px 0 20px;max-width:760px}
+.hero h1{font-size:clamp(38px,6vw,64px);line-height:1.02;letter-spacing:-.03em;margin:0;font-weight:700;text-wrap:balance}
+.hero .desc{margin:8px 0 0;color:var(--soft);font-size:18px}
+.hero.small .desc{margin:0 0 6px;font-size:15px}
+.hero .intro{margin:16px 0 0;color:var(--soft)}
+.cats{position:sticky;top:calc(56px + env(safe-area-inset-top,0px));z-index:8;margin:20px calc(-1 * max(20px,env(safe-area-inset-left,0px))) 0;padding:10px max(20px,env(safe-area-inset-left,0px));background:var(--bg);transition:box-shadow .2s}
+.cats.stuck{background:color-mix(in srgb,var(--bg) 88%,transparent);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--line)}
+.cats-in{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.cats-in::-webkit-scrollbar{display:none}
+.chip.on{background:var(--ink);color:var(--bg)}
+.chip.on small{color:inherit;opacity:.7}
+.yblock[hidden],.card[hidden]{display:none!important}
+.chip{flex:none;white-space:nowrap;display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:999px;background:var(--surface);color:var(--ink);text-decoration:none;font-size:14px}
+.chip small{color:var(--soft)}
+.chip:hover{background:var(--accent-soft);color:var(--accent)}
+.yr{font-size:15px;color:var(--soft);font-weight:600;margin:40px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.card{display:flex;flex-direction:column;border-radius:16px;background:var(--surface);overflow:hidden;text-decoration:none;color:var(--ink);min-width:0}
+.card img,.card .noimg{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;background:var(--line)}
+.card .ct{display:flex;flex-direction:column;gap:6px;padding:14px 16px 18px}
+.card .meta{font-size:13px;color:var(--soft)}
+.card b{font-size:19px;line-height:1.3;letter-spacing:-.01em}
+.card .ex{font-size:15px;color:var(--soft);line-height:1.5}
+.card:hover b{color:var(--accent)}
+/* yazı */
+.post{max-width:740px;margin:0 auto;padding:28px 0 8px}
+main>.cats:first-child{margin-top:0}
+.ph .meta{display:flex;flex-wrap:wrap;align-items:center;gap:8px;color:var(--soft);font-size:15px}
+.ph h1{font-size:clamp(32px,5vw,48px);line-height:1.1;letter-spacing:-.025em;margin:12px 0 28px;text-wrap:balance}
+.entry{font-family:var(--read);font-size:19px;line-height:1.75;overflow-wrap:break-word}
+.entry p{margin:0 0 1.1em}
+.entry h1,.entry h2,.entry h3,.entry h4,.entry h5,.entry h6{font-family:var(--ui);line-height:1.25;margin:1.8em 0 .6em;letter-spacing:-.01em}
+.entry h5{font-size:18px}.entry h6{font-size:16px}
+.entry ul,.entry ol{padding-left:1.3em;margin:0 0 1.1em}
+.entry figure{margin:1.6em 0}
+.entry img{border-radius:6px}
+.entry .wp-caption{max-width:100%!important;width:auto!important;margin:1.6em 0}
+.entry .wp-caption-text,.entry figcaption{font-family:var(--ui);font-size:14px;color:var(--soft);margin-top:6px;text-align:center}
+.entry .aligncenter{display:block;margin-left:auto;margin-right:auto}
+.entry .alignleft{float:left;margin:0 1.2em 1em 0;max-width:50%}
+.entry .alignright{float:right;margin:0 0 1em 1.2em;max-width:50%}
+.entry .has-text-align-center{text-align:center}
+.entry hr{border:0;border-top:1px solid var(--line);margin:2em 0}
+.entry iframe{max-width:100%;border:0;border-radius:8px}
+.entry::after{content:"";display:block;clear:both}
+/* galeriler (WordPress/Jetpack) */
+.entry .wp-block-gallery,.entry .blocks-gallery-grid{display:flex;flex-wrap:wrap;gap:8px;padding:0;list-style:none;margin:1.6em 0}
+.entry .wp-block-gallery>figure,.entry .blocks-gallery-item{flex:1 1 calc(33.33% - 8px);margin:0;position:relative}
+.entry .wp-block-gallery.columns-2>figure,.entry .columns-2 .blocks-gallery-item{flex-basis:calc(50% - 8px)}
+.entry .wp-block-gallery img,.entry .blocks-gallery-item img{width:100%;height:100%;object-fit:cover;display:block}
+.entry .tiled-gallery__gallery{margin:1.6em 0}
+.entry .tiled-gallery__row{display:flex;gap:6px;margin-bottom:6px}
+.entry .tiled-gallery__col{display:flex;flex-direction:column;gap:6px}
+.entry .tiled-gallery__item{margin:0}
+.entry .tiled-gallery__item img{display:block;width:100%;height:auto;border-radius:4px}
+.entry .tiled-gallery{margin:1.6em 0}
+.entry .tiled-gallery .gallery-row{display:flex;gap:6px;width:100%!important;height:auto!important;margin-bottom:6px}
+.entry .tiled-gallery .gallery-group{display:flex;flex-direction:column;gap:6px;flex:1;width:auto!important;height:auto!important}
+.entry .tiled-gallery .tiled-gallery-item{margin:0;width:auto!important;height:auto!important}
+.entry .tiled-gallery .tiled-gallery-item img{display:block;width:100%!important;height:auto!important;border-radius:4px}
+.entry .tiled-gallery-caption{font-family:var(--ui);font-size:13px;color:var(--soft);padding:4px 2px}
+.entry meta{display:none}
+.tags{font-size:14px;color:var(--soft);margin:28px 0 0}
+.tags span{font-weight:600}
+.orig{font-size:13.5px;color:var(--soft);margin:18px 0 0;overflow-wrap:anywhere}
+/* yorumlar */
+.comments{max-width:740px;margin:44px auto 0;padding-top:24px;border-top:1px solid var(--line)}
+.comments h2{font-size:22px;margin:0 0 4px}
+.comments .note{color:var(--soft);font-size:14px;margin:0 0 18px}
+.comments ol{list-style:none;padding:0;margin:0;display:grid;gap:12px}
+.comments ol ol{margin:12px 0 0 20px}
+.cmt{background:var(--surface);border-radius:14px;padding:14px 16px}
+.cmt-h{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;font-size:15px}
+.cmt-h time{color:var(--soft);font-size:13px}
+.cmt-b{font-size:16px}
+.cmt-b p{margin:.4em 0}
+/* önceki / sonraki */
+.pn{max-width:740px;margin:44px auto 0;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.pn a{display:flex;flex-direction:column;gap:4px;padding:14px 16px;border-radius:14px;background:var(--surface);text-decoration:none;color:var(--ink);font-weight:600;line-height:1.3}
+.pn a span{font-weight:400;font-size:13px;color:var(--soft)}
+.pn .next{text-align:right}
+.pn a:hover{background:var(--accent-soft)}
+.foot{margin-top:64px;border-top:1px solid var(--line);padding:18px 0 28px;font-size:13.5px;color:var(--soft)}
+.foot .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+@media (max-width:640px){
+  body{font-size:16px}
+  .entry{font-size:17.5px}
+  .pn{grid-template-columns:1fr}
+  .pn .next{text-align:left}
+  .entry .tiled-gallery__row,.entry .tiled-gallery .gallery-row{flex-direction:column}
+  .entry .tiled-gallery__col{flex-basis:auto!important}
+  .entry .alignleft,.entry .alignright{float:none;max-width:100%;margin:1em 0}
+}
+
+.theme{width:34px;height:34px;padding:0;display:grid;place-items:center;border-radius:50%;border:1px solid var(--line);background:var(--bg);color:var(--soft);cursor:pointer}
+.theme:hover{color:var(--accent);border-color:var(--accent)}
+.theme svg{width:17px;height:17px}
+</style>
+
+<style>
+.entry .tablo{overflow-x:auto;margin:1.2em 0 .3em}
+.entry table{border-collapse:collapse;width:100%;font-family:var(--ui);font-size:15px;line-height:1.4}
+.entry th,.entry td{padding:7px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+.entry th{font-weight:600;border-bottom:2px solid var(--ink)}
+.entry td:nth-child(2),.entry td:nth-child(3),.entry td:nth-child(5),.entry th:nth-child(2),.entry th:nth-child(3),.entry th:nth-child(5){text-align:right;white-space:nowrap}
+.entry p.not{font-family:var(--ui);font-size:14px;color:var(--soft)}
+.entry figure img{background:#fff}
+</style>
+</head>
+<body>
+<header class="bar"><div class="bar-in">
+<a class="back" id="back" href="../../../../"><svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M12.5 4.5 7 10l5.5 5.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Tüm yazılar</a>
+<span class="bt" id="bt" data-alt="Kelimelerin Anlamına – 2">everything is in one place</span>
+<nav><button class="theme" id="theme" type="button" aria-label="Aydınlık ya da karanlık görünüm"></button><a class="home" href="/" aria-label="ahmetoff.com ana sayfa"><img src="/favicon.svg" width="22" height="22" alt=""></a></nav>
+</div></header>
+<main class="wrap">
+<nav class="cats stuck" aria-label="Kategoriler"><div class="cats-in"><a class="chip" href="../../../../">Tümü <small>41</small></a><a class="chip" href="../../../../#uretim">Üretim <small>16</small></a><a class="chip on" href="../../../../#yazilim">Yazılım <small>15</small></a><a class="chip" href="../../../../#dusunce">Düşünce <small>6</small></a><a class="chip" href="../../../../#resim-foto">Resim ve fotoğraf <small>3</small></a><a class="chip" href="../../../../#genel">Genel <small>1</small></a></div></nav><article class="post">
+<header class="ph"><div class="meta"><time datetime="2026-11-22">22 Kasım 2026</time><a class="chip" href="../../../../kategori/yazilim/">Yazılım</a></div>
+<h1>Kelimelerin Anlamına Bir de Böyle Bakalım – 2: Fikri Test Ettim</h1></header>
+<div class="entry">
+<p>2021'de <a href="../../../../2021/03/29/bir-yazinin-icerigini-anlamak-1/">ilk yazıda</a> bir fikir ortaya atmıştım, ama onu sınama imkânım olmamıştı. Sonunda sınadım. Kısaca sonuç şu: Kelime uzunlukları, okumadan da bir metnin konusu hakkında gerçek bir ipucu veriyor. Üç dilde de tahmin başarısı şansın yaklaşık iki katına çıkıyor. Ama "kısa kelime bilimsel, uzun kelime felsefi" diye bir kural çıkmadı.</p>
+<h2>Fikir neydi?</h2>
+<p>Homo Deus'u okurken gözüm yorulunca sayfa bulanıklaşmıştı. Yazı koyu bloklar ve boşluklardan oluşan bir örüntüye dönmüş, boşluklar aşağıdan yukarıya dallanan bir yapı çiziyordu. Kısa kelimelerde dallanma daha dikey, uzun kelimelerde daha yatay görünüyordu.</p>
+<p>Buradan bir varsayım çıkardım: kısa kelimeli metinler daha bilimsel, uzun kelimeli metinler daha felsefi olabilir. Birçok metin test edilirse konulara göre ortak bir şablon çıkar mı diye merak ettim. Bunun için Processing'de metni kelime uzunluklarına göre çizen bir program yazdım, ama geniş bir test yapamadım.</p>
+<h2>Nasıl test ettim?</h2>
+<p>Adil bir karşılaştırma için üç dilde de aynı konuları, aynı makaleleri ve aynı miktarda metni kullandım.</p>
+<ul>
+<li><strong>Diller:</strong> Türkçe, İngilizce, Almanca. Almanca, uzun bileşik kelimeleri yüzünden ayrı bir kontrol oldu.</li>
+<li><strong>Kategoriler:</strong> Felsefe, bilim (fizik, kimya, biyoloji), din, edebiyat, ekonomi, spor.</li>
+<li><strong>Metinler:</strong> Wikipedia'nın "temel makaleler" listesinden, üç dilde de bulunan makaleler. Her kategoriden 94 makale aldım. Böylece her dilde aynı 564 konu, toplam 1692 metin oldu.</li>
+<li><strong>Eşitleme:</strong> Metinleri 200 kelimelik parçalara böldüm. Her dil-kategori hücresinde tam 128 parça var. Sınırı Türkçe belirledi, çünkü Türkçe makaleler daha kısa.</li>
+</ul>
+<p>Metinlerin anlamına hiç bakmadım. Her parçadan yalnızca kelime uzunluklarının dağılımını, kelimelerin sırasını ve dallanmayı ölçtüm. Dallanma için metni 60 karakter genişliğinde satırlara dizdim ve her boşluğun alt satırdaki en yakın boşluğa yatay uzaklığını ölçtüm. Bu, ilk yazıdaki gözlemin sayıya dökülmüş hâli. Sonra bir model, yalnızca bu ölçülerle parçanın hangi kategoriden geldiğini tahmin etti. Model hiç görmediği makalelerde sınandı. Altı kategoride rastgele tahminin başarısı %16,7.</p>
+<p>Karşılaştırma için aynı tahmini bir de kelimelerin kendisini okuyarak yaptırdım. İki de kontrol ekledim. Biri etiketleri karıştırmak: bu durumda modelin şans düzeyine düşmesi gerekir. Öteki kelimeleri parça içinde karıştırmak: böylece sıranın katkısı ayrı görülüyor.</p>
+<h2>Kelime uzunluğu konuyu ele veriyor mu?</h2>
+<p>Evet, ama kısmen. Üç dilde de yalnız biçim bilgisiyle doğru tahmin %30–33 arasında, yani şansın yaklaşık iki katı.</p>
+<figure><img src="../../../../media/2026/11/kelime-uzunlugu-dogruluk.png" alt="Üç dilde, yalnız kelime uzunluklarıyla ve kelimelerin kendisiyle tahmin başarısı" loading="lazy" width="1440" height="680"><figcaption>Altı kategoride doğru tahmin oranı. Dil başına 768 parça, görülmemiş makalelerde sınandı. Kesikli çizgi rastgele tahmin.</figcaption></figure>
+<p>Kelimeleri okuyan model %79–87'ye çıkıyor. Yani içeriğin asıl taşıyıcısı yine kelimelerin kendisi, kelime uzunluğu ise kaba bir ön eleme kadar bilgi veriyor. Etiketleri karıştırdığım kontrolde başarı %14–19'a, yani şans düzeyine düştü. Bu da bulunan sinyalin tesadüf olmadığını gösteriyor. Türkçe haberlerle (TTC-3600) yaptığım ilk denemede de sonuç aynıydı: biçimle %29, kelimelerle %86.</p>
+<h2>Bilim mi kısa kelimeli, felsefe mi?</h2>
+<p>Asıl varsayımımın yönü metne göre değişiyor. Bilimle felsefe biraz ayrışıyor, ama hangisinin kelimeleri daha uzun, o sabit değil.</p>
+<div class="tablo"><table>
+<thead><tr><th>Derlem</th><th>Bilim</th><th>Felsefe</th><th>Fark anlamlı mı?</th><th>Yalnız biçimle ayırma</th></tr></thead>
+<tbody>
+<tr><td>Türkçe Wikipedia</td><td>6,60</td><td>6,70</td><td>Hayır</td><td>%68</td></tr>
+<tr><td>İngilizce Wikipedia</td><td>5,20</td><td>5,42</td><td>Evet, felsefe daha uzun</td><td>%62</td></tr>
+<tr><td>Almanca Wikipedia</td><td>6,45</td><td>6,40</td><td>Hayır</td><td>%64</td></tr>
+<tr><td>İngilizce Brown (kitap, dergi)</td><td>4,99</td><td>4,76</td><td>Evet, bilim daha uzun</td><td>–</td></tr>
+</tbody></table></div>
+<p class="not">Ortalama kelime uzunluğu, harf/kelime. Ayırmada rastgele tahmin %50.</p>
+<p>Son satır ilk denememden. Brown derlemi kitaplardan, dergilerden ve denemelerden oluşuyor ve orada bilimsel metinlerin kelimeleri daha uzundu. Wikipedia'da ise İngilizcede tersi çıktı, Türkçe ve Almancada fark yok.</p>
+<p>Buna rağmen model bilimle felsefeyi üç dilde de şansın üstünde ayırabiliyor. Demek ki fark ortalama uzunlukta değil, kelime uzunluklarının dağılımında. Her dilde en kolay tanınan kategori spor çıktı. Spor metinlerinin kelimeleri her dilde kendi dilinin ortalamasından kısa.</p>
+<h2>Dallanma ve kelime sırası</h2>
+<p>Gözlemim doğruymuş, ama dallanma ayrı bir bilgi taşımıyor. Kelimeler uzadıkça boşluklar gerçekten yataylaşıyor. Uzunlukla dallanma arasındaki ilişki Türkçede 0,27, İngilizcede 0,35, Almancada 0,64.</p>
+<p>Yine de dallanma ölçüsü tek başına kullanılınca neredeyse hiçbir şey bilmiyor: model Türkçede %14, İngilizcede %21, Almancada %18 başarı gösteriyor. Gözün yakaladığı desen, kelime uzunluğunun görsel bir gölgesi. Satır kırılmalarının rastgeleliği de o gölgeyi bulanıklaştırıyor.</p>
+<p>Kelimelerin sırası da az katkı yapıyor. Kelimeleri parça içinde karıştırınca başarı Türkçede 2,3 puan, Almancada 1,5 puan düşüyor, İngilizcede hiç düşmüyor. Bilgi büyük ölçüde kısa ve uzun kelimelerin oranında, nasıl dizildiklerinde değil.</p>
+<h2>Diller arası ortak şablon var mı?</h2>
+<p>Zayıf da olsa var. Modeli bir dilde eğitip başka bir dilde sınadım. Bir dilden öğrenilen şablon öteki dilde %21 ile %26 arasında tutuyor. Aynı dil içinde bu oran %30–33, şans ise %16,7. Yani konuların dilden bağımsız küçük bir "biçim imzası" var, ama şablonun çoğu dile özgü.</p>
+<h2>Sonuç</h2>
+<p>Savunduğum şeyin bir karşılığı var, ama sandığım biçimde değil.</p>
+<ul>
+<li><strong>Doğru çıkan:</strong> Bir metne okumadan, yalnızca kelime uzunluklarının desenine bakarak konusu hakkında kaba bir tahmin yapılabiliyor. Bu üç dilde de tutarlı ve tesadüf değil.</li>
+<li><strong>Doğru çıkan:</strong> Kısa kelimeler dikey, uzun kelimeler yatay dallanma yaratıyor.</li>
+<li><strong>Tutmayan:</strong> "Kısa kelime bilimsel, uzun kelime felsefi" kuralı. Yön derleme, dile ve yazım türüne göre değişiyor.</li>
+<li><strong>Tutmayan:</strong> Dallanma görüntüsünün kelime uzunluğundan fazla bir şey söylemesi.</li>
+</ul>
+<p>Bence en ilginç bulgu iki deneyin farkı. Kitap ve dergilerde (Brown) bilimle deneme arasındaki fark belirgindi. Aynı ansiklopedik üslupla yazılmış Wikipedia'da fark küçülüyor. Kelime uzunluğu konudan çok yazış biçimini, yani metnin hangi üslupla yazıldığını yansıtıyor gibi. Bu, 1887'de Mendenhall'ın yazarları kelime uzunluğu eğrileriyle ayırmaya çalıştığı stilometri geleneğiyle de uyumlu.</p>
+<p><strong>Sınırlar:</strong> Wikipedia'da bütün kategoriler aynı üslupla yazılıyor. Bu, yalnızca konunun etkisini ölçmek için iyi, ama Homo Deus gibi kitapları temsil etmiyor. Bir sonraki adım üç dilde felsefe ve bilim kitaplarıyla aynı testi yapmak olabilir. Ayrıca bu ölçüm satır genişliğini sabit 60 karakter aldı. Gerçek sayfa düzeni ve yazı tipi dallanma görüntüsünü değiştirebilir.</p>
+<h2>Makale, kod ve veriler</h2>
+<p>Çalışmanın ayrıntılı hâli, tablolarla birlikte makale olarak Zenodo'da: <a href="https://doi.org/10.5281/zenodo.24440619">doi.org/10.5281/zenodo.24440619</a>. Makaleyi buradan da indirebilirsiniz: <a href="../../../../media/2026/11/kelime-uzunlugu-makale.pdf">PDF</a>. Kayıtta analiz kodları, sonuç dosyaları, kullanılan makalelerin listesi ve 2021'deki Processing programı da var. Metin CC BY 4.0, kodlar MIT lisanslı. Yasa dışı herhangi bir işte kullanmamak koşuluyla istediğiniz gibi kullanabilirsiniz.</p>
+<p class="not">Veri toplama, analiz ve istatistik testleri benim yönlendirmemle Anthropic'in Claude yapay zekâ modeliyle yapıldı. Sonuçlar hakemli bir incelemeden geçmedi.</p>
+</div>
+</article>
+
+<nav class="pn"><a class="prev" href="../../../../2026/11/09/ev-tipi-klima/"><span>Önceki yazı</span>Ev tipi klima</a></nav>
+</main>
+<footer class="foot"><div class="wrap"><span>© Ahmet Çandöken</span><span>Bu yazılar 2017–2026 arasında <a href="https://pointpointblog.wordpress.com/">pointpointblog.wordpress.com</a> adresinde yayımlandı.</span></div></footer>
+<script>
+(function(){
+  var root=document.documentElement, tb=document.getElementById("theme");
+  var SUN='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>', MOON='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>';
+  function dark(){var t=root.getAttribute("data-theme");return t?t==="dark":matchMedia("(prefers-color-scheme: dark)").matches;}
+  function lab(){var d=dark();tb.innerHTML=d?SUN:MOON;tb.title=d?"Aydınlık görünüm":"Karanlık görünüm";}
+  tb.addEventListener("click",function(){var n=dark()?"light":"dark";root.setAttribute("data-theme",n);try{localStorage.setItem("theme",n);}catch(e){}lab();}); lab();
+  var b=document.getElementById("back");
+  try{ if(document.referrer && new URL(document.referrer).origin===location.origin && history.length>1){ b.addEventListener("click",function(e){e.preventDefault();history.back();}); } }catch(e){}
+  var bt=document.getElementById("bt"), alt=bt.getAttribute("data-alt"), h=document.querySelector(".ph h1"), base=bt.textContent;
+  if(alt&&h){ var on=false; addEventListener("scroll",function(){ var past=h.getBoundingClientRect().bottom<56; if(past!==on){on=past;bt.classList.add("swap");setTimeout(function(){bt.textContent=on?alt:base;bt.classList.remove("swap");},120);} },{passive:true}); }
+})();
+</script>
+<!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "6a2c181c56424464a34fa868cb600a85"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
