@@ -111,6 +111,11 @@ fn vs_num x = (
 	if abs (v - (floor v)) < 0.001 then ((v as integer) as string) else (v as string)
 )
 
+fn vs_num4 x = (
+	local v = (floor (x*10000.0 + 0.5))/10000.0
+	if abs (v - (floor v)) < 0.00001 then ((v as integer) as string) else (v as string)
+)
+
 fn vs_typeIndex typ = findItem vs_types typ
 
 fn vs_hasLength typ = not (typ == #hexnut or typ == #nylock or typ == #washer)
@@ -497,11 +502,34 @@ fn vs_getMat fin = (
 	m
 )
 
-fn vs_unitScale = (
+-- Birim: 1 = sistem birimine göre otomatik; ötekiler "1 sahne birimi = ..." demektir.
+-- Sahne sistem biriminden farklı bir ölçekle çizilmişse (ör. sistem inç ama 1 birim = 1 cm) elle seçilir.
+global vs_unitNames = #("Otomatik (sistem birimi)", "1 birim = 1 mm", "1 birim = 1 cm", "1 birim = 1 m", "1 birim = 1 inç")
+global vs_unitMM = #(0.0, 1.0, 10.0, 1000.0, 25.4)
+global vs_unitIni = (getDir #plugcfg) + "\VidaSomun.ini"
+global vs_unitMode
+fn vs_loadUnitMode = (
+	local m = 1
+	try (
+		local v = getINISetting vs_unitIni "Ayar" "Birim"
+		local i = if v != "" then (v as integer) else undefined
+		if i != undefined and i >= 1 and i <= vs_unitNames.count do m = i
+	) catch ()
+	m
+)
+if vs_unitMode == undefined do vs_unitMode = vs_loadUnitMode()
+
+fn vs_systemScale = (
 	local s = 1.0
 	try (s = units.decodeValue "1mm") catch (s = 1.0)
 	if s == undefined or s <= 0 do s = 1.0
 	s
+)
+
+-- 1 mm kaç sahne birimi
+fn vs_unitScale = (
+	if vs_unitMode == undefined or vs_unitMode <= 1 then vs_systemScale()
+	else 1.0/vs_unitMM[vs_unitMode]
 )
 
 fn vs_cleanDegenerate m = (
@@ -1007,7 +1035,7 @@ fn vs_galleryBitmap sel fin = (
 -- ---------------------------------------------------------------------
 --  Arayüz
 -- ---------------------------------------------------------------------
-rollout vs_Rollout "Vida & Somun Üretici" width:560 height:628
+rollout vs_Rollout "Vida & Somun Üretici" width:560 height:640
 (
 	dropdownList ddType "Tip:" items:vs_typeNames pos:[10,6] width:212 height:20
 	dropdownList ddSize "Ölçü:" items:vs_sizes pos:[10,50] width:96 height:12 selection:6
@@ -1022,7 +1050,8 @@ rollout vs_Rollout "Vida & Somun Üretici" width:560 height:628
 	checkbox chkLive "Seçili parçayı canlı güncelle" checked:true pos:[10,306]
 	dotNetControl pbPrev "System.Windows.Forms.PictureBox" pos:[230,6] width:320 height:316
 	dotNetControl pbGal "System.Windows.Forms.PictureBox" pos:[10,330] width:540 height:276
-	label lblUnit "" pos:[10,610] width:540
+	dropdownList ddUnit "" items:vs_unitNames pos:[10,612] width:212
+	label lblUnit "" pos:[232,615] width:320
 
 	fn curSpec = vs_spec vs_types[ddType.selection] ddSize.selection spLen.value
 
@@ -1042,6 +1071,10 @@ rollout vs_Rollout "Vida & Somun Üretici" width:560 height:628
 	)
 
 	local busy = false
+
+	fn updUnit = (
+		lblUnit.text = "Sistem birimi: " + (units.SystemType as string) + "   ·   1 mm = " + (vs_num4 (vs_unitScale())) + " sahne birimi"
+	)
 
 	fn selText parts = (
 		if parts.count == 0 then "Galeride bir resme tıklayıp tip seç."
@@ -1107,13 +1140,19 @@ rollout vs_Rollout "Vida & Somun Üretici" width:560 height:628
 	on vs_Rollout open do (
 		pbPrev.BackColor = vs_dnColor vs_bgCol
 		pbGal.BackColor = vs_dnColor vs_bgCol
-		lblUnit.text = "Sistem birimi: " + (units.SystemType as string) + "  (1 mm = " + (vs_unitScale() as string) + " birim)"
+		ddUnit.selection = vs_unitMode
+		updUnit()
 		refresh()
 		callbacks.removeScripts id:#vsSelSync
 		callbacks.addScript #selectionSetChanged "if vs_Rollout != undefined and vs_Rollout.open do vs_Rollout.syncFromSel()" id:#vsSelSync
 		syncFromSel()
 	)
 	on vs_Rollout close do callbacks.removeScripts id:#vsSelSync
+	on ddUnit selected i do (
+		vs_unitMode = i
+		try (setINISetting vs_unitIni "Ayar" "Birim" (i as string)) catch ()
+		updUnit()
+	)
 	on ddType selected i do (refresh(); applySel 1)
 	on ddSize selected i do (refresh(); applySel 2)
 	on ddLen selected i do (spLen.value = vs_lengths[i]; refresh(); applySel 3)
