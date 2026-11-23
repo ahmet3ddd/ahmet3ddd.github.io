@@ -81,7 +81,7 @@ global vs_typeCodes = #("DIN912", "DIN7991", "ISO7380", "ISO14579", "DIN913", "D
 global vs_finishNames = #("Paslanmaz çelik", "Siyah oksit", "Sarı galvaniz", "Pirinç")
 
 struct vs_SpecS (kind, d = 0.0, P = 0.0, L = 0.0, R = 0.0, k = 0.0, c = 0.0, e = 0.0, rec = undefined,
-	t = 0.0, drop = 0.0, kc = 0.0, rim = 0.0, s = 0.0, m = 0.0, h = 0.0, hm = 0.0, d1 = 0.0, d2 = 0.0, si = 1)
+	t = 0.0, drop = 0.0, kc = 0.0, rim = 0.0, s = 0.0, m = 0.0, h = 0.0, hm = 0.0, d1 = 0.0, d2 = 0.0, si = 1, clr = 0.0)
 
 -- ---------------------------------------------------------------------
 --  Küçük yardımcılar
@@ -330,7 +330,7 @@ fn vs_limitR r z zb zt o = (
 -- Dişli (ya da düz) boru yüzeyi. Dişli olanda satırlar helisi izler,
 -- böylece diş tepeleri keskin çıkar; ek yerinde satırlar 8 kayar.
 fn vs_tube zb zt P rMaj h segs o internal = (
-	local angs = for i = 0 to segs - 1 collect (360.0*i/segs)
+	local angs = if classOf segs == Array then segs else (for i = 0 to segs - 1 collect (360.0*i/segs))
 	local cols = #()
 	local shift = 0
 	if h > 0 then (
@@ -371,30 +371,28 @@ fn vs_tube zb zt P rMaj h segs o internal = (
 	#(part[1], faces, bot, top, angs)
 )
 
-fn vs_addShank acc zb zt d P threaded tipKind = (
-	local rMaj = d/2.0
+-- gövde: üst ucu açık bırakılır, baş tam bu halkaya oturur (tek kapalı kabuk)
+fn vs_shankTube acc zb zt rMaj P threaded angs = (
 	local h = if threaded then 0.6134*P else 0.0
 	local rMin = rMaj - 0.6134*P
-	local tipR0 = if tipKind == #cone then 0.0 else rMin*0.92
-	local tube = vs_tube zb zt P rMaj h 48 #(tipR0, -1.0, -1.0, -1.0) false
+	local tube = vs_tube zb zt P rMaj h angs #(rMin*0.92, -1.0, -1.0, -1.0) false
 	vs_append acc tube
 	vs_append acc (vs_fanPart tube[3] [0, 0, zb] false)
-	vs_append acc (vs_fanPart tube[4] [0, 0, zt] true)
-	acc
+	tube
 )
 
 -- ---------------------------------------------------------------------
 --  Baş profilleri (her açı için sabit sayıda nokta)
 -- ---------------------------------------------------------------------
-fn vs_colCap th R k c rec t drop = (
+fn vs_colCap th rt R k c rec t drop = (
 	local ri = vs_recessR th rec
 	local zf = k - (vs_recessDepth ri rec t)
-	#([0, 0], [R, 0], [R, k - c], [R - c, k], [ri, k], [ri, zf], [0, k - t - drop])
+	#([rt, 0], [R, 0], [R, k - c], [R - c, k], [ri, k], [ri, zf], [0, k - t - drop])
 )
 
-fn vs_colDome th R k e rec t drop nSeg = (
+fn vs_colDome th rt R k e rec t drop nSeg = (
 	local ri = vs_recessR th rec
-	local col = #([0, 0], [R, 0], [R, e])
+	local col = #([rt, 0], [R, 0], [R, e])
 	local phiEnd = acos (amin #(1.0, ri/R))
 	for i = 1 to nSeg do (
 		local phi = phiEnd*i/(nSeg as float)
@@ -407,18 +405,18 @@ fn vs_colDome th R k e rec t drop nSeg = (
 	col
 )
 
-fn vs_colSlot th R k c rec t = (
+fn vs_colSlot th rt R k c rec t = (
 	local ri = vs_recessR th rec
 	if ri >= R - c - 1e-4 then
-		#([0, 0], [R, 0], [R, k - t], [R, k - t], [R, k - t], [R, k - t], [0, k - t])
+		#([rt, 0], [R, 0], [R, k - t], [R, k - t], [R, k - t], [R, k - t], [0, k - t])
 	else
-		#([0, 0], [R, 0], [R, k - c], [R - c, k], [ri, k], [ri, k - t], [0, k - t])
+		#([rt, 0], [R, 0], [R, k - c], [R - c, k], [ri, k], [ri, k - t], [0, k - t])
 )
 
-fn vs_colCsk th rk rd kc rim rec t drop = (
+fn vs_colCsk th rt rk rd kc rim rec t drop = (
 	local ri = vs_recessR th rec
 	local zf = -(vs_recessDepth ri rec t)
-	#([0, -kc], [rd, -kc], [rk, -rim], [rk, 0], [ri, 0], [ri, zf], [0, -t - drop])
+	#([rt, -kc], [rd, -kc], [rk, -rim], [rk, 0], [ri, 0], [ri, zf], [0, -t - drop])
 )
 
 fn vs_hexCham s = (
@@ -426,12 +424,12 @@ fn vs_hexCham s = (
 	#(rc, (s/(sqrt 3.0) - rc)/1.732)
 )
 
-fn vs_colHexHead th s k = (
+fn vs_colHexHead th rt s k = (
 	local Rh = vs_hexR th s
 	local hc = vs_hexCham s
 	local rc = hc[1]
 	local ch = hc[2]
-	#([0, 0], [Rh, 0], [Rh, k - ch], [amin #(Rh, rc + ch*0.866), k - ch*0.5], [amin #(Rh, rc), k], [0, k])
+	#([rt, 0], [Rh, 0], [Rh, k - ch], [amin #(Rh, rc + ch*0.866), k - ch*0.5], [amin #(Rh, rc), k], [0, k])
 )
 
 fn vs_colNutShell th s m rib rit chamTop = (
@@ -449,7 +447,7 @@ fn vs_colNutShell th s m rib rit chamTop = (
 )
 
 fn vs_headAngles rec rimR = (
-	local a = for i = 0 to 119 collect (3.0*i)
+	local a = for i = 0 to 71 collect (5.0*i)
 	if rec != undefined and rec[1] == #cross do
 		for p in rec[3] do append a (atan2 p.y p.x)
 	if rec != undefined and rec[1] == #slot do (
@@ -462,17 +460,17 @@ fn vs_headAngles rec rimR = (
 	vs_uniqueSorted a
 )
 
-fn vs_headPart sp colKind = (
-	local rimR = if colKind == #slot then sp.R - sp.c else sp.R
-	local angs = if colKind == #hexhead then (for i = 0 to 71 collect (5.0*i)) else (vs_headAngles sp.rec rimR)
+fn vs_headPart sp colKind angs rts = (
 	local cols = #()
-	for th in angs do (
+	for i = 1 to angs.count do (
+		local th = angs[i]
+		local rt = rts[i]
 		local col = case colKind of (
-			#slot: vs_colSlot th sp.R sp.k sp.c sp.rec sp.t
-			#dome: vs_colDome th sp.R sp.k sp.e sp.rec sp.t sp.drop 8
-			#csk: vs_colCsk th sp.R (sp.d/2.0) sp.kc sp.rim sp.rec sp.t sp.drop
-			#hexhead: vs_colHexHead th sp.s sp.k
-			default: vs_colCap th sp.R sp.k sp.c sp.rec sp.t sp.drop
+			#slot: vs_colSlot th rt sp.R sp.k sp.c sp.rec sp.t
+			#dome: vs_colDome th rt sp.R sp.k sp.e sp.rec sp.t sp.drop 8
+			#csk: vs_colCsk th rt sp.R (sp.d/2.0) sp.kc sp.rim sp.rec sp.t sp.drop
+			#hexhead: vs_colHexHead th rt sp.s sp.k
+			default: vs_colCap th rt sp.R sp.k sp.c sp.rec sp.t sp.drop
 		)
 		append cols (vs_colToXYZ col th)
 	)
@@ -506,7 +504,7 @@ fn vs_getMat fin = (
 -- Sahne sistem biriminden farklı bir ölçekle çizilmişse (ör. sistem inç ama 1 birim = 1 cm) elle seçilir.
 global vs_unitNames = #("Otomatik (sistem birimi)", "1 birim = 1 mm", "1 birim = 1 cm", "1 birim = 1 m", "1 birim = 1 inç")
 global vs_unitMM = #(0.0, 1.0, 10.0, 1000.0, 25.4)
-global vs_unitIni = (getDir #plugcfg) + "\VidaSomun.ini"
+global vs_unitIni = (getDir #plugcfg) + "\\VidaSomun.ini"
 global vs_unitMode
 fn vs_loadUnitMode = (
 	local m = 1
@@ -564,33 +562,27 @@ fn vs_objName sp = (
 	nm
 )
 
+-- başlı vida: önce gövde, sonra gövdenin üst halkasına oturan baş
+fn vs_screw acc sp threaded colKind zt = (
+	local angs = if colKind == #hexhead then (for i = 0 to 71 collect (5.0*i))
+		else (vs_headAngles sp.rec (if colKind == #slot then sp.R - sp.c else sp.R))
+	local tube = vs_shankTube acc (-sp.L) zt (sp.d/2.0 - sp.clr/2.0) sp.P threaded angs
+	vs_append acc (vs_headPart sp colKind angs (for p in tube[4] collect (vs_rad p)))
+	acc
+)
+
 -- spec -> sahne nesnesi (fiberli somunda naylon halka alt nesne olarak bağlanır)
 fn vs_buildSpec sp threaded fin = (
 	local acc = #(#(), #())
 	local typ = sp.kind
 	local child = undefined
-	if typ == #cap or typ == #torxcap then (
-		vs_append acc (vs_headPart sp #cap)
-		vs_addShank acc (-sp.L) 0.0 sp.d sp.P threaded #chamfer
-	)
-	else if typ == #button or typ == #phpan then (
-		vs_append acc (vs_headPart sp #dome)
-		vs_addShank acc (-sp.L) 0.0 sp.d sp.P threaded #chamfer
-	)
-	else if typ == #slotcheese then (
-		vs_append acc (vs_headPart sp #slot)
-		vs_addShank acc (-sp.L) 0.0 sp.d sp.P threaded #chamfer
-	)
-	else if typ == #csk or typ == #phcsk then (
-		vs_append acc (vs_headPart sp #csk)
-		vs_addShank acc (-sp.L) (-sp.kc) sp.d sp.P threaded #chamfer
-	)
-	else if typ == #hexbolt then (
-		vs_append acc (vs_headPart sp #hexhead)
-		vs_addShank acc (-sp.L) 0.0 sp.d sp.P threaded #chamfer
-	)
+	if typ == #cap or typ == #torxcap then vs_screw acc sp threaded #cap 0.0
+	else if typ == #button or typ == #phpan then vs_screw acc sp threaded #dome 0.0
+	else if typ == #slotcheese then vs_screw acc sp threaded #slot 0.0
+	else if typ == #csk or typ == #phcsk then vs_screw acc sp threaded #csk (-sp.kc)
+	else if typ == #hexbolt then vs_screw acc sp threaded #hexhead 0.0
 	else if typ == #setflat or typ == #setcone then (
-		local rMaj = sp.d/2.0
+		local rMaj = sp.d/2.0 - sp.clr/2.0
 		local rMin = rMaj - 0.6134*sp.P
 		local h = if threaded then 0.6134*sp.P else 0.0
 		local tipR0 = if typ == #setcone then 0.0 else rMin*0.92
@@ -609,9 +601,9 @@ fn vs_buildSpec sp threaded fin = (
 	else if typ == #hexnut or typ == #nylock then (
 		local isNy = (typ == #nylock)
 		local m = if isNy then sp.hm else sp.m
-		local rMaj = sp.d/2.0
+		local rMaj = sp.d/2.0 + sp.clr/2.0
 		local h = if threaded then 0.6134*sp.P else 0.0
-		local cs = rMaj*1.08
+		local cs = if sp.clr > 0 then rMaj*1.15 else rMaj*1.08
 		local tube = vs_tube 0.0 m sp.P rMaj h 48 #(-1.0, -1.0, cs, (if isNy then -1.0 else cs)) true
 		vs_append acc tube
 		local cols = #()
@@ -639,7 +631,7 @@ fn vs_buildSpec sp threaded fin = (
 		)
 	)
 	else if typ == #washer then (
-		vs_append acc (vs_revolve #([sp.d1/2.0, 0], [sp.d2/2.0, 0], [sp.d2/2.0, sp.h], [sp.d1/2.0, sp.h]) 64 true)
+		vs_append acc (vs_revolve #([sp.d1/2.0 + sp.clr/2.0, 0], [sp.d2/2.0, 0], [sp.d2/2.0, sp.h], [sp.d1/2.0 + sp.clr/2.0, sp.h]) 64 true)
 	)
 	local node = vs_makeNode acc (vs_objName sp) fin
 	-- ayar notu: seçilince pencere bu değerleri okur, değişince parça yerinde yeniden üretilir
@@ -648,6 +640,7 @@ fn vs_buildSpec sp threaded fin = (
 	setUserProp node "vs_len" sp.L
 	setUserProp node "vs_thr" threaded
 	setUserProp node "vs_fin" fin
+	setUserProp node "vs_clr" sp.clr
 	if child != undefined do (
 		setUserProp child "vs_child" true
 		child.parent = node
@@ -655,8 +648,9 @@ fn vs_buildSpec sp threaded fin = (
 	node
 )
 
-fn vs_create typ si L threaded fin pos = (
+fn vs_create typ si L threaded fin pos clr:0.0 = (
 	local sp = vs_spec typ si L
+	sp.clr = clr
 	local n = vs_buildSpec sp threaded fin
 	n.pos = pos
 	n
@@ -670,7 +664,7 @@ fn vs_tagRoot n = (
 	else undefined
 )
 
--- #(tip sırası, ölçü sırası, boy, diş, kaplama) ya da undefined
+-- #(tip sırası, ölçü sırası, boy, diş, kaplama, baskı payı mm) ya da undefined
 fn vs_readTag n = (
 	local t = getUserProp n "vs_type"
 	if t == undefined then undefined
@@ -680,7 +674,11 @@ fn vs_readTag n = (
 		local L = getUserProp n "vs_len"
 		local fin = getUserProp n "vs_fin"
 		if i == 0 or si == undefined or L == undefined or fin == undefined then undefined
-		else #(i, si as integer, L as float, (getUserProp n "vs_thr") == true, fin as integer)
+		else (
+			local c = getUserProp n "vs_clr"
+			c = if c == undefined then 0.0 else (c as float)
+			#(i, si as integer, L as float, (getUserProp n "vs_thr") == true, fin as integer, c)
+		)
 	)
 )
 
@@ -689,6 +687,7 @@ fn vs_readTag n = (
 fn vs_rebuild n tg = (
 	local old = vs_readTag n
 	local sp = vs_spec vs_types[tg[1]] tg[2] tg[3]
+	sp.clr = tg[6]
 	local tmp = vs_buildSpec sp tg[4] tg[5]
 	n.baseObject = copy tmp.baseObject
 	local oldKids = for c in n.children where (getUserProp c "vs_child") == true collect c
@@ -712,6 +711,7 @@ fn vs_rebuild n tg = (
 	setUserProp n "vs_len" sp.L
 	setUserProp n "vs_thr" tg[4]
 	setUserProp n "vs_fin" tg[5]
+	setUserProp n "vs_clr" tg[6]
 	n
 )
 
@@ -949,6 +949,7 @@ fn vs_dimLines sp = (
 	local nm = vs_sizes[sp.si]
 	local l1 = if vs_hasLength typ then (nm + " × " + (vs_num sp.L) + " mm") else nm
 	l1 += "     adım " + (vs_num sp.P)
+	if sp.clr > 0 do l1 += "     baskı payı " + (vs_num4 sp.clr) + " mm"
 	local l2 = ""
 	if typ == #cap or typ == #torxcap or typ == #button or typ == #phpan or typ == #slotcheese then
 		l2 = "baş Ø" + (vs_num (sp.R*2.0)) + "  yükseklik " + (vs_num sp.k) + "   " + (vs_recessText sp)
@@ -988,6 +989,11 @@ fn vs_previewBitmap sp fin showThread w h = (
 	g.DrawString vs_typeNames[vs_typeIndex sp.kind] fB wb 8.0 (h - txtH + 2.0)
 	g.DrawString ls[1] f wb 8.0 (h - txtH + 20.0)
 	g.DrawString ls[2] f gb 8.0 (h - txtH + 37.0)
+	if sp.clr > 0 and sp.d < 6.0 do (
+		local ob = dotNetObject "System.Drawing.SolidBrush" (vs_dnColor [255, 170, 60])
+		local rect = dotNetObject "System.Drawing.RectangleF" (w*0.60) (w*0.38 + 40.0) (w*0.39) 60.0
+		g.DrawString "Bu ölçüde diş FDM yazıcıda zor çıkar; FDM için M6 ve üstü, reçinede M3 ve üstü önerilir." fS ob rect
+	)
 	g.Dispose()
 	bmp
 )
@@ -1035,25 +1041,33 @@ fn vs_galleryBitmap sel fin = (
 -- ---------------------------------------------------------------------
 --  Arayüz
 -- ---------------------------------------------------------------------
-rollout vs_Rollout "Vida & Somun Üretici" width:560 height:640
+rollout vs_Rollout "Vida & Somun Üretici" width:560 height:664
 (
 	dropdownList ddType "Tip:" items:vs_typeNames pos:[10,6] width:212 height:20
 	dropdownList ddSize "Ölçü:" items:vs_sizes pos:[10,50] width:96 height:12 selection:6
 	dropdownList ddLen "Standart boy:" items:(for x in vs_lengths collect (x as string)) pos:[116,50] width:106 height:20 selection:12
 	spinner spLen "Boy (mm): " range:[1,400,30] type:#float pos:[10,96] fieldwidth:70 align:#left
 	checkbox chkThread "Dişi modelle (gerçek helis)" checked:true pos:[10,120]
-	dropdownList ddFinish "Kaplama:" items:vs_finishNames pos:[10,142] width:212
-	button btnCreate "Oluştur" pos:[10,190] width:212 height:34
-	button btnSeries "Bu tip, tüm ölçüler (seri)" pos:[10,230] width:212 height:24
-	button btnCatalog "Bu ölçü, tüm tipler (katalog)" pos:[10,258] width:212 height:24
-	label lblSel "Galeride bir resme tıklayıp tip seç." pos:[10,288] width:212 align:#left
-	checkbox chkLive "Seçili parçayı canlı güncelle" checked:true pos:[10,306]
-	dotNetControl pbPrev "System.Windows.Forms.PictureBox" pos:[230,6] width:320 height:316
-	dotNetControl pbGal "System.Windows.Forms.PictureBox" pos:[10,330] width:540 height:276
-	dropdownList ddUnit "" items:vs_unitNames pos:[10,612] width:212
-	label lblUnit "" pos:[232,615] width:320
+	checkbox chkPrint "3D baskı payı" checked:false pos:[10,142] tooltip:"Vida dişi boşluğun yarısı kadar incelir, somun ve pul deliği yarısı kadar genişler. FDM için 0,2-0,4 mm, reçine için 0,1-0,15 mm."
+	spinner spClr "boşluk (mm): " range:[0.02,1.5,0.3] type:#float scale:0.05 pos:[112,142] fieldwidth:44 enabled:false
+	dropdownList ddFinish "Kaplama:" items:vs_finishNames pos:[10,164] width:212
+	button btnCreate "Oluştur" pos:[10,212] width:212 height:34
+	button btnSeries "Bu tip, tüm ölçüler (seri)" pos:[10,252] width:212 height:24
+	button btnCatalog "Bu ölçü, tüm tipler (katalog)" pos:[10,280] width:212 height:24
+	label lblSel "Galeride bir resme tıklayıp tip seç." pos:[10,310] width:212 align:#left
+	checkbox chkLive "Seçili parçayı canlı güncelle" checked:true pos:[10,328]
+	dotNetControl pbPrev "System.Windows.Forms.PictureBox" pos:[230,6] width:320 height:338
+	dotNetControl pbGal "System.Windows.Forms.PictureBox" pos:[10,352] width:540 height:276
+	dropdownList ddUnit "" items:vs_unitNames pos:[10,636] width:212
+	label lblUnit "" pos:[232,639] width:320
 
-	fn curSpec = vs_spec vs_types[ddType.selection] ddSize.selection spLen.value
+	fn curClr = if chkPrint.checked then spClr.value else 0.0
+
+	fn curSpec = (
+		local sp = vs_spec vs_types[ddType.selection] ddSize.selection spLen.value
+		sp.clr = curClr()
+		sp
+	)
 
 	fn setImage pb bmp = (
 		local old = pb.Image
@@ -1066,7 +1080,8 @@ rollout vs_Rollout "Vida & Somun Üretici" width:560 height:640
 		local hasL = vs_hasLength typ
 		spLen.enabled = hasL
 		ddLen.enabled = hasL
-		setImage pbPrev (vs_previewBitmap (curSpec()) ddFinish.selection chkThread.checked 320 316)
+		spClr.enabled = chkPrint.checked
+		setImage pbPrev (vs_previewBitmap (curSpec()) ddFinish.selection chkThread.checked 320 338)
 		setImage pbGal (vs_galleryBitmap ddType.selection ddFinish.selection)
 	)
 
@@ -1097,12 +1112,14 @@ rollout vs_Rollout "Vida & Somun Üretici" width:560 height:640
 				if li > 0 and (abs (tg[3] - vs_lengths[li])) < 0.001 do ddLen.selection = li
 				chkThread.checked = tg[4]
 				ddFinish.selection = tg[5]
+				chkPrint.checked = tg[6] > 0
+				if tg[6] > 0 do spClr.value = tg[6]
 				refresh()
 			)
 		)
 	)
 
-	-- değişen alanı (1 tip, 2 ölçü, 3 boy, 4 diş, 5 kaplama) seçili parçalara uygular;
+	-- değişen alanı (1 tip, 2 ölçü, 3 boy, 4 diş, 5 kaplama, 6 baskı payı) seçili parçalara uygular;
 	-- birden çok parça seçiliyse her biri yalnız o alanı değiştirir
 	fn applySel field = (
 		if busy or not chkLive.checked do return ok
@@ -1113,7 +1130,8 @@ rollout vs_Rollout "Vida & Somun Üretici" width:560 height:640
 			2: ddSize.selection
 			3: spLen.value
 			4: chkThread.checked
-			default: ddFinish.selection
+			5: ddFinish.selection
+			default: curClr()
 		)
 		busy = true
 		try (
@@ -1161,6 +1179,9 @@ rollout vs_Rollout "Vida & Somun Üretici" width:560 height:640
 	on chkThread changed v do (refresh(); applySel 4)
 	on ddFinish selected i do (refresh(); applySel 5)
 	on chkLive changed v do (if v do syncFromSel())
+	on chkPrint changed v do (refresh(); applySel 6)
+	on spClr changed v do refresh()
+	on spClr entered inSpin cancelled do (if not cancelled do applySel 6)
 	on pbGal MouseClick s e do (
 		local c = e.X/vs_galCellW
 		local r = e.Y/vs_galCellH
@@ -1176,7 +1197,7 @@ rollout vs_Rollout "Vida & Somun Üretici" width:560 height:640
 		local n
 		undo "Vida oluştur" on (
 			with redraw off (
-				n = vs_create vs_types[ddType.selection] ddSize.selection spLen.value chkThread.checked ddFinish.selection [0, 0, 0]
+				n = vs_create vs_types[ddType.selection] ddSize.selection spLen.value chkThread.checked ddFinish.selection [0, 0, 0] clr:(curClr())
 			)
 		)
 		select n
@@ -1196,6 +1217,7 @@ rollout vs_Rollout "Vida & Somun Üretici" width:560 height:640
 					local best = vs_lengths[1]
 					for v in vs_lengths do if (abs (v - L)) < (abs (best - L)) do best = v
 					local sp = vs_spec typ si best
+					sp.clr = curClr()
 					local rO = vs_outerR sp
 					x += rO
 					local n = vs_buildSpec sp chkThread.checked ddFinish.selection
@@ -1223,6 +1245,7 @@ rollout vs_Rollout "Vida & Somun Üretici" width:560 height:640
 					local L = spLen.value
 					if typ == #setflat or typ == #setcone do L = amin #(L, 3.0*vs_d[si])
 					local sp = vs_spec typ si L
+					sp.clr = curClr()
 					local rO = vs_outerR sp
 					x += rO
 					local n = vs_buildSpec sp chkThread.checked ddFinish.selection
