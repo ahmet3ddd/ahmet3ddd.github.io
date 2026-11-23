@@ -614,7 +614,16 @@ fn vs_buildSpec sp threaded fin = (
 		vs_append acc (vs_revolve #([sp.d1/2.0, 0], [sp.d2/2.0, 0], [sp.d2/2.0, sp.h], [sp.d1/2.0, sp.h]) 64 true)
 	)
 	local node = vs_makeNode acc (vs_objName sp) fin
-	if child != undefined do child.parent = node
+	-- ayar notu: seçilince pencere bu değerleri okur, değişince parça yerinde yeniden üretilir
+	setUserProp node "vs_type" (sp.kind as string)
+	setUserProp node "vs_size" sp.si
+	setUserProp node "vs_len" sp.L
+	setUserProp node "vs_thr" threaded
+	setUserProp node "vs_fin" fin
+	if child != undefined do (
+		setUserProp child "vs_child" true
+		child.parent = node
+	)
 	node
 )
 
@@ -623,6 +632,68 @@ fn vs_create typ si L threaded fin pos = (
 	local n = vs_buildSpec sp threaded fin
 	n.pos = pos
 	n
+)
+
+-- seçilen nesnenin betikle üretilmiş ana parçası (naylon halka seçiliyse somun)
+fn vs_tagRoot n = (
+	if n == undefined or (isDeleted n) then undefined
+	else if (getUserProp n "vs_child") == true and n.parent != undefined then n.parent
+	else if (getUserProp n "vs_type") != undefined then n
+	else undefined
+)
+
+-- #(tip sırası, ölçü sırası, boy, diş, kaplama) ya da undefined
+fn vs_readTag n = (
+	local t = getUserProp n "vs_type"
+	if t == undefined then undefined
+	else (
+		local i = findItem vs_types ((t as string) as name)
+		local si = getUserProp n "vs_size"
+		local L = getUserProp n "vs_len"
+		local fin = getUserProp n "vs_fin"
+		if i == 0 or si == undefined or L == undefined or fin == undefined then undefined
+		else #(i, si as integer, L as float, (getUserProp n "vs_thr") == true, fin as integer)
+	)
+)
+
+-- parçayı yerinde yeniden üretir: düğüm, konum, dönüş, katman, bağlar ve
+-- üstteki modifier'lar korunur; kaplama değişmediyse malzeme de korunur
+fn vs_rebuild n tg = (
+	local old = vs_readTag n
+	local sp = vs_spec vs_types[tg[1]] tg[2] tg[3]
+	local tmp = vs_buildSpec sp tg[4] tg[5]
+	n.baseObject = copy tmp.baseObject
+	local oldKids = for c in n.children where (getUserProp c "vs_child") == true collect c
+	delete oldKids
+	local newKids = for c in tmp.children collect c
+	for c in newKids do (
+		local loc = c.transform
+		c.parent = undefined
+		c.transform = loc*n.transform
+		c.parent = n
+		n.layer.addNode c
+	)
+	if old == undefined or old[5] != tg[5] do n.material = tmp.material
+	delete tmp
+	if old != undefined do (
+		local oldName = vs_objName (vs_spec vs_types[old[1]] old[2] old[3])
+		if matchPattern n.name pattern:(oldName + "_*") do n.name = uniqueName ((vs_objName sp) + "_")
+	)
+	setUserProp n "vs_type" (sp.kind as string)
+	setUserProp n "vs_size" sp.si
+	setUserProp n "vs_len" sp.L
+	setUserProp n "vs_thr" tg[4]
+	setUserProp n "vs_fin" tg[5]
+	n
+)
+
+fn vs_selectedParts = (
+	local out = #()
+	for o in selection do (
+		local r = vs_tagRoot o
+		if r != undefined and (findItem out r) == 0 do append out r
+	)
+	out
 )
 
 -- ---------------------------------------------------------------------
@@ -947,8 +1018,8 @@ rollout vs_Rollout "Vida & Somun Üretici" width:560 height:628
 	button btnCreate "Oluştur" pos:[10,190] width:212 height:34
 	button btnSeries "Bu tip, tüm ölçüler (seri)" pos:[10,230] width:212 height:24
 	button btnCatalog "Bu ölçü, tüm tipler (katalog)" pos:[10,258] width:212 height:24
-	label lblHint1 "Galeride bir resme tıklayıp tip seç." pos:[10,290] width:212
-	label lblHint2 "Somun ve pulda boy kullanılmaz." pos:[10,306] width:212
+	label lblSel "Galeride bir resme tıklayıp tip seç." pos:[10,288] width:212 align:#left
+	checkbox chkLive "Seçili parçayı canlı güncelle" checked:true pos:[10,306]
 	dotNetControl pbPrev "System.Windows.Forms.PictureBox" pos:[230,6] width:320 height:316
 	dotNetControl pbGal "System.Windows.Forms.PictureBox" pos:[10,330] width:540 height:276
 	label lblUnit "" pos:[10,610] width:540
@@ -970,18 +1041,87 @@ rollout vs_Rollout "Vida & Somun Üretici" width:560 height:628
 		setImage pbGal (vs_galleryBitmap ddType.selection ddFinish.selection)
 	)
 
+	local busy = false
+
+	fn selText parts = (
+		if parts.count == 0 then "Galeride bir resme tıklayıp tip seç."
+		else if parts.count == 1 then ("Seçili: " + parts[1].name)
+		else ("Seçili: " + (parts.count as string) + " parça")
+	)
+
+	-- seçim değişince pencere seçili parçanın değerlerine geçer
+	fn syncFromSel = (
+		if busy do return ok
+		local parts = vs_selectedParts()
+		lblSel.text = selText parts
+		if parts.count > 0 and chkLive.checked do (
+			local tg = vs_readTag parts[1]
+			if tg != undefined do (
+				ddType.selection = tg[1]
+				ddSize.selection = tg[2]
+				spLen.value = tg[3]
+				local li = findItem vs_lengths (tg[3] as integer)
+				if li > 0 and (abs (tg[3] - vs_lengths[li])) < 0.001 do ddLen.selection = li
+				chkThread.checked = tg[4]
+				ddFinish.selection = tg[5]
+				refresh()
+			)
+		)
+	)
+
+	-- değişen alanı (1 tip, 2 ölçü, 3 boy, 4 diş, 5 kaplama) seçili parçalara uygular;
+	-- birden çok parça seçiliyse her biri yalnız o alanı değiştirir
+	fn applySel field = (
+		if busy or not chkLive.checked do return ok
+		local parts = vs_selectedParts()
+		if parts.count == 0 do return ok
+		local v = case field of (
+			1: ddType.selection
+			2: ddSize.selection
+			3: spLen.value
+			4: chkThread.checked
+			default: ddFinish.selection
+		)
+		busy = true
+		try (
+			undo "Vida değiştir" on (
+				with redraw off (
+					for n in parts do (
+						local tg = vs_readTag n
+						if tg != undefined do (
+							tg[field] = v
+							vs_rebuild n tg
+						)
+					)
+				)
+			)
+		) catch (
+			busy = false
+			throw()
+		)
+		busy = false
+		lblSel.text = selText parts
+		redrawViews()
+	)
+
 	on vs_Rollout open do (
 		pbPrev.BackColor = vs_dnColor vs_bgCol
 		pbGal.BackColor = vs_dnColor vs_bgCol
 		lblUnit.text = "Sistem birimi: " + (units.SystemType as string) + "  (1 mm = " + (vs_unitScale() as string) + " birim)"
 		refresh()
+		callbacks.removeScripts id:#vsSelSync
+		callbacks.addScript #selectionSetChanged "if vs_Rollout != undefined and vs_Rollout.open do vs_Rollout.syncFromSel()" id:#vsSelSync
+		syncFromSel()
 	)
-	on ddType selected i do refresh()
-	on ddSize selected i do refresh()
-	on ddLen selected i do (spLen.value = vs_lengths[i]; refresh())
+	on vs_Rollout close do callbacks.removeScripts id:#vsSelSync
+	on ddType selected i do (refresh(); applySel 1)
+	on ddSize selected i do (refresh(); applySel 2)
+	on ddLen selected i do (spLen.value = vs_lengths[i]; refresh(); applySel 3)
 	on spLen changed v do refresh()
-	on chkThread changed v do refresh()
-	on ddFinish selected i do refresh()
+	on spLen entered inSpin cancelled do (if not cancelled do applySel 3)
+	on chkThread changed v do (refresh(); applySel 4)
+	on ddFinish selected i do (refresh(); applySel 5)
+	on chkLive changed v do (if v do syncFromSel())
 	on pbGal MouseClick s e do (
 		local c = e.X/vs_galCellW
 		local r = e.Y/vs_galCellH
@@ -989,6 +1129,7 @@ rollout vs_Rollout "Vida & Somun Üretici" width:560 height:628
 		if c < vs_galCols and i >= 1 and i <= vs_types.count do (
 			ddType.selection = i
 			refresh()
+			applySel 1
 		)
 	)
 
