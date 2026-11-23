@@ -127,3 +127,8 @@ Patch dosyası ya da push edilmemiş commit bırakılmaz.
 - Makale ve kod paketi Zenodo'da: DOI 10.5281/zenodo.24440619 (Ahmet'in GitHub ile bağlı Zenodo hesabı). PDF ve zip ayrıca `blog/media/2026/11/`.
 - Ana sayfa ve ayrıntılı sayfada Araştırma'ya "Küçük çalışmalar" başlığıyla, /en/ Research'e kartla eklendi. Blog sayısı 41.
 - Analiz Claude ile yapıldı; yazıda ve makalede yapay zekâ beyanı var.
+
+## Vida ve somun üretici (23 Kasım 2026)
+- 3ds Max betiği blog yazısı `/blog/2026/11/23/vida-somun-uretici/` (Yazılım), indirilebilir dosya `blog/media/2026/11/VidaSomun.ms` (Max 2019+, M2–M24, 13 tip).
+- Ana sayfa ve ayrıntılı sayfada "Diğer betikler ve programlar" grubunun başında kart (`img/blog/vida-somun.jpg`), /en/ Software altında not.
+- Betiği Claude yazdı; yazıda yapay zekâ beyanı ve MIT lisansı var. Blog sayısı 42, Yazılım 16.
